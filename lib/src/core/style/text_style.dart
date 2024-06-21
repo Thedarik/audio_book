@@ -14,12 +14,51 @@ final class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size16,
         fontFamily: 'Rubik',
-        color: AppColors.white,
+        color: AppColors.black,
       );
-  }
+
+  /// Splash Page
+  @override
+  static TextStyle? get splashVersionLabelLarge => TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: FontSize.size14,
+    fontFamily: 'Rubik',
+    color: AppColors.black,
+  );
+
+  /// On Boarding page
+  @override
+  static TextStyle? get onBoardingTitleMedium => TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: FontSize.size16,
+    fontFamily: 'Rubik',
+    color: AppColors.black,
+  );
 
   @override
+  static TextStyle? get onBoardingSubtitleLarge => TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: FontSize.size16,
+    fontFamily: 'Rubik',
+    color: AppColors.black,
+  );
 
+  @override
+  static TextStyle? get onBoardingButtonMedium => TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: FontSize.size16,
+    fontFamily: 'Rubik',
+    color: AppColors.black,
+  );
+
+  // @override
+  // static TextStyle? get onBoardingButtonMedium => TextStyle(
+  //   fontWeight: FontWeight.w400,
+  //   fontSize: FontSize.size16,
+  //   fontFamily: 'Rubik',
+  //   color: AppColors.black,
+  // );
+}
 
 @immutable
 final class FontSize {
