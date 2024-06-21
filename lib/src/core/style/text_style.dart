@@ -23,41 +23,64 @@ final class AppTextStyle extends TextTheme {
     fontWeight: FontWeight.w500,
     fontSize: FontSize.size14,
     fontFamily: 'Rubik',
-    color: AppColors.black,
+    color: AppColors.primary50,
   );
 
   /// On Boarding page
   @override
-  static TextStyle? get onBoardingTitleMedium => TextStyle(
+  static TextStyle? get onBoardingTitleLarge => TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: FontSize.size16,
     fontFamily: 'Rubik',
-    color: AppColors.black,
+    color: AppColors.neutral80,
   );
 
   @override
-  static TextStyle? get onBoardingSubtitleLarge => TextStyle(
+  static TextStyle? get onBoardingSubtitleMedium => TextStyle(
     fontWeight: FontWeight.w400,
-    fontSize: FontSize.size16,
+    fontSize: FontSize.size14,
     fontFamily: 'Rubik',
-    color: AppColors.black,
+    color: AppColors.neutral80,
   );
 
   @override
-  static TextStyle? get onBoardingButtonMedium => TextStyle(
+  static TextStyle? get onBoardingButtonSkipMedium => TextStyle(
     fontWeight: FontWeight.w500,
     fontSize: FontSize.size16,
     fontFamily: 'Rubik',
+    color: AppColors.primary50,
+  );
+
+  @override
+  static TextStyle? get onBoardingButtonNextMedium => TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: FontSize.size16,
+    fontFamily: 'Rubik',
+    color: AppColors.neutralWhite,
+  );
+
+  /// Login
+  @override
+  static TextStyle? get loginTitleMedium => TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: FontSize.size16,
+    fontFamily: 'Rubik',
+    color: AppColors.neutral80,
+  );
+
+  static TextStyle? get loginFieldSmall => TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: FontSize.size14,
+    fontFamily: 'Rubik',
     color: AppColors.black,
   );
 
-  // @override
-  // static TextStyle? get onBoardingButtonMedium => TextStyle(
-  //   fontWeight: FontWeight.w400,
-  //   fontSize: FontSize.size16,
-  //   fontFamily: 'Rubik',
-  //   color: AppColors.black,
-  // );
+  static TextStyle? get loginRememberMedSmall => TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: FontSize.size14,
+    fontFamily: 'Rubik',
+    color: AppColors.black,
+  );
 }
 
 @immutable
