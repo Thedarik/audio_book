@@ -1,0 +1,71 @@
+name: audio_book
+description: "A new Flutter project."
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.6
+  l: ^4.0.2
+  flutter_screenutil: ^5.9.0
+  flutter_svg: ^2.0.10+1
+  device_preview: ^1.1.0
+  image_picker: ^1.1.1
+
+  #for locale storage
+  shared_preferences: ^2.2.2
+
+  #for state management
+  flutter_riverpod: ^2.4.10
+
+  #for rules
+  dart_code_metrics: ^4.19.2
+
+  #for date picker
+  flutter_neat_and_clean_calendar: ^0.3.16+36
+  url_launcher: ^6.2.6
+  shimmer: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/2024-06-21 04.43.58.jpg"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Rubik-Black.ttf
+        - asset: assets/fonts/Rubik-BlackItalic.ttf
+        - asset: assets/fonts/Rubik-Bold.ttf
+        - asset: assets/fonts/Rubik-BoldItalic.ttf
+        - asset: assets/fonts/Rubik-ExtraBold.ttf
+        - asset: assets/fonts/Rubik-ExtraBoldItalic.ttf
+        - asset: assets/fonts/Rubik-Italic.ttf
+        - asset: assets/fonts/Rubik-Light.ttf
+        - asset: assets/fonts/Rubik-LightItalic.ttf
+        - asset: assets/fonts/Rubik-Medium.ttf
+        - asset: assets/fonts/Rubik-MediumItalic.ttf
+        - asset: assets/fonts/Rubik-Regular.ttf
+        - asset: assets/fonts/Rubik-SemiBold.ttf
+        - asset: assets/fonts/Rubik-SemiBoldItalic.ttf
