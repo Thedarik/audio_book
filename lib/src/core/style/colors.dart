@@ -19,7 +19,6 @@ sealed class AppColors {
   // every colors
 
   static const primary50 = Color.fromRGBO(72, 56, 209, 1);
-  static const buttomBarTextColor = Color.fromRGBO(106, 106, 139, 1);
   static const neutral5 = Color.fromRGBO(245, 245, 250, 1);
   static const neutralBlack = Color.fromRGBO(1, 1, 4, 1);
   static const accent50 = Color.fromRGBO(247, 122, 85, 1);
@@ -29,7 +28,7 @@ sealed class AppColors {
   static const neutral20 = Color.fromRGBO(213, 213, 227, 1);
   static const neutralWhite = Color.fromRGBO(255, 255, 255, 1);
   static const neutral50 = Color.fromRGBO(146, 146, 162, 1);
-  // static const neutralWhite = Color.fromRGBO(255, 255, 255, 1);
+  static const neutral40 = Color.fromRGBO(184, 184, 199, 1);
   // static const neutralWhite = Color.fromRGBO(255, 255, 255, 1);
 
   // gredients
