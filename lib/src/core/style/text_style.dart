@@ -10,13 +10,16 @@ final class AppTextStyle extends TextTheme {
 
   /// eng yaqin son qarab olinadi:
   @override
-  TextStyle? get profileTitleLarge => TextStyle(
+  static TextStyle? get profileTitleLarge => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size16,
         fontFamily: 'Rubik',
         color: AppColors.white,
       );
-}
+  }
+
+  @override
+
 
 @immutable
 final class FontSize {
