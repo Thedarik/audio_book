@@ -8,4 +8,5 @@ final class AppRouteName {
   static const String libraryPage = '/library';
   static const String homeDetailPage = '/homeDetail';
   static const String mainPage = '/';
+  static const String settingPage = "/setting";
 }

@@ -117,9 +117,8 @@ sealed class AppImages {
     fit: BoxFit.cover,
   );
 
-
   static final blueStrokeImage = SvgPicture.asset(
-    'assets/images/blue_stroke_image.svg',
+    'assets/icons/blue_stroke_image.svg',
     fit: BoxFit.cover,
   );
 
@@ -127,9 +126,6 @@ sealed class AppImages {
     'assets/images/device_image.svg',
     fit: BoxFit.cover,
   );
-
-
-
 
   /// PNG
   static final authLogo = Image.asset(
