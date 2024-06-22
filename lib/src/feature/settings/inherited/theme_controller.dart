@@ -9,8 +9,7 @@ import "../../../core/style/app_theme.dart";
 
 // ignore: prefer_mixin
 class ThemeController with ChangeNotifier {
-  ThemeController()
-      : _isLight = ui.window.platformBrightness != ui.Brightness.dark {
+  ThemeController() : _isLight = ui.window.platformBrightness != ui.Brightness.dark {
     SharedPreferences.getInstance().then<void>(
       (SharedPreferences sp) {
         final bool? theme = sp.getBool(StorageKey.theme.name);
@@ -24,7 +23,7 @@ class ThemeController with ChangeNotifier {
   }
 
   // ThemeData get theme => isLight ? AppTheme.light() : AppTheme.dark();
-  ThemeData get theme => isLight ? AppTheme.light() : AppTheme.light();
+  ThemeData get theme => isLight ? AppTheme.dark() : AppTheme.light();
 
   bool get isLight => _isLight;
 
@@ -43,4 +42,3 @@ class ThemeController with ChangeNotifier {
     notifyListeners();
   }
 }
-

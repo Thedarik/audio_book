@@ -23,7 +23,7 @@ final class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.c4838D1,
       );
 
   /// On Boarding page
@@ -32,7 +32,7 @@ final class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size16,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.c2E2E5D,
       );
 
   @override
@@ -40,7 +40,7 @@ final class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.c2E2E5D,
       );
 
   @override
@@ -48,7 +48,7 @@ final class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size16,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.c4838D1,
       );
 
   @override
@@ -56,7 +56,7 @@ final class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size16,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.cFFFFFF,
       );
 
   /// Login
@@ -65,56 +65,56 @@ final class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size16,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.c2E2E5D,
       );
 
   static TextStyle? get loginFieldSmall => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.cB8B8C7,
       );
 
   static TextStyle? get loginRememberSmall => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.c2E2E5D,
       );
 
   static TextStyle? get loginLoginButtonMedium => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size16,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.cFFFFFF,
       );
 
   static TextStyle? get loginForgotPasswordSmall => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.cF77A55,
       );
 
   static TextStyle? get loginOrLoginWithSmall => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.c2E2E5D,
       );
 
   static TextStyle? get loginAccountSmall => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.c2E2E5D,
       );
 
   static TextStyle? get loginRegisterSmall => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.cF77A55,
       );
 
   /// Register page
@@ -123,35 +123,35 @@ final class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.cF5F5FA,
       );
 
   static TextStyle? get registerTermsSmall => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.c2E2E5D,
       );
 
   static TextStyle? get registerTermsOrangeSmall => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.cF5F5FA,
       );
 
   static TextStyle? get registerRegisterButtonMedium => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size16,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.cFFFFFF,
       );
 
   static TextStyle? get registerCancelButtonMedium => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size16,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.c4838D1,
       );
 //
   /// Confirmation Page
@@ -159,29 +159,142 @@ final class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size16,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.c2E2E5D,
       );
 
   static TextStyle? get registerConfirmSubtitleSmall => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.c2E2E5D,
       );
 
   static TextStyle? get registerConfirmFieldSmall => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.cF5F5FA,
       );
 
   static TextStyle? get registerReceiveSmall => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c000000,
+        color: AppColors.c2E2E5D,
       );
+
+  /// Welcome page
+
+  static TextStyle? get welcomeTextMedium => TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.cF77A55,
+      );
+
+  static TextStyle? get welcomeBigTextLarge => TextStyle(
+        fontWeight: FontWeight.w200,
+        fontSize: FontSize.size48,
+        fontFamily: 'Rubik',
+        color: AppColors.c4838D1,
+      );
+
+  static TextStyle? get welcomeSubtitleSmall => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c2E2E5D,
+      );
+
+  static TextStyle? get welcomeTextMedium => TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.cF77A55,
+      );
+
+  /// Personalization page
+
+  static TextStyle? get personalizationTitleMedium => TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.c2E2E5D,
+      );
+
+  static TextStyle? get personalizationSubtitleSmall => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c2E2E5D,
+      );
+
+  static TextStyle? get personalizationCategorySmall => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c4838D1,
+      );
+
+  static TextStyle? get personalizationEndTitleMedium => TextStyle(
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.c2E2E5D,
+      );
+
+  static TextStyle? get personalizationEndSubtitleSmall => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c2E2E5D,
+      );
+
+  /// Home Page
+
+  static TextStyle? get homeCategoryTextMedium => TextStyle(
+        fontFamily: "Rubik",
+        fontSize: FontSize.size16,
+        fontWeight: FontWeight.w500,
+        color: AppColors.c010104,
+      );
+
+  static TextStyle? get homeSeeMoreSmall => TextStyle(
+        fontFamily: "Rubik",
+        fontSize: FontSize.size14,
+        fontWeight: FontWeight.w500,
+        color: AppColors.c4838D1,
+      );
+
+  static TextStyle? get homeCategoriesMedium => TextStyle(
+        fontFamily: "Rubik",
+        fontSize: FontSize.size16,
+        fontWeight: FontWeight.w400,
+        color: AppColors.c2E2E5D,
+      );
+
+  static TextStyle? get homeSubtitleSmall => TextStyle(
+        fontFamily: "Rubik",
+        fontSize: FontSize.size12,
+        fontWeight: FontWeight.w400,
+        color: AppColors.c6A6A8B,
+      );
+
+  static TextStyle? get homeBookNameMedium => TextStyle(
+        fontFamily: "Rubik",
+        fontSize: FontSize.size16,
+        fontWeight: FontWeight.w500,
+        color: AppColors.c2E2E5D,
+      );
+
+  static TextStyle? get buttomBarTextSmall => TextStyle(
+        fontFamily: "Rubik",
+        fontSize: FontSize.size10,
+        fontWeight: FontWeight.w500,
+        color: AppColors.c4838D1,
+      );
+
+  /// Search Page
 }
 
 @immutable
@@ -196,6 +309,7 @@ final class FontSize {
   static double size12 = 12.sp;
   static double size11 = 11.sp;
   static double size8 = 8.sp;
+  static double size48 = 48.sp;
   static double size14 = 14.sp;
   static double size16 = 16.sp;
   static double size10 = 10.sp;

@@ -12,7 +12,7 @@ class _LibraryPageState extends State<LibraryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: AppImages.deviceImage),
+      appBar: AppBar(title: Text("salom")),
       body: Column(
         children: [],
       ),
