@@ -85,7 +85,7 @@ sealed class AppImages {
   );
 
   static final mainLogoIcon = SvgPicture.asset(
-    'assets/icons/main_logo_icon.svg',
+    'assets/icons/main_logo.svg',
     fit: BoxFit.cover,
   );
 

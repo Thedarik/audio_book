@@ -1,4 +1,5 @@
 import "package:audio_book/src/core/localization/app_localization.dart";
+import "package:audio_book/src/core/style/app_theme.dart";
 import "package:audio_book/src/feature/settings/inherited/inherted_theme_notifier.dart";
 import "package:flutter/material.dart";
 import "package:flutter_localizations/flutter_localizations.dart";
@@ -65,8 +66,8 @@ class AppMaterialContext extends StatelessWidget {
                   local.changeLocal(LanguageType.ru);
                   return const Locale("ru", "RU");
                 },
-                theme: InheritedThemeNotifier.maybeOf(context)?.theme ??
-                    themeController.theme,
+                theme: InheritedThemeNotifier.maybeOf(context)?.theme ?? AppTheme.light(),
+                    // themeController.theme,
                 builder: (BuildContext context, Widget? child) =>
                     MediaQuery.withNoTextScaling(
                   key: builderKey,
