@@ -329,17 +329,11 @@ final class AppTextStyle extends TextTheme {
 
   /// Detail Page
 
-  static TextStyle? get detailAppBarTextMedium => TextStyle(
-      fontFamily: "Rubik",
-      fontSize: FontSize.size16,
-      fontWeight: FontWeight.w500,
-      color: AppColors.c2E2E5D);
+  static TextStyle? get detailAppBarTextMedium =>
+      TextStyle(fontFamily: "Rubik", fontSize: FontSize.size16, fontWeight: FontWeight.w500, color: AppColors.c2E2E5D);
 
-  static TextStyle? get detailBookNameLarge => TextStyle(
-      fontFamily: "Rubik",
-      fontSize: FontSize.size20,
-      fontWeight: FontWeight.w500,
-      color: AppColors.c010104);
+  static TextStyle? get detailBookNameLarge =>
+      TextStyle(fontFamily: "Rubik", fontSize: FontSize.size20, fontWeight: FontWeight.w500, color: AppColors.c010104);
 
   static TextStyle? get detailBookSubtitleMedium => TextStyle(
         fontFamily: "Rubik",
@@ -348,23 +342,14 @@ final class AppTextStyle extends TextTheme {
         color: AppColors.c9292A2,
       );
 
-  static TextStyle? get detailCategorySmall => TextStyle(
-      fontFamily: "Rubik",
-      fontSize: FontSize.size12,
-      fontWeight: FontWeight.w600,
-      color: AppColors.c6A6A8B);
+  static TextStyle? get detailCategorySmall =>
+      TextStyle(fontFamily: "Rubik", fontSize: FontSize.size12, fontWeight: FontWeight.w600, color: AppColors.c6A6A8B);
 
-  static TextStyle? get detailButtonPlaySmall => TextStyle(
-      fontFamily: "Rubik",
-      fontSize: FontSize.size14,
-      fontWeight: FontWeight.w500,
-      color: AppColors.cFFFFFF);
+  static TextStyle? get detailButtonPlaySmall =>
+      TextStyle(fontFamily: "Rubik", fontSize: FontSize.size14, fontWeight: FontWeight.w500, color: AppColors.cFFFFFF);
 
-  static TextStyle? get detailButtonReadSmall => TextStyle(
-      fontFamily: "Rubik",
-      fontSize: FontSize.size14,
-      fontWeight: FontWeight.w500,
-      color: AppColors.c4838D1);
+  static TextStyle? get detailButtonReadSmall =>
+      TextStyle(fontFamily: "Rubik", fontSize: FontSize.size14, fontWeight: FontWeight.w500, color: AppColors.c4838D1);
 
   static TextStyle? get detailSummarySmall => TextStyle(
         fontFamily: "Rubik",
@@ -373,30 +358,21 @@ final class AppTextStyle extends TextTheme {
         color: AppColors.c2E2E5D,
       );
 
-  static TextStyle? get detailSummaryTextSmall => TextStyle(
-      fontFamily: "Rubik",
-      fontSize: FontSize.size14,
-      fontWeight: FontWeight.w300,
-      color: AppColors.c6A6A8B);
+  static TextStyle? get detailSummaryTextSmall =>
+      TextStyle(fontFamily: "Rubik", fontSize: FontSize.size14, fontWeight: FontWeight.w300, color: AppColors.c6A6A8B);
 
-  static TextStyle? get detailViewMoreSmall => TextStyle(
-      fontFamily: "Rubik",
-      fontSize: FontSize.size14,
-      fontWeight: FontWeight.w500,
-      color: AppColors.cF77A55);
+  static TextStyle? get detailViewMoreSmall =>
+      TextStyle(fontFamily: "Rubik", fontSize: FontSize.size14, fontWeight: FontWeight.w500, color: AppColors.cF77A55);
 
-  static TextStyle? get detailAudioTitleMedium => TextStyle(
-      fontFamily: "Rubik",
-      fontSize: FontSize.size16,
-      fontWeight: FontWeight.w500,
-      color: AppColors.c010104);
+  static TextStyle? get detailAudioTitleMedium =>
+      TextStyle(fontFamily: "Rubik", fontSize: FontSize.size16, fontWeight: FontWeight.w500, color: AppColors.c010104);
 
   static TextStyle? get detailAudioSubtitleMedium => TextStyle(
-      fontFamily: "Rubik",
-      fontSize: FontSize.size16,
-      fontWeight: FontWeight.w400,
-      color: AppColors.c6A6A8B,
-  );
+        fontFamily: "Rubik",
+        fontSize: FontSize.size16,
+        fontWeight: FontWeight.w400,
+        color: AppColors.c6A6A8B,
+      );
 
   /// Read Mode page
 
@@ -408,37 +384,36 @@ final class AppTextStyle extends TextTheme {
       );
 
   static TextStyle? get readTextTitleMedium => TextStyle(
-    fontSize: FontSize.size16,
-    fontWeight: FontWeight.w500,
-    fontFamily: "Rubik",
-    color: AppColors.c2E2E5D,
-  );
+        fontSize: FontSize.size16,
+        fontWeight: FontWeight.w500,
+        fontFamily: "Rubik",
+        color: AppColors.c2E2E5D,
+      );
 
   /// Library Page
 
   static TextStyle? get libraryTitleLarge => TextStyle(
-    fontFamily: 'Rubik',
-    fontWeight: FontWeight.w600,
-    fontSize: FontSize.size24,
-    color: AppColors.c010104,
-  );
+        fontFamily: 'Rubik',
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size24,
+        color: AppColors.c010104,
+      );
 
   static TextStyle? get libraryBookNameMedium => TextStyle(
-    fontFamily: 'Rubik',
-    fontWeight: FontWeight.w500,
-    fontSize: FontSize.size16,
-    color: AppColors.c010104,
-  );
+        fontFamily: 'Rubik',
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size16,
+        color: AppColors.c010104,
+      );
 
   static TextStyle? get libraryBookSubtitleSubtitleSmall => TextStyle(
-    fontFamily: 'Rubik',
-    fontWeight: FontWeight.w400,
-    fontSize: FontSize.size12,
-    color: AppColors.c010104,
-  );
+        fontFamily: 'Rubik',
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size12,
+        color: AppColors.c010104,
+      );
 
   /// Subscriptions page
-
 }
 
 @immutable
