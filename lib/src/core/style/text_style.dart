@@ -9,13 +9,64 @@ final class AppTextStyle extends TextTheme {
   const AppTextStyle();
 
   /// eng yaqin son qarab olinadi:
+  /// profile
+
   @override
-  static TextStyle? get profileTitleLarge => TextStyle(
+  TextStyle? get profileTitleLarge => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size16,
+        fontFamily: "Rubik",
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get profileTitleMedium => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get onlineRecordTitleMedium => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size10,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get onlineRecordTitleLarge => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size12,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get profileLabelMedium => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get titleSmall => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size10,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get titleMedium => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size16,
         fontFamily: 'Rubik',
         color: AppColors.black,
       );
+<<<<<<< HEAD
 
   /// Splash Page
   @override
@@ -184,7 +235,253 @@ final class AppTextStyle extends TextTheme {
   );
 
 }
+=======
 
+  @override
+  TextStyle? get titleLarge => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size12,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get labelLarge => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+>>>>>>> ef7b7a7 (Samandar localization create new textStyle)
+
+  @override
+  TextStyle? get labelMedium => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get labelSmall => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get bodySmall => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get bodyMedium => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get bodyLarge => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get headline1 => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+        letterSpacing: 0.1,
+      );
+
+  @override
+  TextStyle? get headline2 => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size10,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get headline3 => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get headline4 => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size10,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get headline5 => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size12,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get loginTitleSmall => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size20,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get loginTitleLarge => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get registerLabelLarge => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get loginLabelMedium => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size12,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  @override
+  TextStyle? get loginLabelSmall => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get registerBodyMedium => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get loginBodyLarge => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get loginBodySmall => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get headlineSmall => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get headlineLarge => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get headline6 => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size10,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get headline7 => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size20,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get headline8 => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get headline9 => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get displaySmall => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get displayMedium => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size12,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get displayLarge => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size12,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+
+  @override
+  TextStyle? get headline10 => TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.black,
+      );
+}
+
+@override
 @immutable
 final class FontSize {
   const FontSize._();
