@@ -20,7 +20,7 @@ dependencies:
   l: ^4.0.2
 
   flutter_screenutil: ^5.9.0
-  flutter_svg: ^2.0.10+1
+  flutter_svg: ^2.0.9
   device_preview: ^1.1.0
   image_picker: ^1.1.1
 
