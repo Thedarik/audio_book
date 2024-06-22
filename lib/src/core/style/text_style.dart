@@ -439,6 +439,129 @@ final class AppTextStyle extends TextTheme {
 
   /// Subscriptions page
 
+  static TextStyle? get subscriptionFenceTextMedium => TextStyle(
+    fontFamily: 'Rubik',
+    fontSize: FontSize.size16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.cFFFFFF,
+  );
+
+  static TextStyle? get subscriptionTitleLarge => TextStyle(
+    fontFamily: 'Rubik',
+    fontSize: FontSize.size32,
+    fontWeight: FontWeight.w600,
+    color: AppColors.cFFFFFF,
+  );
+
+  static TextStyle? get subscriptionSubscribeTextSmall => TextStyle(
+    fontFamily: 'Rubik',
+    fontSize: FontSize.size12,
+    fontWeight: FontWeight.w400,
+    color: AppColors.cFFFFFF,
+  );
+
+  static TextStyle? get subscriptionTakeTextLarge => TextStyle(
+    fontFamily: 'Rubik',
+    fontSize: FontSize.size24,
+    fontWeight: FontWeight.w600,
+    color: AppColors.c4838D1,
+  );
+
+  static TextStyle? get subscriptionTakeSubtitleMedium => TextStyle(
+    fontFamily: 'Rubik',
+    fontSize: FontSize.size16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.c010104,
+  );
+
+  static TextStyle? get subscriptionBottomTextsLarge => TextStyle(
+    fontFamily: 'Rubik',
+    fontSize: FontSize.size16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.c6A6A8B,
+  );
+
+  static TextStyle? get subscriptionPriceTextsLarge => TextStyle(
+    fontFamily: 'Rubik',
+    fontSize: FontSize.size24,
+    fontWeight: FontWeight.w600,
+    color: AppColors.cFFFFFF,
+  );
+
+  /// Settings Page
+
+  static TextStyle? get settingProfileNameMedium => TextStyle(
+    fontFamily: 'Rubik',
+    fontSize: FontSize.size16,
+    fontWeight: FontWeight.w500,
+    color: AppColors.c2E2E5D,
+  );
+
+  static TextStyle? get settingProfileViewSmall => TextStyle(
+    fontFamily: 'Rubik',
+    fontSize: FontSize.size12,
+    fontWeight: FontWeight.w400,
+    color: AppColors.c4838D1,
+  );
+
+  static TextStyle? get settingProfileTextsSmall => TextStyle(
+    fontFamily: 'Rubik',
+    fontSize: FontSize.size14,
+    fontWeight: FontWeight.w400,
+    color: AppColors.c2E2E5D,
+  );
+
+  static TextStyle? get settingProfileLogOutMedium => TextStyle(
+    fontFamily: 'Rubik',
+    fontSize: FontSize.size16,
+    fontWeight: FontWeight.w500,
+    color: AppColors.cF77A55,
+  );
+
+  static TextStyle? get settingProfileEditTextsSmall => TextStyle(
+    fontFamily: 'Rubik',
+    fontSize: FontSize.size14,
+    fontWeight: FontWeight.w500,
+    color: AppColors.cF77A55,
+  );
+
+  static TextStyle? get settingProfileSaveMedium => TextStyle(
+    fontFamily: 'Rubik',
+    fontSize: FontSize.size16,
+    fontWeight: FontWeight.w500,
+    color: AppColors.c4838D1,
+  );
+
+  /// Player page
+
+  static TextStyle? get playerBookNameLarge => TextStyle(
+    fontSize: FontSize.size20,
+    fontWeight: FontWeight.w500,
+    fontFamily: "Rubik",
+    color: AppColors.c010104,
+  );
+
+  static TextStyle? get playerBookSubtitleMedium => TextStyle(
+    fontSize: FontSize.size16,
+    fontWeight: FontWeight.w400,
+    fontFamily: "Rubik",
+    color: AppColors.c010104,
+  );
+
+  static TextStyle? get playerTimeSmall => TextStyle(
+    fontSize: FontSize.size10,
+    fontWeight: FontWeight.w400,
+    fontFamily: "Rubik",
+    color: AppColors.cBBB1FA,
+  );
+
+  static TextStyle? get playerBottomTextsSmall => TextStyle(
+    fontSize: FontSize.size10,
+    fontWeight: FontWeight.w400,
+    fontFamily: "Rubik",
+    color: AppColors.cBBB1FA,
+  );
+
 }
 
 @immutable

@@ -17,6 +17,7 @@ sealed class AppColors {
   static const boxShadowColor = Color.fromRGBO(0, 0, 0, 0.08);
 
   /// every color
+  static const cBBB1FA = Color(0xffBBB1FA);
   static const c4838D1 = Color(0xFF4838D1);
   static const c2E2E5D = Color(0xFF2E2E5D);
   static const cFFFFFF = Color(0xFFFFFFFF);
