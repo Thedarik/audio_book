@@ -5,4 +5,5 @@ final class AppRouteName {
   const AppRouteName._();
 
   static const String homaPage = '/home';
+  static const String libraryPage = '/library';
 }
