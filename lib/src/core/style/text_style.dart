@@ -206,13 +206,6 @@ final class AppTextStyle extends TextTheme {
         color: AppColors.c2E2E5D,
       );
 
-  static TextStyle? get welcomeTextMedium => TextStyle(
-        fontWeight: FontWeight.w600,
-        fontSize: FontSize.size16,
-        fontFamily: 'Rubik',
-        color: AppColors.cF77A55,
-      );
-
   /// Personalization page
 
   static TextStyle? get personalizationTitleMedium => TextStyle(
@@ -287,7 +280,7 @@ final class AppTextStyle extends TextTheme {
         color: AppColors.c2E2E5D,
       );
 
-  static TextStyle? get buttomBarTextSmall => TextStyle(
+  static TextStyle? get bottomBarTextSmall => TextStyle(
         fontFamily: "Rubik",
         fontSize: FontSize.size10,
         fontWeight: FontWeight.w500,
