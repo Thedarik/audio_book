@@ -1,5 +1,5 @@
-import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/images.dart';
+import 'package:audio_book/src/feature/home/view/widgets/logo_text.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,53 +8,45 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
-      appBar: AppBar(
-        title: Row(
-          children: [
-            SizedBox(
-              height: 40,
-              width: 40,
-              child: AppImages.mainLogoIcon,
+        appBar: AppBar(
+          title: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              children: [
+                SizedBox(
+                  height: 40,
+                  width: 40,
+                  child: AppImages.mainLogoIcon,
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                const LogoText(),
+                const Spacer(),
+                GestureDetector(
+                  child: AppImages.settingIcon,
+                ),
+              ],
             ),
-            const SizedBox(
-              width: 5,
-            ),
-            RichText(
-              text: const TextSpan(
-                children: [
-                  TextSpan(
-                    text: 'Audi',
-                    style: TextStyle(
-                      fontSize: 48,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.c4838D1,
-                    ),
-                  ),
-                  TextSpan(
-                    text: 'Books',
-                    style: TextStyle(
-                        fontSize: 48,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.c4838D1),
-                  ),
-                  TextSpan(
-                    text: '.',
-                    style: TextStyle(
-                        fontSize: 48,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.cF77A55),
-                  ),
-                ],
-              ),
-            ),
-          ],
+          ),
         ),
-        actions: [
-          GestureDetector(
-            child: AppImages.settingIcon,
-          )
-        ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Expanded(
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+
+                      ],
+                    )
+
+                  ],
+                ),
+              )
+            ],
+          ),
       ),
     );
   }

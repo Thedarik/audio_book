@@ -23,7 +23,8 @@ class ThemeController with ChangeNotifier {
     );
   }
 
-  ThemeData get theme => isLight ? AppTheme.light() : AppTheme.dark();
+  // ThemeData get theme => isLight ? AppTheme.light() : AppTheme.dark();
+  ThemeData get theme => isLight ? AppTheme.light() : AppTheme.light();
 
   bool get isLight => _isLight;
 
