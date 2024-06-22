@@ -1,5 +1,6 @@
 import "package:audio_book/src/feature/home/view/homa_page.dart";
 import "package:audio_book/src/feature/home/view/library_page.dart";
+import "package:audio_book/src/feature/home/view/setting_page.dart";
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 
@@ -16,6 +17,10 @@ final class AppRouter {
       GoRoute(
         path: AppRouteName.libraryPage,
         builder: (BuildContext context, GoRouterState state) => const LibraryPage(),
+      ),
+      GoRoute(
+        path: AppRouteName.settingPage,
+        builder: (BuildContext context, GoRouterState state) => const SettingPage(),
       ),
     ],
   );

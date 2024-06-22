@@ -6,4 +6,5 @@ final class AppRouteName {
 
   static const String homaPage = '/home';
   static const String libraryPage = '/library';
+  static const String settingPage = "/setting";
 }
