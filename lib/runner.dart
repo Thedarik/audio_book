@@ -11,13 +11,16 @@ void run() => l.capture<void>(
         () async {
           await setup();
           await SystemChrome.setPreferredOrientations(
-            [DeviceOrientation.portraitUp],
+            <DeviceOrientation>[DeviceOrientation.portraitUp],
           ).then(
             (_) => App.run(),
           );
         },
-        (final error, final stackTrace) {
-          l.e('io_top_level_error: $error\n $stackTrace', stackTrace);
+        (final Object error, final StackTrace stackTrace) {
+          l.e(
+            'io_top_level_error: $error\n $stackTrace',
+            stackTrace,
+          );
         },
       ),
       const LogOptions(

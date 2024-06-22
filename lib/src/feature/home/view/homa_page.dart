@@ -1,3 +1,4 @@
+import 'package:audio_book/src/feature/home/view/library_page.dart';
 import 'package:flutter/material.dart';
 
 class HomaPage extends StatelessWidget {
@@ -5,9 +6,14 @@ class HomaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
+    return Scaffold(
+      body: const Center(
         child: Text("Assalomu alaykum"),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const LibraryPage()));
+        },
       ),
     );
   }

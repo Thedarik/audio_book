@@ -20,174 +20,169 @@ final class AppTextStyle extends TextTheme {
   /// Splash Page
   @override
   static TextStyle? get splashVersionLabelLarge => TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: FontSize.size14,
-    fontFamily: 'Rubik',
-    color: AppColors.primary50,
-  );
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   /// On Boarding page
   @override
   static TextStyle? get onBoardingTitleLarge => TextStyle(
-    fontWeight: FontWeight.w600,
-    fontSize: FontSize.size16,
-    fontFamily: 'Rubik',
-    color: AppColors.neutral80,
-  );
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   @override
   static TextStyle? get onBoardingSubtitleMedium => TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: FontSize.size14,
-    fontFamily: 'Rubik',
-    color: AppColors.neutral80,
-  );
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   @override
   static TextStyle? get onBoardingButtonSkipMedium => TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: FontSize.size16,
-    fontFamily: 'Rubik',
-    color: AppColors.primary50,
-  );
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   @override
   static TextStyle? get onBoardingButtonNextMedium => TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: FontSize.size16,
-    fontFamily: 'Rubik',
-    color: AppColors.neutralWhite,
-  );
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   /// Login
   @override
   static TextStyle? get loginTitleMedium => TextStyle(
-    fontWeight: FontWeight.w600,
-    fontSize: FontSize.size16,
-    fontFamily: 'Rubik',
-    color: AppColors.neutral80,
-  );
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   static TextStyle? get loginFieldSmall => TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: FontSize.size14,
-    fontFamily: 'Rubik',
-    color: AppColors.neutral40,
-  );
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   static TextStyle? get loginRememberSmall => TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: FontSize.size14,
-    fontFamily: 'Rubik',
-    color: AppColors.neutral80,
-  );
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   static TextStyle? get loginLoginButtonMedium => TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: FontSize.size16,
-    fontFamily: 'Rubik',
-    color: AppColors.neutral80,
-  );
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   static TextStyle? get loginForgotPasswordSmall => TextStyle(
-    fontWeight: FontWeight.w600,
-    fontSize: FontSize.size14,
-    fontFamily: 'Rubik',
-    color: AppColors.accent50,
-  );
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   static TextStyle? get loginOrLoginWithSmall => TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: FontSize.size14,
-    fontFamily: 'Rubik',
-    color: AppColors.neutral80,
-  );
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   static TextStyle? get loginAccountSmall => TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: FontSize.size14,
-    fontFamily: 'Rubik',
-    color: AppColors.neutral80,
-  );
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   static TextStyle? get loginRegisterSmall => TextStyle(
-    fontWeight: FontWeight.w600,
-    fontSize: FontSize.size14,
-    fontFamily: 'Rubik',
-    color: AppColors.accent50,
-  );
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   /// Register page
 
   static TextStyle? get registerFieldSmall => TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: FontSize.size14,
-    fontFamily: 'Rubik',
-    color: AppColors.neutral40,
-  );
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   static TextStyle? get registerTermsSmall => TextStyle(
-    fontWeight: FontWeight.w600,
-    fontSize: FontSize.size14,
-    fontFamily: 'Rubik',
-    color: AppColors.neutral80,
-  );
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   static TextStyle? get registerTermsOrangeSmall => TextStyle(
-    fontWeight: FontWeight.w600,
-    fontSize: FontSize.size14,
-    fontFamily: 'Rubik',
-    color: AppColors.accent50,
-  );
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   static TextStyle? get registerRegisterButtonMedium => TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: FontSize.size16,
-    fontFamily: 'Rubik',
-    color: AppColors.neutralWhite,
-  );
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   static TextStyle? get registerCancelButtonMedium => TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: FontSize.size16,
-    fontFamily: 'Rubik',
-    color: AppColors.primary50,
-  );
-
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
+//
   /// Confirmation Page
   static TextStyle? get registerConfirmTitleMedium => TextStyle(
-    fontWeight: FontWeight.w600,
-    fontSize: FontSize.size16,
-    fontFamily: 'Rubik',
-    color: AppColors.neutral80,
-  );
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size16,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   static TextStyle? get registerConfirmSubtitleSmall => TextStyle(
-    fontWeight: FontWeight.w600,
-    fontSize: FontSize.size14,
-    fontFamily: 'Rubik',
-    color: AppColors.neutral80,
-  );
+        fontWeight: FontWeight.w600,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   static TextStyle? get registerConfirmFieldSmall => TextStyle(
-    fontWeight: FontWeight.w500,
-    fontSize: FontSize.size14,
-    fontFamily: 'Rubik',
-    color: AppColors.neutral40,
-  );
+        fontWeight: FontWeight.w500,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 
   static TextStyle? get registerReceiveSmall => TextStyle(
-    fontWeight: FontWeight.w400,
-    fontSize: FontSize.size14,
-    fontFamily: 'Rubik',
-    color: AppColors.neutral80,
-  );
-
-
-
+        fontWeight: FontWeight.w400,
+        fontSize: FontSize.size14,
+        fontFamily: 'Rubik',
+        color: AppColors.c000000,
+      );
 }
-
-
 
 @immutable
 final class FontSize {
