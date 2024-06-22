@@ -66,7 +66,7 @@ final class AppTextStyle extends TextTheme {
         fontFamily: 'Rubik',
         color: AppColors.black,
       );
-<<<<<<< HEAD
+
 
   /// Splash Page
   @override
@@ -235,7 +235,6 @@ final class AppTextStyle extends TextTheme {
   );
 
 }
-=======
 
   @override
   TextStyle? get titleLarge => TextStyle(
@@ -252,7 +251,6 @@ final class AppTextStyle extends TextTheme {
         fontFamily: 'Rubik',
         color: AppColors.black,
       );
->>>>>>> ef7b7a7 (Samandar localization create new textStyle)
 
   @override
   TextStyle? get labelMedium => TextStyle(
@@ -479,7 +477,6 @@ final class AppTextStyle extends TextTheme {
         fontFamily: 'Rubik',
         color: AppColors.black,
       );
-}
 
 @override
 @immutable
