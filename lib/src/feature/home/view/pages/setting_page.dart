@@ -35,6 +35,12 @@ class _SettingPageState extends State<SettingPage> {
       ),
       body: Column(
         children: [
+          const SizedBox(
+            child: Divider(
+              indent: 1,
+              color: AppColors.cF5F5FA,
+            ),
+          ),
           SizedBox(height: 12.h),
           SizedBox(
             height: 104.h,
@@ -89,6 +95,12 @@ class _SettingPageState extends State<SettingPage> {
               ),
             ),
           ),
+          const SizedBox(
+            child: Divider(
+              indent: 1,
+              color: AppColors.cF5F5FA,
+            ),
+          ),
           SizedBox(
             width: double.infinity,
             height: 53.h,
@@ -127,6 +139,12 @@ class _SettingPageState extends State<SettingPage> {
               ),
             ),
           ),
+          const SizedBox(
+            child: Divider(
+              indent: 1,
+              color: AppColors.cF5F5FA,
+            ),
+          ),
           SizedBox(
             width: double.infinity,
             height: 53.h,
@@ -163,6 +181,12 @@ class _SettingPageState extends State<SettingPage> {
                   ),
                 ],
               ),
+            ),
+          ),
+          const SizedBox(
+            child: Divider(
+              indent: 1,
+              color: AppColors.cF5F5FA,
             ),
           ),
           SizedBox(
