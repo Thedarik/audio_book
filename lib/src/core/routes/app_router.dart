@@ -1,11 +1,13 @@
 import "package:audio_book/src/feature/home/view/pages/book_detail_page.dart";
-import "package:audio_book/src/feature/home/view/pages/audio_page.dart";
-import "package:audio_book/src/feature/home/view/pages/library_page.dart";
 import "package:audio_book/src/feature/home/view/pages/home_detail_page.dart";
 import "package:audio_book/src/feature/home/view/pages/main_page.dart";
 import "package:audio_book/src/feature/search/view/pages/search_page.dart";
-import "package:audio_book/src/feature/home/view/pages/profile_page.dart";
-import "package:audio_book/src/feature/home/view/pages/setting_page.dart";
+import "package:audio_book/src/feature/library/view/pages/audio_page.dart";
+import "package:audio_book/src/feature/library/view/pages/library_page.dart";
+import "package:audio_book/src/feature/home/view/pages/home_detail_page.dart";
+import "package:audio_book/src/feature/home/view/pages/main_page.dart";
+import "package:audio_book/src/feature/library/view/pages/profile_page.dart";
+import "package:audio_book/src/feature/library/view/pages/setting_page.dart";
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 
@@ -14,7 +16,6 @@ import "app_route_name.dart";
 
 final class AppRouter {
   static GoRouter router = GoRouter(
-    initialLocation: AppRouteName.searchPage,
     routes: <RouteBase>[
       GoRoute(
         path: AppRouteName.searchPage,
