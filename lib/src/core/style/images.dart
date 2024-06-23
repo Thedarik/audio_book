@@ -58,15 +58,15 @@ sealed class AppImages {
 
   static final leftCircleIcon = SvgPicture.asset(
     'assets/icons/left_circle_icon.svg',
-    height: 24.h,
-    width: 24.w,
+    height: 33.h,
+    width: 33.w,
     fit: BoxFit.cover,
   );
 
   static final rightCircleIcon = SvgPicture.asset(
     'assets/icons/right_circle_icon.svg',
-    height: 24.h,
-    width: 24.w,
+    height: 33.h,
+    width: 33.w,
     fit: BoxFit.cover,
   );
 

@@ -1,8 +1,9 @@
-import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
+import 'package:audio_book/src/feature/home/view/widgets/paly_buttom_widget.dart';
+import 'package:audio_book/src/feature/home/view/widgets/player_buttomMenu_widget.dart';
+import 'package:audio_book/src/feature/home/view/widgets/player_custom_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 class AudioPage extends StatefulWidget {
@@ -35,7 +36,7 @@ class _AudioPageState extends State<AudioPage> {
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 37),
-            child: IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz)),
+            child: IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz)),
           ),
         ],
       ),
@@ -83,11 +84,24 @@ class _AudioPageState extends State<AudioPage> {
               children: [
                 Text(
                   "J.K. Rowling",
-                  style: AppTextStyle.playerBottomTextsSmall,
+                  style: AppTextStyle.playerBookSubtitleMedium,
                 ),
               ],
             ),
-          )
+          ),
+          SizedBox(
+            height: 32.h,
+          ),
+          SizedBox(
+            height: 50.h,
+            width: double.infinity,
+            child: const CustomSlider(),
+          ),
+          const PalyButtomWidget(),
+          SizedBox(
+            height: 28.h,
+          ),
+          const PlayerButtommenuWidget()
         ],
       ),
     );
