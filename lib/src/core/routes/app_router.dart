@@ -10,7 +10,6 @@ import "app_route_name.dart";
 
 final class AppRouter {
   static GoRouter router = GoRouter(
-    initialLocation: AppRouteName.mainPage,
     routes: <RouteBase>[
       GoRoute(
         path: AppRouteName.homePage,
@@ -24,7 +23,6 @@ final class AppRouter {
         path: AppRouteName.homeDetailPage,
         builder: (context, state) => const HomeDetailPage(),
       ),
-
       GoRoute(
         path: AppRouteName.mainPage,
         builder: (context, state) => const MainPage(),
