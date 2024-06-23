@@ -41,6 +41,9 @@ dependencies:
   url_launcher: ^6.2.6
   shimmer: ^3.0.0
 
+  #for auth on boarding
+  smooth_page_indicator: ^1.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

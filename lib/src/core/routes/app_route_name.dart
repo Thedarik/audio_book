@@ -11,4 +11,11 @@ final class AppRouteName {
   static const String settingPage = "/setting";
   static const String profilePage = "/profile";
   static const String audioPage = "/audio";
+  /// splash
+  static const String splash = '/splash';
+
+  /// auth pages
+  static const String onBoardingOne = '/onBoardingOne';
+  static const String onBoardingTwo = '/onBoardingTwo';
+  static const String onBoardingThree = '/onBoardingThree';
 }
