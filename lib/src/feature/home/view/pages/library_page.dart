@@ -26,12 +26,13 @@ class _LibraryPageState extends State<LibraryPage> {
             children: [
               SvgPicture.asset(
                 "assets/icons/main_logo.svg",
-                width: 40.w,
-                height: 40.h,
+                width: 117.w,
+                height: 29.h,
               ),
-              const Row(
-                children: [Text("AudioBooks")],
-              )
+              SizedBox(width: 8.h),
+              SvgPicture.asset(
+                "assets/icons/audioBook.svg",
+              ),
             ],
           ),
         ),
