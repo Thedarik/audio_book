@@ -10,6 +10,10 @@ import 'package:audio_book/src/feature/library/view/pages/setting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/style/colors.dart';
+import '../../../libraryPage/view/pages/audio_page.dart';
+import '../../../libraryPage/view/pages/library_page.dart';
+import '../../../libraryPage/view/pages/profile_page.dart';
+import '../../../libraryPage/view/pages/setting_page.dart';
 
 class MainPage extends StatelessWidget {
   MainPage({super.key});
