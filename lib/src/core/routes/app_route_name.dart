@@ -14,8 +14,27 @@ final class AppRouteName {
   /// splash
   static const String splash = '/splash';
 
-  /// auth pages
+  /// AUTH PAGES
+  /// login page
+  static const String loginPage = '/loginPage';
+
+  /// register pages
+  static const String registerPage = '/registerPage';
+
+  /// confirmation code page
+  static const String confirmationPage = '/confirmationPage';
+
+  /// forget password pages
+  static const String forgetPasswordOne = '/forgetPasswordOne';
+  static const String forgetPasswordTwo = '/forgetPasswordTwo';
+
+
+  /// on boardings
   static const String onBoardingOne = '/onBoardingOne';
   static const String onBoardingTwo = '/onBoardingTwo';
   static const String onBoardingThree = '/onBoardingThree';
+  static const String onBoardingMain = '/onBoardingMain';
+
+  /// error page
+  static const String errorPage = '/errorPage';
 }

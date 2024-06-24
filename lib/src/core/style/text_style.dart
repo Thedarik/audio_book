@@ -92,10 +92,10 @@ final class AppTextStyle extends TextTheme {
       );
 
   static TextStyle? get loginForgotPasswordSmall => TextStyle(
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w400,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.cF77A55,
+        color: AppColors.c2E2E5D,
       );
 
   static TextStyle? get loginOrLoginWithSmall => TextStyle(
@@ -111,6 +111,14 @@ final class AppTextStyle extends TextTheme {
         fontFamily: 'Rubik',
         color: AppColors.c2E2E5D,
       );
+
+  static TextStyle? get loginAccountSmall2 => TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: FontSize.size14,
+    fontFamily: 'Rubik',
+    color: AppColors.cF77A55,
+  );
+
 
   static TextStyle? get loginRegisterSmall => TextStyle(
         fontWeight: FontWeight.w600,
@@ -139,7 +147,7 @@ final class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.cF5F5FA,
+        color: AppColors.cF77A55  ,
       );
 
   static TextStyle? get registerRegisterButtonMedium => TextStyle(
