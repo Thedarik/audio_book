@@ -1,7 +1,9 @@
+import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage({super.key});
@@ -64,7 +66,9 @@ class ErrorPage extends StatelessWidget {
                   ),
                   minWidth: double.infinity,
                   height: 56,
-                  onPressed: (){},
+                  onPressed: (){
+                    context.go(AppRouteName.loginPage);
+                  },
                   child: Text("Retry",style: AppTextStyle.onBoardingButtonSkipMedium,),
                 ),
               ),

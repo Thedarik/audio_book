@@ -1,4 +1,6 @@
+import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/style/colors.dart';
 import '../../../../core/style/images.dart';
@@ -44,7 +46,9 @@ class OnBoardingThirdPage extends StatelessWidget {
                     minWidth: double.infinity,
                     height: 56,
                     color: AppColors.c4838D1,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.go(AppRouteName.errorPage);
+                    },
                     child: Text(
                       "Lets Get Started",
                       style: AppTextStyle.onBoardingButtonNextMedium,

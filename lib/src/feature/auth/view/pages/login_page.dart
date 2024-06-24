@@ -1,9 +1,11 @@
+import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/login_text_field_widget.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/useful_widgets_for_all_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -165,7 +167,9 @@ class LoginPage extends StatelessWidget {
 
                       ),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          context.go(AppRouteName.registerPage);
+                        },
                         borderRadius: BorderRadius.circular(8),
                         child: Text(
                           "Register",

@@ -29,7 +29,7 @@ import "app_route_name.dart";
 
 final class AppRouter {
   static GoRouter router = GoRouter(
-    initialLocation: AppRouteName.loadingPage,
+    initialLocation: AppRouteName.splash,
     routes: <RouteBase>[
       GoRoute(
         path: AppRouteName.searchPage,
@@ -113,7 +113,7 @@ final class AppRouter {
       ),
       GoRoute(
         path: AppRouteName.mainPage,
-        builder: (context, state) => const MainPage(),
+        builder: (context, state) => MainPage(),
       ),
       GoRoute(
         path: AppRouteName.settingPage,

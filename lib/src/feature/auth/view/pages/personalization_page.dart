@@ -1,6 +1,8 @@
+import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/login_text_field_widget.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/personalization_page_category_builder_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/style/colors.dart';
 import '../../../../core/style/images.dart';
@@ -129,7 +131,9 @@ class PersonalizationPage extends StatelessWidget {
                   MaterialButton(
                     minWidth: double.infinity,
                     height: 56,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.go(AppRouteName.personalizationPageTwo);
+                    },
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide.none
