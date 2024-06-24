@@ -1,3 +1,7 @@
+import "package:audio_book/src/feature/auth/view/pages/loading_page.dart";
+import "package:audio_book/src/feature/auth/view/pages/personalization_page.dart";
+import "package:audio_book/src/feature/auth/view/pages/personalization_page_two.dart";
+import "package:audio_book/src/feature/auth/view/pages/welcome_page.dart";
 import "package:audio_book/src/feature/home/view/pages/home_detail_page.dart";
 import "package:audio_book/src/feature/home/view/pages/main_page.dart";
 import "package:flutter/material.dart";
@@ -25,7 +29,7 @@ import "app_route_name.dart";
 
 final class AppRouter {
   static GoRouter router = GoRouter(
-    initialLocation: AppRouteName.forgetPasswordTwo,
+    initialLocation: AppRouteName.loadingPage,
     routes: <RouteBase>[
       GoRoute(
         path: AppRouteName.searchPage,
@@ -78,6 +82,22 @@ final class AppRouter {
       GoRoute
         (path: AppRouteName.errorPage,
         builder: (context, state) => const ErrorPage(),
+      ),
+      GoRoute
+        (path: AppRouteName.welcomePage,
+        builder: (context, state) => const WelcomePage(),
+      ),
+      GoRoute
+        (path: AppRouteName.personalizationPage,
+        builder: (context, state) => PersonalizationPage(),
+      ),
+      GoRoute
+        (path: AppRouteName.personalizationPageTwo,
+        builder: (context, state) => const PersonalizationPageTwo(),
+      ),
+      GoRoute
+        (path: AppRouteName.loadingPage,
+        builder: (context, state) => const LoadingPage(),
       ),
       GoRoute(
         path: AppRouteName.homePage,

@@ -39,4 +39,14 @@ final class AppRouteName {
 
   /// error page
   static const String errorPage = '/errorPage';
+
+  /// welcome page
+  static const String welcomePage = '/welcomePage';
+
+  /// personalization
+  static const String personalizationPage = '/personalizationPage';
+  static const String personalizationPageTwo= '/personalizationPageTwo';
+
+  /// loading pa
+  static const String loadingPage= '/loadingPage';
 }
