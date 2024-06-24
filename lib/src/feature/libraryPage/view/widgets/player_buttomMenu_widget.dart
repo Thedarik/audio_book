@@ -20,9 +20,9 @@ class _PlayerButtommenuWidgetState extends State<PlayerButtommenuWidget> {
           height: 70.h,
           width: double.infinity,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   IconButton(
                     onPressed: () {},
