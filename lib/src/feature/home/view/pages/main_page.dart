@@ -3,10 +3,7 @@ import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/feature/home/view/pages/book_detail_page.dart';
 import 'package:audio_book/src/feature/home/view/pages/home_detail_page.dart';
 import 'package:audio_book/src/feature/home/view/pages/home_page.dart';
-import 'package:audio_book/src/feature/library/view/pages/audio_page.dart';
-import 'package:audio_book/src/feature/library/view/pages/library_page.dart';
-import 'package:audio_book/src/feature/library/view/pages/profile_page.dart';
-import 'package:audio_book/src/feature/library/view/pages/setting_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/style/colors.dart';
