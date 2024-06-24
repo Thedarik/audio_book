@@ -70,6 +70,13 @@ final class AppTextStyle extends TextTheme {
         color: AppColors.c2E2E5D,
       );
 
+  static TextStyle? get loginTitleMedium2 => TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: FontSize.size16,
+    fontFamily: 'Rubik',
+    color: AppColors.c4838D1,
+  );
+
   static TextStyle? get loginFieldSmall => TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size14,
@@ -92,10 +99,10 @@ final class AppTextStyle extends TextTheme {
       );
 
   static TextStyle? get loginForgotPasswordSmall => TextStyle(
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w400,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.cF77A55,
+        color: AppColors.c2E2E5D,
       );
 
   static TextStyle? get loginOrLoginWithSmall => TextStyle(
@@ -111,6 +118,14 @@ final class AppTextStyle extends TextTheme {
         fontFamily: 'Rubik',
         color: AppColors.c2E2E5D,
       );
+
+  static TextStyle? get loginAccountSmall2 => TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: FontSize.size14,
+    fontFamily: 'Rubik',
+    color: AppColors.cF77A55,
+  );
+
 
   static TextStyle? get loginRegisterSmall => TextStyle(
         fontWeight: FontWeight.w600,
@@ -139,7 +154,7 @@ final class AppTextStyle extends TextTheme {
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.cF5F5FA,
+        color: AppColors.cF77A55  ,
       );
 
   static TextStyle? get registerRegisterButtonMedium => TextStyle(
@@ -232,12 +247,26 @@ final class AppTextStyle extends TextTheme {
         color: AppColors.c4838D1,
       );
 
+  static TextStyle? get personalizationCategorySmall2 => TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: FontSize.size13,
+    fontFamily: 'Rubik',
+    color: AppColors.c4838D1,
+  );
+
   static TextStyle? get personalizationEndTitleMedium => TextStyle(
         fontWeight: FontWeight.w600,
         fontSize: FontSize.size16,
         fontFamily: 'Rubik',
         color: AppColors.c2E2E5D,
       );
+
+  static TextStyle? get personalizationEndTwoTitleMedium => TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: FontSize.size14,
+    fontFamily: 'Rubik',
+    color: AppColors.c2E2E5D,
+  );
 
   static TextStyle? get personalizationEndSubtitleSmall => TextStyle(
         fontWeight: FontWeight.w400,
@@ -569,6 +598,7 @@ final class FontSize {
   const FontSize._();
 
   static double size24 = 24.sp;
+  static double size13 = 13.sp;
   static double size32 = 32.sp;
   static double size22 = 22.sp;
   static double size20 = 20.sp;

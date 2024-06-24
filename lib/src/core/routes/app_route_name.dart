@@ -13,4 +13,41 @@ final class AppRouteName {
   static const String bookPage = "/book";
   static const String profilePage = "/profile";
   static const String audioPage = "/audio";
+
+  /// splash
+  static const String splash = '/splash';
+
+  /// AUTH PAGES
+  /// login page
+  static const String loginPage = '/loginPage';
+
+  /// register pages
+  static const String registerPage = '/registerPage';
+
+  /// confirmation code page
+  static const String confirmationPage = '/confirmationPage';
+
+  /// forget password pages
+  static const String forgetPasswordOne = '/forgetPasswordOne';
+  static const String forgetPasswordTwo = '/forgetPasswordTwo';
+
+  /// on boardings
+  static const String onBoardingOne = '/onBoardingOne';
+  static const String onBoardingTwo = '/onBoardingTwo';
+  static const String onBoardingThree = '/onBoardingThree';
+  static const String onBoardingMain = '/onBoardingMain';
+
+  /// error page
+  static const String errorPage = '/errorPage';
+
+  /// welcome page
+  static const String welcomePage = '/welcomePage';
+
+  /// personalization
+  static const String personalizationPage = '/personalizationPage';
+  static const String personalizationPageTwo = '/personalizationPageTwo';
+
+  /// loading pa
+  static const String loadingPage = '/loadingPage';
+  static const String subscriptionsPage = "/subscriptions";
 }

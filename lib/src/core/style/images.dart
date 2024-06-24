@@ -170,15 +170,13 @@ sealed class AppImages {
   );
 
   /// PNG
-  static final authLogo = Image.asset(
-    '',
-    height: 79.h,
-    width: 380.w,
+  static final authLogo = SvgPicture.asset(
+    'assets/icons/small_logo.svg',
     fit: BoxFit.cover,
   );
 
   static final circleImage = Image.asset(
-    'assets/images/device_image.png',
+    'assets/images/circle_image.png',
     fit: BoxFit.cover,
   );
 
@@ -204,7 +202,7 @@ sealed class AppImages {
   );
 
   static final secondBoardingImage = Image.asset(
-    'assets/images/second_boarding_image.png',
+    'assets/images/second_boarding_iamge.png',
     height: 260.h,
     width: 260.w,
     fit: BoxFit.cover,
