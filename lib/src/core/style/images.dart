@@ -14,6 +14,48 @@ sealed class AppImages {
     fit: BoxFit.cover,
   );
 
+  static final businessIcon = SvgPicture.asset(
+    'assets/icons/business_icon.svg',
+    height: 24.h,
+    width: 24.w,
+    fit: BoxFit.cover,
+  );
+
+  static final musicsIcon = SvgPicture.asset(
+    'assets/icons/musics_icon.svg',
+    height: 24.h,
+    width: 24.w,
+    fit: BoxFit.cover,
+  );
+
+  static final miniPlayIcon = SvgPicture.asset(
+    'assets/icons/mini_play_icon.svg',
+    height: 25.h,
+    width: 25.w,
+    fit: BoxFit.cover,
+  );
+
+  static final miniLibraryIcon = SvgPicture.asset(
+    'assets/icons/mini_library_icon.svg',
+    height: 20.h,
+    width: 20.w,
+    fit: BoxFit.cover,
+  );
+
+  static final personalIcon = SvgPicture.asset(
+    'assets/icons/personal_icon.svg',
+    height: 24.h,
+    width: 24.w,
+    fit: BoxFit.cover,
+  );
+
+  static final photographyIcon = SvgPicture.asset(
+    'assets/icons/photography_icon.svg',
+    height: 24.h,
+    width: 24.w,
+    fit: BoxFit.cover,
+  );
+
   static final activeHomeIcon = SvgPicture.asset(
     'assets/icons/active_home_icon.svg',
     height: 24.h,

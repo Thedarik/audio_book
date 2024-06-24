@@ -1,7 +1,9 @@
 import "package:audio_book/src/feature/home/view/library_page.dart";
+import "package:audio_book/src/feature/home/view/pages/book_detail_page.dart";
 import "package:audio_book/src/feature/home/view/pages/home_detail_page.dart";
 import "package:audio_book/src/feature/home/view/pages/main_page.dart";
 import "package:audio_book/src/feature/home/view/setting_page.dart";
+import "package:audio_book/src/feature/search/view/pages/search_page.dart";
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 
@@ -10,8 +12,16 @@ import "app_route_name.dart";
 
 final class AppRouter {
   static GoRouter router = GoRouter(
-    initialLocation: AppRouteName.mainPage,
+    initialLocation: AppRouteName.searchPage,
     routes: <RouteBase>[
+      GoRoute(
+        path: AppRouteName.searchPage,
+        builder: (context, state) => const SearchPage(),
+      ),
+      GoRoute(
+        path: AppRouteName.bookPage,
+        builder: (context, state) => const BookDetailPage(),
+      ),
       GoRoute(
         path: AppRouteName.homePage,
         builder: (context, state) => const HomePage(),
