@@ -1,23 +1,25 @@
-import "package:audio_book/src/feature/auth/view/pages/confirmation_code_page.dart";
-import "package:audio_book/src/feature/auth/view/pages/error_page.dart";
-import "package:audio_book/src/feature/auth/view/pages/forget_password_page_one.dart";
-import "package:audio_book/src/feature/auth/view/pages/forget_password_page_two.dart";
-import "package:audio_book/src/feature/auth/view/pages/login_page.dart";
-import "package:audio_book/src/feature/auth/view/pages/on_boarding_main_page.dart";
-import "package:audio_book/src/feature/auth/view/pages/on_boarding_second_page.dart";
-import "package:audio_book/src/feature/auth/view/pages/on_boarding_third_page.dart";
-import "package:audio_book/src/feature/auth/view/pages/register_page.dart";
-import "package:audio_book/src/feature/home/view/pages/audio_page.dart";
-import "package:audio_book/src/feature/home/view/pages/library_page.dart";
 import "package:audio_book/src/feature/home/view/pages/home_detail_page.dart";
 import "package:audio_book/src/feature/home/view/pages/main_page.dart";
-import "package:audio_book/src/feature/home/view/pages/profile_page.dart";
-import "package:audio_book/src/feature/home/view/pages/setting_page.dart";
 import "package:flutter/material.dart";
 import "package:go_router/go_router.dart";
 
+import "../../feature/auth/view/pages/confirmation_code_page.dart";
+import "../../feature/auth/view/pages/error_page.dart";
+import "../../feature/auth/view/pages/forget_password_page_one.dart";
+import "../../feature/auth/view/pages/forget_password_page_two.dart";
+import "../../feature/auth/view/pages/login_page.dart";
 import "../../feature/auth/view/pages/on_boarding_first_page.dart";
+import "../../feature/auth/view/pages/on_boarding_main_page.dart";
+import "../../feature/auth/view/pages/on_boarding_second_page.dart";
+import "../../feature/auth/view/pages/on_boarding_third_page.dart";
+import "../../feature/auth/view/pages/register_page.dart";
+import "../../feature/home/view/pages/book_detail_page.dart";
 import "../../feature/home/view/pages/home_page.dart";
+import "../../feature/library/view/pages/audio_page.dart";
+import "../../feature/library/view/pages/library_page.dart";
+import "../../feature/library/view/pages/profile_page.dart";
+import "../../feature/library/view/pages/setting_page.dart";
+import "../../feature/search/view/pages/search_page.dart";
 import "../../feature/splash/presentation/pages/splash_page.dart";
 import "app_route_name.dart";
 
@@ -25,6 +27,14 @@ final class AppRouter {
   static GoRouter router = GoRouter(
     initialLocation: AppRouteName.forgetPasswordTwo,
     routes: <RouteBase>[
+      GoRoute(
+        path: AppRouteName.searchPage,
+        builder: (context, state) => const SearchPage(),
+      ),
+      GoRoute(
+        path: AppRouteName.bookPage,
+        builder: (context, state) => const BookDetailPage(),
+      ),
       GoRoute
         (path: AppRouteName.splash,
         builder: (context, state) => const SplashPage(),
