@@ -3,6 +3,7 @@ import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
@@ -25,12 +26,13 @@ class _LibraryPageState extends State<LibraryPage> {
             children: [
               SvgPicture.asset(
                 "assets/icons/main_logo.svg",
-                width: 40,
-                height: 40,
+                width: 117.w,
+                height: 29.h,
               ),
-              const Row(
-                children: [Text("AudioBooks")],
-              )
+              SizedBox(width: 8.h),
+              SvgPicture.asset(
+                "assets/icons/audioBook.svg",
+              ),
             ],
           ),
         ),
@@ -48,7 +50,7 @@ class _LibraryPageState extends State<LibraryPage> {
       ),
       body: Column(
         children: [
-          const SizedBox(height: 42),
+          SizedBox(height: 42.h),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Align(
@@ -59,11 +61,11 @@ class _LibraryPageState extends State<LibraryPage> {
               ),
             ),
           ),
-          const SizedBox(height: 12),
+          SizedBox(height: 12.h),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: SizedBox(
-              height: 53,
+              height: 53.h,
               width: double.infinity,
               child: TextField(
                 decoration: InputDecoration(
@@ -82,7 +84,7 @@ class _LibraryPageState extends State<LibraryPage> {
               ),
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16.h),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -92,20 +94,20 @@ class _LibraryPageState extends State<LibraryPage> {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: SizedBox(
-                      height: 104,
-                      width: 335, // Set width for each ListTile
+                      height: 104.h,
+                      width: 335.w, // Set width for each ListTile
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Row(
                           children: [
-                            const SizedBox(
-                              width: 80,
-                              height: 80,
-                              child: DecoratedBox(
+                            SizedBox(
+                              width: 80.w,
+                              height: 80.h,
+                              child: const DecoratedBox(
                                 decoration: BoxDecoration(color: Colors.blue),
                               ),
                             ),
-                            const SizedBox(width: 16),
+                            SizedBox(width: 16.w),
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
