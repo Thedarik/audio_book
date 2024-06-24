@@ -1,7 +1,8 @@
 import 'package:audio_book/src/core/style/text_style.dart';
-import 'package:audio_book/src/feature/library/view/widgets/paly_buttom_widget.dart';
-import 'package:audio_book/src/feature/library/view/widgets/player_buttomMenu_widget.dart';
-import 'package:audio_book/src/feature/library/view/widgets/player_custom_slider.dart';
+import 'package:audio_book/src/feature/libraryPage/view/widgets/paly_buttom_widget.dart';
+import 'package:audio_book/src/feature/libraryPage/view/widgets/player_buttomMenu_widget.dart';
+import 'package:audio_book/src/feature/libraryPage/view/widgets/player_custom_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -25,7 +26,7 @@ class _AudioPageState extends State<AudioPage> {
             onPressed: () {
               context.pop();
             },
-            icon: const Icon(Icons.arrow_downward_sharp),
+            icon: const Icon(Icons.arrow_drop_down),
           ),
         ),
         centerTitle: true,
