@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/feature/auth/view/pages/on_boarding_first_page.dart';
 import 'package:audio_book/src/feature/auth/view/pages/on_boarding_second_page.dart';
@@ -20,8 +19,6 @@ class OnBoardingMainPage extends StatelessWidget {
   final PageController _controller = PageController();
   final ValueNotifier<int> _currentIndexNotifier = ValueNotifier<int>(0);
 
-  int page = 0;
-
   List<Widget> pages = const [
     OnBoardingFirstPage(),
     OnBoardingSecondPage(),
@@ -36,15 +33,10 @@ class OnBoardingMainPage extends StatelessWidget {
         children: [
           PageView(
             onPageChanged: (index) {
-              page = index;
               _currentIndexNotifier.value = index;
             },
             controller: _controller,
-
-            /// page view
             children: pages,
-
-            /// smooth indicator
           ),
           Align(
             alignment: Alignment.topLeft,
@@ -54,102 +46,92 @@ class OnBoardingMainPage extends StatelessWidget {
             alignment: const Alignment(1, -0.7),
             child: AppImages.circleImage,
           ),
-          Align(
-            alignment: const Alignment(0, 6),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                MaterialButton(
-                  minWidth: 140,
-                  height: 56,
-                  onPressed: () {
-                    // context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}");
-                  },
-                  child: Text(
-                    "Skip",
-                    style: AppTextStyle.onBoardingButtonSkipMedium,
-                  ),
-                ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: MaterialButton(
-                    minWidth: 140,
-                    height: 56,
-                    color: AppColors.c4838D1,
-                    onPressed: () {
-                      if (_controller.page! < pages.length - 1) {
-                        _controller.nextPage(
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.easeInOut,
-                        );
-                      } else {
-                        // Navigate to the next logical screen if it's the last page
-                        context.go(
-                            "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}");
-                      }
-                      log(page.toString());
-                    },
-                    child: Text(
-                      "Next",
-                      style: AppTextStyle.onBoardingButtonNextMedium,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+          Column(
+            children: [
+              fixedSizedBox(height: 624.h),
+              SmoothPageIndicator(
+                effect: const ExpandingDotsEffect(
+                    activeDotColor: AppColors.cF77A55,
+                    expansionFactor: 1.1,
+                    dotWidth: 15,
+                    dotHeight: 15,
+                    spacing: 12,
+                    dotColor: Color(0xffc7466E3)),
+                controller: _controller,
+                count: pages.length,
+              ),
+            ],
           ),
-          Align(
-            alignment: const Alignment(0, 0.55),
-            child: SmoothPageIndicator(
-              effect: const ExpandingDotsEffect(
-                  activeDotColor: AppColors.cF77A55,
-                  expansionFactor: 1.1,
-                  dotWidth: 15,
-                  dotHeight: 15,
-                  spacing: 12,
-                  dotColor: Color(0xffc7466E3)),
-              controller: _controller,
-              count: 3,
-            ),
-          ),
-          Align(
-            alignment: const Alignment(0, 0.8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                MaterialButton(
-                  minWidth: 140,
-                  height: 56,
-                  onPressed: () {
-                    context.go(
-                        "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}");
-                  },
-                  child: Text(
-                    "Skip",
-                    style: AppTextStyle.onBoardingButtonSkipMedium,
-                  ),
-                ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: MaterialButton(
-                    minWidth: 140,
-                    height: 56,
-                    color: AppColors.c4838D1,
-                    onPressed: () {
-                      // context.go("${AppRouteName.onBoardingMain}/${AppRouteName.onBoardingTwo}");
-                      page++;
-                    },
-                    child: Text(
-                      "Next",
-                      style: AppTextStyle.onBoardingButtonNextMedium,
-                    ),
-                  ),
-                ),
-              ],
-            ),
+          Column(
+            children: [
+              fixedSizedBox(height: 676.h),
+              ValueListenableBuilder<int>(
+                valueListenable: _currentIndexNotifier,
+                builder: (context, currentIndex, child) {
+                  if (currentIndex < pages.length - 1) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        MaterialButton(
+                          minWidth: 140,
+                          height: 56,
+                          onPressed: () {
+                            context.go(
+                                "${AppRouteName.mainPage}${AppRouteName.homePage
+                                    .substring(1)}");
+                          },
+                          child: Text(
+                            "Skip",
+                            style: AppTextStyle.onBoardingButtonSkipMedium,
+                          ),
+                        ),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: MaterialButton(
+                            minWidth: 140,
+                            height: 56,
+                            color: AppColors.c4838D1,
+                            onPressed: () {
+                              if (_controller.page! < pages.length - 1) {
+                                _controller.nextPage(
+                                  duration: const Duration(milliseconds: 300),
+                                  curve: Curves.easeInOut,
+                                );
+                              }
+                            },
+                            child: Text(
+                              "Next",
+                              style: AppTextStyle.onBoardingButtonNextMedium,
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  }else{
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 40),
+                      child: MaterialButton(
+                        minWidth: double.infinity,
+                        height: 56,
+                        color: AppColors.c4838D1,
+                        shape: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        onPressed: (){
+                          context.go(AppRouteName.errorPage);
+                        },
+                        child: Text("Lets Get Started",style: AppTextStyle.onBoardingButtonNextMedium,),
+                      ),
+                    );
+                  }
+                },
+              ),
+            ],
           ),
         ],
       ),
     );
   }
 }
+
+
