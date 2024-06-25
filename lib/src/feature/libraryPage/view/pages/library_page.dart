@@ -1,11 +1,7 @@
-import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:audio_book/src/core/style/colors.dart';
-import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:go_router/go_router.dart';
 
 class LibraryPage extends StatefulWidget {
   const LibraryPage({super.key});
@@ -18,36 +14,6 @@ class _LibraryPageState extends State<LibraryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 28),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SvgPicture.asset(
-                "assets/icons/main_logo.svg",
-                width: 117.w,
-                height: 29.h,
-              ),
-              SizedBox(width: 8.h),
-              SvgPicture.asset(
-                "assets/icons/audioBook.svg",
-              ),
-            ],
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 28),
-            child: IconButton(
-              onPressed: () {
-                (context).go(AppRouteName.settingPage);
-              },
-              icon: AppImages.settingIcon,
-            ),
-          )
-        ],
-      ),
       body: Column(
         children: [
           SizedBox(height: 42.h),

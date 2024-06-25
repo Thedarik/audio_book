@@ -6,6 +6,7 @@ import 'package:audio_book/src/feature/home/view/widgets/play_buttons.dart';
 import 'package:audio_book/src/feature/home/view/widgets/review_details.dart';
 import 'package:audio_book/src/feature/home/view/widgets/summary_text.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BookDetailPage extends StatefulWidget {
   const BookDetailPage({super.key});
@@ -19,11 +20,14 @@ class _BookDetailPageState extends State<BookDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround      ,
           children: [
             IconButton(
-                onPressed: (){},
+                onPressed: (){
+                  context.pop();
+                },
                 icon: const Icon(
                   Icons.arrow_back_ios,
                   size: 26,

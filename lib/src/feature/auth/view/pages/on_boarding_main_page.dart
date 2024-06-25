@@ -22,8 +22,9 @@ class OnBoardingMainPage extends StatelessWidget {
             _currentIndexNotifier.value = index;
           },
           controller: _controller,
+
           /// page view
-          children: const[
+          children: const [
             OnBoardingFirstPage(),
             OnBoardingSecondPage(),
             OnBoardingThirdPage(),
@@ -42,13 +43,12 @@ class OnBoardingMainPage extends StatelessWidget {
         Align(
           alignment: const Alignment(0, 0.55),
           child: SmoothPageIndicator(
-            effect: ExpandingDotsEffect(
-              activeDotColor: AppColors.cF77A55,
+            effect: const ExpandingDotsEffect(
+                activeDotColor: AppColors.cF77A55,
                 expansionFactor: 1.1,
                 dotWidth: 15,
                 dotHeight: 15,
-                dotColor: Color(0xffc7466E3)
-            ),
+                dotColor: Color(0xffc7466E3)),
             controller: _controller,
             count: 3,
           ),

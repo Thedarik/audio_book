@@ -6,12 +6,12 @@ final class AppRouteName {
 
   static const String homePage = '/home';
   static const String libraryPage = '/library';
-  static const String homeDetailPage = '/homeDetail';
+  static const String homeDetailPage = 'homeDetail';
   static const String mainPage = '/';
   static const String settingPage = "/setting";
   static const String searchPage = "/search";
-  static const String bookPage = "/book";
-  static const String profilePage = "/profile";
+  static const String bookPage = "book";
+  static const String profilePage = "profile";
   static const String audioPage = "/audio";
 
   /// splash
@@ -22,19 +22,19 @@ final class AppRouteName {
   static const String loginPage = '/loginPage';
 
   /// register pages
-  static const String registerPage = '/registerPage';
+  static const String registerPage = 'registerPage';
 
   /// confirmation code page
-  static const String confirmationPage = '/confirmationPage';
+  static const String confirmationPage = 'confirmationPage';
 
   /// forget password pages
   static const String forgetPasswordOne = '/forgetPasswordOne';
   static const String forgetPasswordTwo = '/forgetPasswordTwo';
 
   /// on boardings
-  static const String onBoardingOne = '/onBoardingOne';
-  static const String onBoardingTwo = '/onBoardingTwo';
-  static const String onBoardingThree = '/onBoardingThree';
+  static const String onBoardingOne = 'onBoardingOne';
+  static const String onBoardingTwo = 'onBoardingTwo';
+  static const String onBoardingThree = 'onBoardingThree';
   static const String onBoardingMain = '/onBoardingMain';
 
   /// error page
@@ -44,8 +44,8 @@ final class AppRouteName {
   static const String welcomePage = '/welcomePage';
 
   /// personalization
-  static const String personalizationPage = '/personalizationPage';
-  static const String personalizationPageTwo = '/personalizationPageTwo';
+  static const String personalizationPage = 'personalizationPage';
+  static const String personalizationPageTwo = 'personalizationPageTwo';
 
   /// loading pa
   static const String loadingPage = '/loadingPage';

@@ -23,7 +23,7 @@ class SubscriptionsPage extends StatelessWidget {
             icon: const Icon(Icons.arrow_drop_down),
           ),
         ),
-        title: Text(
+        title: const Text(
           "Subscriptions",
         ),
         centerTitle: true,
@@ -50,7 +50,7 @@ class SubscriptionsPage extends StatelessWidget {
                 height: 17.h,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: SizedBox(
                   height: 36.h,
                   width: double.infinity,
@@ -85,7 +85,7 @@ class SubscriptionsPage extends StatelessWidget {
                 height: 20.h,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: SizedBox(
                   height: 52.h,
                   width: double.infinity,
@@ -117,7 +117,7 @@ class SubscriptionsPage extends StatelessWidget {
                 height: 16.h,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: SizedBox(
                   height: 52.h,
                   width: double.infinity,
@@ -149,7 +149,7 @@ class SubscriptionsPage extends StatelessWidget {
                 height: 16.h,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: SizedBox(
                   height: 52.h,
                   width: double.infinity,
@@ -181,7 +181,7 @@ class SubscriptionsPage extends StatelessWidget {
                 height: 16.h,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: SizedBox(
                   height: 52.h,
                   width: double.infinity,
@@ -213,7 +213,7 @@ class SubscriptionsPage extends StatelessWidget {
                 height: 44.h,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24),
+                padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: SizedBox(
                   height: 126.h,
                   width: double.infinity,
@@ -224,14 +224,14 @@ class SubscriptionsPage extends StatelessWidget {
                 height: 44.h,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 80),
+                padding: const EdgeInsets.symmetric(horizontal: 80),
                 child: Text(
                   "Access Anywhere",
                   style: AppTextStyle.subscriptionTakeTextLarge,
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 69),
+                padding: const EdgeInsets.symmetric(horizontal: 69),
                 child: Text(
                   "One account for any platform",
                   style: AppTextStyle.subscriptionTakeSubtitleMedium,
@@ -241,7 +241,7 @@ class SubscriptionsPage extends StatelessWidget {
                 height: 40.h,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: SizedBox(
                   height: 300.h,
                   width: double.infinity,
@@ -252,7 +252,7 @@ class SubscriptionsPage extends StatelessWidget {
                 height: 48.h,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: SizedBox(
                   child: Row(
                     children: [
@@ -268,7 +268,7 @@ class SubscriptionsPage extends StatelessWidget {
                 height: 12.h,
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: MaterialButton(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),

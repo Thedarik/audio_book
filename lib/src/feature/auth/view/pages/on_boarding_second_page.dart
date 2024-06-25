@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/routes/app_route_name.dart';
 import '../../../../core/style/colors.dart';
 import '../../../../core/style/images.dart';
 import '../../../../core/style/text_style.dart';
@@ -42,7 +44,9 @@ class OnBoardingSecondPage extends StatelessWidget {
                   MaterialButton(
                     minWidth: 140,
                     height: 56,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}");
+                    },
                     child: Text(
                       "Skip",
                       style: AppTextStyle.onBoardingButtonSkipMedium,
@@ -54,7 +58,9 @@ class OnBoardingSecondPage extends StatelessWidget {
                         minWidth: 140,
                         height: 56,
                         color: AppColors.c4838D1,
-                        onPressed: () {},
+                        onPressed: () {
+                          context.go("${AppRouteName.onBoardingMain}/${AppRouteName.onBoardingTwo}/${AppRouteName.onBoardingThree}");
+                        },
                         child: Text(
                           "Next",
                           style: AppTextStyle.onBoardingButtonNextMedium,

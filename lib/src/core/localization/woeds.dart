@@ -3,7 +3,6 @@
 import 'package:audio_book/src/core/localization/app_localization.dart';
 import 'package:flutter/material.dart';
 
-import 'app_localizations.dart';
 
 extension MyWords on Words {
   String tr(BuildContext context, [int? key]) =>

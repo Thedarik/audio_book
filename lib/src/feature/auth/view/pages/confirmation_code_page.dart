@@ -1,5 +1,7 @@
+import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/style/colors.dart';
 import '../../../../core/style/images.dart';
@@ -10,7 +12,7 @@ import '../widgets/useful_widgets_for_all_pages.dart';
 class ConfirmationCodePage extends StatelessWidget {
   ConfirmationCodePage({super.key});
   TextEditingController controller1 = TextEditingController();
-  FocusNode _firstFocusNode = FocusNode();
+  final FocusNode _firstFocusNode = FocusNode();
   bool isCheckFilled = false;
 
   @override
@@ -82,7 +84,9 @@ class ConfirmationCodePage extends StatelessWidget {
                   MaterialButton(
                     minWidth: double.infinity,
                     height: 56,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.go(AppRouteName.loginPage);
+                    },
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),

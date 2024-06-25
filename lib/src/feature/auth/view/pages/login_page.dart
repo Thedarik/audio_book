@@ -1,9 +1,11 @@
+import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/login_text_field_widget.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/useful_widgets_for_all_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -11,8 +13,8 @@ class LoginPage extends StatelessWidget {
   TextEditingController controller1 = TextEditingController();
   TextEditingController controller2 = TextEditingController();
 
-  FocusNode _firstFocusNode = FocusNode();
-  FocusNode _secondFocusNode = FocusNode();
+  final FocusNode _firstFocusNode = FocusNode();
+  final FocusNode _secondFocusNode = FocusNode();
 
   bool isCheckFilled = false;
 
@@ -89,7 +91,9 @@ class LoginPage extends StatelessWidget {
                   MaterialButton(
                     minWidth: double.infinity,
                     height: 56,
-                    onPressed: () {},
+                    onPressed: () {
+                      context.go(AppRouteName.welcomePage);
+                    },
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
@@ -106,7 +110,9 @@ class LoginPage extends StatelessWidget {
                       InkWell(
                         splashColor: AppColors.cF5F5FA,
                         borderRadius: BorderRadius.circular(8),
-                        onTap: () {},
+                        onTap: () {
+
+                        },
                         child: Text(
                           "Forget Password ?",
                           style: AppTextStyle.loginForgotPasswordSmall,
@@ -165,7 +171,9 @@ class LoginPage extends StatelessWidget {
 
                       ),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          context.go("${AppRouteName.loginPage}/${AppRouteName.registerPage}");
+                        },
                         borderRadius: BorderRadius.circular(8),
                         child: Text(
                           "Register",

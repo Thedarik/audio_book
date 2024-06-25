@@ -21,7 +21,7 @@ class ErrorPage extends StatelessWidget {
                   width: 36,
                 ),
                 IconButton(
-                    onPressed: () {}, icon: Icon(Icons.arrow_back_ios_new)),
+                    onPressed: () {}, icon: const Icon(Icons.arrow_back_ios_new)),
                 const SizedBox(
                   width: 86,
                 ),

@@ -26,8 +26,8 @@ class _CustomSliderState extends State<CustomSlider> {
               inactiveTickMarkColor: AppColors.c4838D1,
               activeTickMarkColor: AppColors.c4838D1,
               thumbColor: AppColors.c4838D1,
-              thumbShape: RoundSliderThumbShape(enabledThumbRadius: 5.0),
-              overlayShape: RoundSliderOverlayShape(overlayRadius: 16.0),
+              thumbShape: const RoundSliderThumbShape(enabledThumbRadius: 5.0),
+              overlayShape: const RoundSliderOverlayShape(overlayRadius: 16.0),
             ),
             child: Slider(
               value: _currentSliderValue,

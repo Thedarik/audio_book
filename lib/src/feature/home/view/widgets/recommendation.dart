@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/routes/app_route_name.dart';
 import '../../../../core/style/text_style.dart';
 
 class Recommendation extends StatelessWidget {
@@ -21,9 +23,14 @@ class Recommendation extends StatelessWidget {
 
               const SizedBox(width: 7),
 
-              Text(
-                "See more",
-                style: AppTextStyle.homeSeeMoreSmall,
+              TextButton(
+                onPressed: (){
+                  context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}");
+                },
+                child: Text(
+                  "See more",
+                  style: AppTextStyle.homeSeeMoreSmall,
+                ),
               )
             ],
           ),

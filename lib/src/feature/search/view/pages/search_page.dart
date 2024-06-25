@@ -5,7 +5,6 @@ import 'package:audio_book/src/feature/search/view/widgets/recommendations.dart'
 import 'package:audio_book/src/feature/search/view/widgets/text_field_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/style/colors.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
