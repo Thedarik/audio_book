@@ -1,16 +1,13 @@
+import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
-class PlayerButtommenuWidget extends StatefulWidget {
+class PlayerButtommenuWidget extends StatelessWidget {
   const PlayerButtommenuWidget({super.key});
 
-  @override
-  State<PlayerButtommenuWidget> createState() => _PlayerButtommenuWidgetState();
-}
-
-class _PlayerButtommenuWidgetState extends State<PlayerButtommenuWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,11 +23,15 @@ class _PlayerButtommenuWidgetState extends State<PlayerButtommenuWidget> {
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: AppImages.inActiveLibraryIcon,
+                    icon: SvgPicture.asset(
+                      "assets/icons/bookmaker.svg",
+                      width: 24.w,
+                      height: 24.h,
+                    ),
                   ),
                   Text(
                     "Bookmark",
-                    style: AppTextStyle.bottomBarTextSmall,
+                    style: AppTextStyle.detailSummarySmall?.copyWith(fontSize: 10, color: AppColors.c2E2E5D),
                   )
                 ],
               ),
@@ -38,11 +39,15 @@ class _PlayerButtommenuWidgetState extends State<PlayerButtommenuWidget> {
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: AppImages.inActiveLibraryIcon,
+                    icon: SvgPicture.asset(
+                      "assets/icons/chapter2.svg",
+                      width: 24.w,
+                      height: 24.h,
+                    ),
                   ),
                   Text(
-                    "Bookmark",
-                    style: AppTextStyle.bottomBarTextSmall,
+                    "Chapter 2",
+                    style: AppTextStyle.detailSummarySmall?.copyWith(fontSize: 10, color: AppColors.c2E2E5D),
                   )
                 ],
               ),
@@ -50,11 +55,15 @@ class _PlayerButtommenuWidgetState extends State<PlayerButtommenuWidget> {
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: AppImages.inActiveLibraryIcon,
+                    icon: SvgPicture.asset(
+                      "assets/icons/speed10x.svg",
+                      width: 24.w,
+                      height: 24.h,
+                    ),
                   ),
                   Text(
-                    "Bookmark",
-                    style: AppTextStyle.bottomBarTextSmall,
+                    "Speed 10x",
+                    style: AppTextStyle.detailSummarySmall?.copyWith(fontSize: 10, color: AppColors.c2E2E5D),
                   )
                 ],
               ),
@@ -62,11 +71,15 @@ class _PlayerButtommenuWidgetState extends State<PlayerButtommenuWidget> {
                 children: [
                   IconButton(
                     onPressed: () {},
-                    icon: AppImages.inActiveLibraryIcon,
+                    icon: SvgPicture.asset(
+                      "assets/icons/download.svg",
+                      width: 24.w,
+                      height: 24.h,
+                    ),
                   ),
                   Text(
-                    "Bookmark",
-                    style: AppTextStyle.bottomBarTextSmall,
+                    "Download",
+                    style: AppTextStyle.detailSummarySmall?.copyWith(fontSize: 10, color: AppColors.c2E2E5D),
                   )
                 ],
               )

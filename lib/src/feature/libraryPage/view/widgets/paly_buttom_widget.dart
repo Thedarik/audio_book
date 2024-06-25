@@ -2,14 +2,9 @@ import 'package:audio_book/src/core/style/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class PalyButtomWidget extends StatefulWidget {
+class PalyButtomWidget extends StatelessWidget {
   const PalyButtomWidget({super.key});
 
-  @override
-  State<PalyButtomWidget> createState() => _PalyButtomWidgetState();
-}
-
-class _PalyButtomWidgetState extends State<PalyButtomWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(

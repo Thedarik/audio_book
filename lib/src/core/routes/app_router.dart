@@ -21,173 +21,105 @@ import "../../feature/auth/view/pages/register_page.dart";
 import "app_route_name.dart";
 
 final class AppRouter {
-  static GoRouter router = token == null ? GoRouter(
-    initialLocation: AppRouteName.splash,
-    routes: <RouteBase>[
-      GoRoute(
-        path: AppRouteName.splash,
-        builder: (context, state) => const SplashPage(),
-      ),
-
-      //OnBoardings
-      GoRoute(
-        path: AppRouteName.onBoardingMain,
-        builder: (context, state) => OnBoardingMainPage(),
-        routes: [
-          GoRoute(
-            path: AppRouteName.onBoardingTwo,
-            builder: (context, state)=> const OnBoardingSecondPage(),
-            routes: [
-              GoRoute(
-                path: AppRouteName.onBoardingThree,
-                builder: (context, state)=> const OnBoardingThirdPage()
-              )
-            ]
-          )
-        ]
-      ),
-
-      //Login
-      GoRoute(
-        path: AppRouteName.loginPage,
-        builder: (context, state) => LoginPage(),
-        routes: [
-          GoRoute(
-            path: AppRouteName.registerPage,
-            builder: (context, state)=> RegisterPage(),
-            routes: [
-              GoRoute(
-                path: AppRouteName.confirmationPage,
-                builder: (context, state)=> ConfirmationCodePage()
-              )
-            ]
-          )
-        ]
-      ),
-
-      //Welcome
-      GoRoute(
-        path: AppRouteName.welcomePage,
-        builder: (context, state)=> const WelcomePage(),
-        routes: [
-          GoRoute(
-            path: AppRouteName.personalizationPage,
-            builder: (context, state)=> PersonalizationPage(),
-            routes: [
-              GoRoute(
-                path: AppRouteName.personalizationPageTwo,
-                builder: (context, state)=> const PersonalizationPageTwo()
-              )
-            ]
-          )
-        ]
-      ),
-
-      //Home
-      ShellRoute(
-        builder: (context, state, child)=>MainPage(
-          child: child,
-        ),
-        routes:[
-          GoRoute(
-            path: AppRouteName.settingPage,
-            builder: (context, state)=> const SettingPage()
-          ),
-
-          //Home
-          GoRoute(
-            path: AppRouteName.homePage,
-            builder: (context, state)=> const HomePage(),
-            routes: [
-              GoRoute(
-                path: AppRouteName.homeDetailPage,
-                builder: (context, state)=> const HomeDetailPage(),
-                routes: [
-                  GoRoute(
-                    path: AppRouteName.bookPage,
-                    builder: (context, state)=> const BookDetailPage()
-                  )
-                ]
-              )
-            ],
-          ),
-
-          //Search
-          GoRoute(
-            path: AppRouteName.searchPage,
-            builder: (context, state)=>const SearchPage()
-          ),
-
-          //Library
-          GoRoute(
-            path: AppRouteName.libraryPage,
-            builder: (context, state)=> const LibraryPage(),
-            routes: [
-              GoRoute(
-                  path: AppRouteName.profilePage,
-                  builder: (context, state)=> const ProfilePage()
-              ),
-            ]
-          )
-        ]
-      )
-    ],
-  ) : GoRouter(
-    initialLocation: AppRouteName.splash,
-    routes: <RouteBase>[
-      GoRoute(
-        path: AppRouteName.splash,
-        builder: (context, state) => const SplashPage(),
-      ),
-
-      //Home
-      ShellRoute(
-          builder: (context, state, child)=>MainPage(
-            child: child,
-          ),
-          routes:[
+  static GoRouter router = token == null
+      ? GoRouter(
+          initialLocation: AppRouteName.splash,
+          routes: <RouteBase>[
             GoRoute(
-                path: AppRouteName.settingPage,
-                builder: (context, state)=> const SettingPage()
+              path: AppRouteName.splash,
+              builder: (context, state) => const SplashPage(),
+            ),
+
+            //OnBoardings
+            GoRoute(path: AppRouteName.onBoardingMain, builder: (context, state) => OnBoardingMainPage(), routes: [
+              GoRoute(
+                  path: AppRouteName.onBoardingTwo,
+                  builder: (context, state) => const OnBoardingSecondPage(),
+                  routes: [GoRoute(path: AppRouteName.onBoardingThree, builder: (context, state) => const OnBoardingThirdPage())])
+            ]),
+
+            //Login
+            GoRoute(path: AppRouteName.loginPage, builder: (context, state) => LoginPage(), routes: [
+              GoRoute(
+                  path: AppRouteName.registerPage,
+                  builder: (context, state) => RegisterPage(),
+                  routes: [GoRoute(path: AppRouteName.confirmationPage, builder: (context, state) => ConfirmationCodePage())])
+            ]),
+
+            //Welcome
+            GoRoute(path: AppRouteName.welcomePage, builder: (context, state) => const WelcomePage(), routes: [
+              GoRoute(
+                  path: AppRouteName.personalizationPage,
+                  builder: (context, state) => PersonalizationPage(),
+                  routes: [GoRoute(path: AppRouteName.personalizationPageTwo, builder: (context, state) => const PersonalizationPageTwo())])
+            ]),
+
+            //Home
+            ShellRoute(
+                builder: (context, state, child) => MainPage(
+                      child: child,
+                    ),
+                routes: [
+                  GoRoute(path: AppRouteName.settingPage, builder: (context, state) => const SettingPage()),
+
+                  //Home
+                  GoRoute(
+                    path: AppRouteName.homePage,
+                    builder: (context, state) => const HomePage(),
+                    routes: [
+                      GoRoute(
+                          path: AppRouteName.homeDetailPage,
+                          builder: (context, state) => const HomeDetailPage(),
+                          routes: [GoRoute(path: AppRouteName.bookPage, builder: (context, state) => const BookDetailPage())])
+                    ],
+                  ),
+
+                  //Search
+                  GoRoute(path: AppRouteName.searchPage, builder: (context, state) => const SearchPage()),
+
+                  //Library
+                  GoRoute(path: AppRouteName.libraryPage, builder: (context, state) => const LibraryPage(), routes: [
+                    GoRoute(path: AppRouteName.profilePage, builder: (context, state) => const ProfilePage()),
+                  ])
+                ])
+          ],
+        )
+      : GoRouter(
+          initialLocation: AppRouteName.splash,
+          routes: <RouteBase>[
+            GoRoute(
+              path: AppRouteName.splash,
+              builder: (context, state) => const SplashPage(),
             ),
 
             //Home
-            GoRoute(
-              path: AppRouteName.homePage,
-              builder: (context, state)=> const HomePage(),
-              routes: [
-                GoRoute(
-                    path: AppRouteName.homeDetailPage,
-                    builder: (context, state)=> const HomeDetailPage(),
+            ShellRoute(
+                builder: (context, state, child) => MainPage(
+                      child: child,
+                    ),
+                routes: [
+                  GoRoute(path: AppRouteName.settingPage, builder: (context, state) => const SettingPage()),
+
+                  //Home
+                  GoRoute(
+                    path: AppRouteName.homePage,
+                    builder: (context, state) => const HomePage(),
                     routes: [
                       GoRoute(
-                          path: AppRouteName.bookPage,
-                          builder: (context, state)=> const BookDetailPage()
-                      )
-                    ]
-                )
-              ],
-            ),
-
-            //Search
-            GoRoute(
-                path: AppRouteName.searchPage,
-                builder: (context, state)=>const SearchPage()
-            ),
-
-            //Library
-            GoRoute(
-                path: AppRouteName.libraryPage,
-                builder: (context, state)=> const LibraryPage(),
-                routes: [
-                  GoRoute(
-                      path: AppRouteName.profilePage,
-                      builder: (context, state)=> const ProfilePage()
+                          path: AppRouteName.homeDetailPage,
+                          builder: (context, state) => const HomeDetailPage(),
+                          routes: [GoRoute(path: AppRouteName.bookPage, builder: (context, state) => const BookDetailPage())])
+                    ],
                   ),
-                ]
-            )
-          ]
-      )
-    ],
-  );
+
+                  //Search
+                  GoRoute(path: AppRouteName.searchPage, builder: (context, state) => const SearchPage()),
+
+                  //Library
+                  GoRoute(path: AppRouteName.libraryPage, builder: (context, state) => const LibraryPage(), routes: [
+                    GoRoute(path: AppRouteName.profilePage, builder: (context, state) => const ProfilePage()),
+                  ])
+                ])
+          ],
+        );
 }

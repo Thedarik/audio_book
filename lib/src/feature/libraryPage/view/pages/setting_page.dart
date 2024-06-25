@@ -1,17 +1,14 @@
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
+import 'package:audio_book/src/feature/libraryPage/view/widgets/settign_view_profile_button.dart';
+import 'package:audio_book/src/feature/libraryPage/view/widgets/setting_logout_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class SettingPage extends StatefulWidget {
+class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
 
-  @override
-  State<SettingPage> createState() => _SettingPageState();
-}
-
-class _SettingPageState extends State<SettingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,10 +58,7 @@ class _SettingPageState extends State<SettingPage> {
                           "John Doe",
                           style: AppTextStyle.settingProfileNameMedium,
                         ),
-                        Text(
-                          "View profile",
-                          style: AppTextStyle.settingProfileViewSmall,
-                        )
+                        const SettignViewProfileButton()
                       ],
                     ),
                   )
@@ -191,19 +185,7 @@ class _SettingPageState extends State<SettingPage> {
           SizedBox(
             height: 28.h,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 28),
-            child: MaterialButton(
-              onPressed: () {},
-              height: 56.h,
-              minWidth: double.infinity,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8), side: const BorderSide(color: AppColors.cF77A55, width: 1)),
-              child: Text(
-                "Log out",
-                style: AppTextStyle.settingProfileLogOutMedium,
-              ),
-            ),
-          )
+          const Padding(padding: EdgeInsets.symmetric(horizontal: 28), child: SettingLogoutButton())
         ],
       ),
     );
