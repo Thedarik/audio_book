@@ -1,4 +1,6 @@
+import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/style/colors.dart';
 import '../../../../core/style/images.dart';
@@ -60,7 +62,9 @@ class ForgetPasswordPageTwo extends StatelessWidget {
               ),
               fixedSizedBox(height: 24),
               MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.go(AppRouteName.welcomePage);
+                },
                 minWidth: double.infinity,
                 height: 56,
                 shape: OutlineInputBorder(
