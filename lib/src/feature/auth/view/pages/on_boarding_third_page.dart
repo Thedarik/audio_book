@@ -21,7 +21,7 @@ class OnBoardingThirdPage extends StatelessWidget {
               ),
 
               /// photo
-              AppImages.thirdBoardingImage,
+              AppImages.onBoardingThirdImage,
               const SizedBox(
                 height: 21,
               ),
@@ -38,27 +38,27 @@ class OnBoardingThirdPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const Spacer(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: MaterialButton(
-                    minWidth: double.infinity,
-                    height: 56,
-                    color: AppColors.c4838D1,
-                    onPressed: () {
-                      context.go(AppRouteName.loginPage);
-                    },
-                    child: Text(
-                      "Lets Get Started",
-                      style: AppTextStyle.onBoardingButtonNextMedium,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 80,
-              )
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 40.0),
+              //   child: ClipRRect(
+              //     borderRadius: BorderRadius.circular(8),
+              //     child: MaterialButton(
+              //       minWidth: double.infinity,
+              //       height: 56,
+              //       color: AppColors.c4838D1,
+              //       onPressed: () {
+              //         context.go(AppRouteName.loginPage);
+              //       },
+              //       child: Text(
+              //         "Lets Get Started",
+              //         style: AppTextStyle.onBoardingButtonNextMedium,
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(
+              //   height: 80,
+              // )
             ],
           ),
         ),

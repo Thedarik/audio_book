@@ -21,7 +21,7 @@ class OnBoardingSecondPage extends StatelessWidget {
               ),
 
               /// photo
-              AppImages.secondBoardingImage,
+              AppImages.onBoardingSecondImage,
               const SizedBox(
                 height: 21,
               ),
@@ -38,39 +38,6 @@ class OnBoardingSecondPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  MaterialButton(
-                    minWidth: 140,
-                    height: 56,
-                    onPressed: () {
-                      context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}");
-                    },
-                    child: Text(
-                      "Skip",
-                      style: AppTextStyle.onBoardingButtonSkipMedium,
-                    ),
-                  ),
-                  ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: MaterialButton(
-                        minWidth: 140,
-                        height: 56,
-                        color: AppColors.c4838D1,
-                        onPressed: () {
-                          context.go("${AppRouteName.onBoardingMain}/${AppRouteName.onBoardingTwo}/${AppRouteName.onBoardingThree}");
-                        },
-                        child: Text(
-                          "Next",
-                          style: AppTextStyle.onBoardingButtonNextMedium,
-                        ),
-                      )),
-                ],
-              ),
-              const SizedBox(
-                height: 80,
-              )
             ],
           ),
         ),
