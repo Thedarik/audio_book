@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/style/colors.dart';
 import '../../../../core/style/text_style.dart';
 
-class MovieList extends StatelessWidget {
-  const MovieList({super.key});
+class MovieListSearch extends StatelessWidget {
+  const MovieListSearch({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class MovieList extends StatelessWidget {
                   height: 160,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: AppColors.cF5F5FA,
+                      color: AppColors.red
                     ),
                   ),
                 ),

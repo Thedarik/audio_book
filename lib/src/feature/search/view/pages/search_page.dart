@@ -1,9 +1,11 @@
 import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:audio_book/src/feature/home/view/widgets/movie_list.dart';
+import 'package:audio_book/src/feature/search/view/widgets/movie_list.dart';
 import 'package:audio_book/src/feature/search/view/widgets/recommendations.dart';
 import 'package:audio_book/src/feature/search/view/widgets/text_field_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 class SearchPage extends StatefulWidget {
@@ -34,7 +36,7 @@ class _SearchPageState extends State<SearchPage> {
     return Scaffold(
       body: Column(
         children: [
-          const SizedBox(height: 60),
+          SizedBox(height: 20.h),
 
           Padding(
             padding: const EdgeInsets.only(right: 276),
@@ -58,9 +60,11 @@ class _SearchPageState extends State<SearchPage> {
             ),
           ),
 
-          const SizedBox(height: 20),
+          SizedBox(height: 20.h),
 
           Recommendations(widget: widgets, text: texts),
+
+          SizedBox(height: 25.h),
 
           Padding(
             padding: const EdgeInsets.only(right: 255),
@@ -70,9 +74,9 @@ class _SearchPageState extends State<SearchPage> {
             ),
           ),
 
-          const SizedBox(height: 10),
+          SizedBox(height: 15.h),
 
-          const MovieList()
+          const MovieListSearch()
         ],
       ),
     );

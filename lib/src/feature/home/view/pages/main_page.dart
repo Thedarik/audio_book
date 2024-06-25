@@ -5,29 +5,36 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/style/colors.dart';
 import '../widgets/logo_text.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   final Widget child;
   const MainPage({super.key, required this.child});
 
   @override
-  Widget build(BuildContext context) {
-    int selectedIndex = 0;
+  State<MainPage> createState() => _MainPageState();
+}
 
-    void onItemTapped(int index) {
+class _MainPageState extends State<MainPage> {
+  int selectedIndex = 0;
+  void onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
 
-      switch (index) {
-        case 0:
-          context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}");
-          break;
-        case 1:
-          context.go("${AppRouteName.mainPage}${AppRouteName.searchPage.substring(1)}");
-          break;
-        case 2:
-          context.go("${AppRouteName.mainPage}${AppRouteName.libraryPage.substring(1)}");
-          break;
-      }
+    switch (index) {
+      case 0:
+        context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}");
+        break;
+      case 1:
+        context.go("${AppRouteName.mainPage}${AppRouteName.searchPage.substring(1)}");
+        break;
+      case 2:
+        context.go("${AppRouteName.mainPage}${AppRouteName.libraryPage.substring(1)}");
+        break;
     }
+  }
 
+  @override
+  Widget build(BuildContext context) {
 
     return Scaffold(
       appBar: AppBar(
@@ -55,7 +62,7 @@ class MainPage extends StatelessWidget {
           ),
         ),
       ),
-      body: child,
+      body: widget.child,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
         onTap: onItemTapped,
@@ -76,10 +83,10 @@ class MainPage extends StatelessWidget {
             label: "Library",
           ),
         ],
-        type: BottomNavigationBarType.fixed, 
+        type: BottomNavigationBarType.fixed,
         showSelectedLabels: true,
         backgroundColor: AppColors.white,
-        showUnselectedLabels: true, 
+        showUnselectedLabels: true,
         selectedLabelStyle: const TextStyle(color: AppColors.c4838D1,),
         unselectedLabelStyle: const TextStyle(color: AppColors.c6A6A8B),
       ),
