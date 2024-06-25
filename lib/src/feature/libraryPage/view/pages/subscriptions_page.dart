@@ -1,6 +1,7 @@
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
+import 'package:audio_book/src/feature/libraryPage/view/widgets/subscribe_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +21,12 @@ class SubscriptionsPage extends StatelessWidget {
             onPressed: () {
               context.pop();
             },
-            icon: const Icon(Icons.arrow_drop_down),
+            icon: SvgPicture.asset(
+              "assets/icons/arrow_left.svg",
+              height: 24.h,
+              width: 24.w,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         title: const Text(
@@ -38,12 +44,18 @@ class SubscriptionsPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: SizedBox(
-                  height: 327.h,
+                  height: 328.h,
                   child: DecoratedBox(
                       decoration: BoxDecoration(
+                        color: AppColors.c4838D1,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: AppImages.subscribeBannerImage),
+                      child: Image.asset(
+                        "assets/images/image copy 3.png",
+                        width: 328.w,
+                        height: 328.h,
+                        fit: BoxFit.cover,
+                      )),
                 ),
               ),
               SizedBox(
@@ -217,7 +229,13 @@ class SubscriptionsPage extends StatelessWidget {
                 child: SizedBox(
                   height: 126.h,
                   width: double.infinity,
-                  child: AppImages.subscribeBannerImage,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: AppColors.cF77A55,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Image.asset("assets/images/image copy 4.png"),
+                  ),
                 ),
               ),
               SizedBox(
@@ -258,7 +276,7 @@ class SubscriptionsPage extends StatelessWidget {
                     children: [
                       Text(
                         "Subscribe Now",
-                        style: AppTextStyle.subscriptionFenceTextMedium?.copyWith(fontSize: 24, color: AppColors.c010104),
+                        style: AppTextStyle.subscriptionFenceTextMedium?.copyWith(color: AppColors.c010104),
                       ),
                     ],
                   ),
@@ -267,26 +285,7 @@ class SubscriptionsPage extends StatelessWidget {
               SizedBox(
                 height: 12.h,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: MaterialButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  color: AppColors.c4838D1,
-                  onPressed: () {},
-                  child: SizedBox(
-                    height: 56.h,
-                    width: double.infinity,
-                    child: Center(
-                      child: Text(
-                        "SUBSCRIBE",
-                        style: AppTextStyle.subscriptionBottomTextsLarge?.copyWith(color: AppColors.cFFFFFF),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              const SubscribeButton(),
               SizedBox(
                 height: 80.h,
               )

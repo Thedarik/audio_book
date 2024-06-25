@@ -36,7 +36,7 @@ class Recommendation extends StatelessWidget {
           ),
         ),
 
-        const SizedBox(height: 20),
+        const SizedBox(height: 5),
 
         Padding(
           padding: const EdgeInsets.only(left: 30),

@@ -4,16 +4,12 @@ import 'package:audio_book/src/feature/libraryPage/view/widgets/player_buttomMen
 import 'package:audio_book/src/feature/libraryPage/view/widgets/player_custom_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
-class AudioPage extends StatefulWidget {
+class AudioPage extends StatelessWidget {
   const AudioPage({super.key});
 
-  @override
-  State<AudioPage> createState() => _AudioPageState();
-}
-
-class _AudioPageState extends State<AudioPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,17 +21,21 @@ class _AudioPageState extends State<AudioPage> {
             onPressed: () {
               context.pop();
             },
-            icon: const Icon(Icons.arrow_drop_down),
+            icon: SvgPicture.asset(
+              "assets/icons/arow_down.svg",
+              height: 24.h,
+              width: 24.w,
+            ),
           ),
         ),
         centerTitle: true,
         title: Text(
-          "kvjbsdivdbcjshdkicgsdcjsfydcsdcsduvc",
-          style: AppTextStyle.homeBookNameMedium,
+          "Harry Potter and the Sorc",
+          style: AppTextStyle.detailAudioTitleMedium,
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 37),
+            padding: const EdgeInsets.symmetric(horizontal: 36),
             child: IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz)),
           ),
         ],
@@ -46,16 +46,16 @@ class _AudioPageState extends State<AudioPage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 28),
             child: SizedBox(
-              height: 319.h,
+              height: 320.h,
               width: double.infinity,
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  color: Colors.red,
+                  image: DecorationImage(image: const AssetImage("assets/images/image copy 2.png")),
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: const [
                     BoxShadow(
                       color: Colors.black,
-                      spreadRadius: 3,
+                      spreadRadius: 1,
                       blurRadius: 25,
                       offset: Offset(0, 10), // horizontal offset is 0, vertical offset is 3
                     ),
@@ -84,7 +84,7 @@ class _AudioPageState extends State<AudioPage> {
               children: [
                 Text(
                   "J.K. Rowling",
-                  style: AppTextStyle.playerBookSubtitleMedium,
+                  style: AppTextStyle.detailAudioSubtitleMedium,
                 ),
               ],
             ),
@@ -95,7 +95,7 @@ class _AudioPageState extends State<AudioPage> {
           SizedBox(
             height: 50.h,
             width: double.infinity,
-            child: const CustomSlider(),
+            child: CustomSlider(),
           ),
           const PalyButtomWidget(),
           SizedBox(

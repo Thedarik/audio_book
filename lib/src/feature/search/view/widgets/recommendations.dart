@@ -11,7 +11,7 @@ class Recommendations extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 200,
+      height: 120,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Wrap(

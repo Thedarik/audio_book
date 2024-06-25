@@ -2,14 +2,10 @@ import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:flutter/material.dart';
 
-class CustomSlider extends StatefulWidget {
-  const CustomSlider({super.key});
+// ignore: must_be_immutable
+class CustomSlider extends StatelessWidget {
+  CustomSlider({super.key});
 
-  @override
-  _CustomSliderState createState() => _CustomSliderState();
-}
-
-class _CustomSliderState extends State<CustomSlider> {
   double _currentSliderValue = 20;
 
   @override
@@ -36,9 +32,7 @@ class _CustomSliderState extends State<CustomSlider> {
               divisions: 100,
               label: _currentSliderValue.round().toString(),
               onChanged: (double value) {
-                setState(() {
-                  _currentSliderValue = value;
-                });
+                _currentSliderValue = value;
               },
             ),
           ),

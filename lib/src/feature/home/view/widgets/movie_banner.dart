@@ -39,7 +39,7 @@ class MovieBanner extends StatelessWidget {
           ),
         ),
 
-        const SizedBox(height: 20),
+        const SizedBox(height: 5),
 
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -57,7 +57,7 @@ class MovieBanner extends StatelessWidget {
                       height: 160,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                          color: AppColors.cF5F5FA,
+                          color: Colors.yellow,
                         ),
                       ),
                     ),

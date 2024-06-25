@@ -1,16 +1,12 @@
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
+import 'package:audio_book/src/feature/libraryPage/view/widgets/library_listveiw_bulder.dart';
+import 'package:audio_book/src/feature/libraryPage/view/widgets/library_search_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LibraryPage extends StatefulWidget {
+class LibraryPage extends StatelessWidget {
   const LibraryPage({super.key});
-
-  @override
-  State<LibraryPage> createState() => _LibraryPageState();
-}
-
-class _LibraryPageState extends State<LibraryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,77 +24,9 @@ class _LibraryPageState extends State<LibraryPage> {
             ),
           ),
           SizedBox(height: 12.h),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: SizedBox(
-              height: 53.h,
-              width: double.infinity,
-              child: TextField(
-                decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide.none,
-                    ),
-                    filled: true,
-                    fillColor: AppColors.cF5F5FA,
-                    hintText: 'Search Books or Author...',
-                    hintStyle: AppTextStyle.loginFieldSmall),
-                style: const TextStyle(
-                  fontSize: 16,
-                ),
-              ),
-            ),
-          ),
+          const LibrarySearchWidget(),
           SizedBox(height: 16.h),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: SizedBox(
-                      height: 104.h,
-                      width: 335.w, // Set width for each ListTile
-                      child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: 80.w,
-                              height: 80.h,
-                              child: const DecoratedBox(
-                                decoration: BoxDecoration(color: Colors.blue),
-                              ),
-                            ),
-                            SizedBox(width: 16.w),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Asadbek Ibragimov $index',
-                                    style: AppTextStyle.homeBookNameMedium,
-                                  ),
-                                  Text(
-                                    'Subtitle $index',
-                                    style: AppTextStyle.splashVersionLabelLarge,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ),
+          const LibraryListveiwBulder(),
         ],
       ),
     );
