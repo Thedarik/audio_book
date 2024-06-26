@@ -5,6 +5,7 @@ import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/login_text_field_widget.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/useful_widgets_for_all_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatelessWidget {
@@ -25,12 +26,12 @@ class LoginPage extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            fixedSizedBox(height: 60),
+            fixedSizedBox(height: 60.h),
             AppImages.authLogo,
-            fixedSizedBox(height: 24),
+            fixedSizedBox(height: 24.h),
             Row(
               children: [
-                fixedSizedBox(height: 0, width: 41),
+                fixedSizedBox(height: 0, width: 41.w),
                 Text(
                   "Login to Your Account",
                   style: AppTextStyle.loginTitleMedium,
@@ -38,7 +39,7 @@ class LoginPage extends StatelessWidget {
                 const Spacer(),
               ],
             ),
-            fixedSizedBox(height: 16),
+            fixedSizedBox(height: 16.h),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
               child: Column(
@@ -52,7 +53,7 @@ class LoginPage extends StatelessWidget {
                     context: context,
                     nextNode: _secondFocusNode,
                   ),
-                  fixedSizedBox(height: 16),
+                  fixedSizedBox(height: 16.h),
                   textFieldLogin(
                     controller: controller2,
                     hintText: "Password",
@@ -61,25 +62,19 @@ class LoginPage extends StatelessWidget {
                     keyboardType: TextInputType.visiblePassword,
                     context: context,
                   ),
-                  fixedSizedBox(height: 16),
+                  fixedSizedBox(height: 16.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: isCheckFilled
-                            ? const Icon(
-                                Icons.check_box,
-                                color: AppColors.cF5F5FA,
-                              )
-                            : const Icon(
-                                Icons.check_box_outline_blank,
-                                color: AppColors.cBBB1FA,
-                              ),
+                      Checkbox(
+                        value: false,
+                        onChanged: (value) => value,
+                        checkColor: AppColors.cBBB1FA,
+                        side: const BorderSide(width: 2),
                       ),
                       fixedSizedBox(
                         height: 0,
-                        width: 12,
+                        width: 12.w,
                       ),
                       Text(
                         "Remember me",
@@ -90,7 +85,7 @@ class LoginPage extends StatelessWidget {
                   fixedSizedBox(height: 16),
                   MaterialButton(
                     minWidth: double.infinity,
-                    height: 56,
+                    height: 56.h,
                     onPressed: () {
                       context.go(AppRouteName.welcomePage);
                     },
@@ -103,7 +98,7 @@ class LoginPage extends StatelessWidget {
                       style: AppTextStyle.loginLoginButtonMedium,
                     ),
                   ),
-                  fixedSizedBox(height: 32),
+                  fixedSizedBox(height: 32.h),
                   Row(
                     children: [
                       const Spacer(),
@@ -111,7 +106,7 @@ class LoginPage extends StatelessWidget {
                         splashColor: AppColors.cF5F5FA,
                         borderRadius: BorderRadius.circular(8),
                         onTap: () {
-
+                          context.go("${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}");
                         },
                         child: Text(
                           "Forget Password ?",
@@ -120,63 +115,63 @@ class LoginPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  fixedSizedBox(height: 32),
+                  fixedSizedBox(height: 32.h),
                   Text(
                     "Or login with",
                     style: AppTextStyle.loginOrLoginWithSmall,
                   ),
-                  fixedSizedBox(height: 20),
+                  fixedSizedBox(height: 20.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       MaterialButton(
-                        onPressed: (){},
-                        minWidth: 87,
-                        height: 56,
+                        onPressed: () {},
+                        minWidth: 87.w,
+                        height: 56.h,
                         shape: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: const BorderSide(width: 1,color: AppColors.c4838D1)
-                        ),
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: const BorderSide(
+                                width: 1, color: AppColors.c4838D1)),
                         child: AppImages.googleIcon,
                       ),
                       MaterialButton(
-                        onPressed: (){},
-                        minWidth: 87,
-                        height: 56,
+                        onPressed: () {},
+                        minWidth: 87.w,
+                        height: 56.h,
                         shape: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(width: 1,color: AppColors.c4838D1)
-                        ),
+                            borderSide: const BorderSide(
+                                width: 1, color: AppColors.c4838D1)),
                         child: AppImages.facebookIcon,
                       ),
                       MaterialButton(
-                        onPressed: (){},
-                        minWidth: 87,
-                        height: 56,
+                        onPressed: () {},
+                        minWidth: 87.w,
+                        height: 56.h,
                         shape: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(width: 1,color: AppColors.c4838D1)
-                        ),
+                            borderSide: const BorderSide(
+                                width: 1, color: AppColors.c4838D1)),
                         child: AppImages.twitterIcon,
                       ),
                     ],
                   ),
-                  fixedSizedBox(height: 24),
+                  fixedSizedBox(height: 24.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "Don’t have an accoun’t ? ",
                         style: AppTextStyle.loginAccountSmall,
-
                       ),
                       InkWell(
-                        onTap: (){
-                          context.go("${AppRouteName.loginPage}/${AppRouteName.registerPage}");
+                        onTap: () {
+                          context.go(
+                              "${AppRouteName.loginPage}/${AppRouteName.registerPage}");
                         },
                         borderRadius: BorderRadius.circular(8),
                         child: Text(
-                          "Register",
+                          " Register",
                           style: AppTextStyle.loginAccountSmall2,
                         ),
                       ),

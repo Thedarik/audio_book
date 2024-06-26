@@ -1,4 +1,6 @@
 import "package:audio_book/src/feature/auth/view/pages/error_page.dart";
+import "package:audio_book/src/feature/auth/view/pages/forget_password_page_one.dart";
+import "package:audio_book/src/feature/auth/view/pages/forget_password_page_two.dart";
 import "package:audio_book/src/feature/auth/view/pages/on_boarding_second_page.dart";
 import "package:audio_book/src/feature/auth/view/pages/on_boarding_third_page.dart";
 import "package:audio_book/src/feature/auth/view/pages/personalization_page.dart";
@@ -8,6 +10,7 @@ import "package:audio_book/src/feature/home/view/pages/book_detail_page.dart";
 import "package:audio_book/src/feature/home/view/pages/home_detail_page.dart";
 import "package:audio_book/src/feature/home/view/pages/home_page.dart";
 import "package:audio_book/src/feature/home/view/pages/main_page.dart";
+import "package:audio_book/src/feature/libraryPage/view/pages/audio_page.dart";
 import "package:audio_book/src/feature/libraryPage/view/pages/library_page.dart";
 import "package:audio_book/src/feature/libraryPage/view/pages/profile_page.dart";
 import "package:audio_book/src/feature/libraryPage/view/pages/setting_page.dart";
@@ -63,7 +66,17 @@ final class AppRouter {
                         GoRoute(
                             path: AppRouteName.confirmationPage,
                             builder: (context, state) => ConfirmationCodePage())
-                      ])
+                      ],
+                  ),
+                  GoRoute(
+                      path: AppRouteName.forgetPasswordOne,
+                      builder: (context, state) => ForgetPasswordPageOne(),
+                      routes: [
+                        GoRoute(
+                          path: AppRouteName.forgetPasswordTwo,
+                          builder: (context, state) => ForgetPasswordPageTwo(),
+                        )
+                      ]),
                 ]),
 
             //Welcome
@@ -104,7 +117,14 @@ final class AppRouter {
                             GoRoute(
                                 path: AppRouteName.bookPage,
                                 builder: (context, state) =>
-                                    const BookDetailPage())
+                                    const BookDetailPage(),
+                            routes: [
+                              GoRoute(
+                                path: AppRouteName.audioPage,
+                                builder: (context, state)=>const AudioPage()
+                              )
+                            ]
+                            ),
                           ])
                     ],
                   ),

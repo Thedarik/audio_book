@@ -92,9 +92,9 @@ class PersonalizationPage extends StatelessWidget {
                         children: [
                           categoryBuilder(category: "Art",),
                           fixedSizedBox(height: 0,width: 8),
-                          categoryBuilder(category: "Business"),
+                          categoryBuilder(category: "Business",),
                           fixedSizedBox(height: 0,width: 8),
-                          categoryBuilder(category: "Biography")
+                          categoryBuilder(category: "Biography",)
                         ],
                       ),
                       Row(
@@ -102,9 +102,9 @@ class PersonalizationPage extends StatelessWidget {
                         children: [
                           categoryBuilder(category: "Comedy",),
                           fixedSizedBox(height: 0,width: 8),
-                          categoryBuilder(category: "Culture"),
+                          categoryBuilder(category: "Culture",),
                           fixedSizedBox(height: 0,width: 8),
-                          categoryBuilder(category: "Education")
+                          categoryBuilder(category: "Education",)
                         ],
                       ),
                       Row(
@@ -112,9 +112,9 @@ class PersonalizationPage extends StatelessWidget {
                         children: [
                           categoryBuilder(category: "News",),
                           fixedSizedBox(height: 0,width: 8),
-                          categoryBuilder(category: "Philosophy"),
+                          categoryBuilder(category: "Philosophy",),
                           fixedSizedBox(height: 0,width: 8),
-                          categoryBuilder(category: "Psychology"),
+                          categoryBuilder(category: "Psychology",),
                         ],
                       ),
                       Row(
@@ -122,7 +122,7 @@ class PersonalizationPage extends StatelessWidget {
                         children: [
                           categoryBuilder(category: "Technology",),
                           fixedSizedBox(height: 0,width: 8),
-                          categoryBuilder(category: "Travel"),
+                          categoryBuilder(category: "Travel",),
                         ],
                       ),
                     ],

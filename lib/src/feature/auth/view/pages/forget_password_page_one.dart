@@ -55,7 +55,8 @@ class ForgetPasswordPageOne extends StatelessWidget {
                     minWidth: double.infinity,
                     height: 56,
                     onPressed: () {
-                      context.go(AppRouteName.forgetPasswordTwo);
+                      context.go("${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}/${AppRouteName.forgetPasswordTwo}");
+
                     },
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),

@@ -63,7 +63,7 @@ class ForgetPasswordPageTwo extends StatelessWidget {
               fixedSizedBox(height: 24),
               MaterialButton(
                 onPressed: () {
-                  context.go(AppRouteName.welcomePage);
+                  context.go(AppRouteName.loginPage);
                 },
                 minWidth: double.infinity,
                 height: 56,

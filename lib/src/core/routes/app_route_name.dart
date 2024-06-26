@@ -12,7 +12,7 @@ final class AppRouteName {
   static const String searchPage = "/search";
   static const String bookPage = "book";
   static const String profilePage = "profile";
-  static const String audioPage = "/audio";
+  static const String audioPage = "audio";
 
   /// splash
   static const String splash = '/splash';
@@ -28,8 +28,8 @@ final class AppRouteName {
   static const String confirmationPage = 'confirmationPage';
 
   /// forget password pages
-  static const String forgetPasswordOne = '/forgetPasswordOne';
-  static const String forgetPasswordTwo = '/forgetPasswordTwo';
+  static const String forgetPasswordOne = 'forgetPasswordOne';
+  static const String forgetPasswordTwo = 'forgetPasswordTwo';
 
   /// on boardings
   static const String onBoardingOne = 'onBoardingOne';
