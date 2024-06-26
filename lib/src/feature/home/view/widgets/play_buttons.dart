@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../core/routes/app_route_name.dart';
 import '../../../../core/style/colors.dart';
 import '../../../../core/style/images.dart';
 import '../../../../core/style/text_style.dart';
@@ -14,7 +16,9 @@ class PlayButtons extends StatelessWidget {
       child: Row(
         children: [
           MaterialButton(
-            onPressed: (){},
+            onPressed: (){
+              context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}/${AppRouteName.bookPage}/${AppRouteName.audioPage}");
+            },
             height: 55,
             minWidth: 150,
             shape: RoundedRectangleBorder(

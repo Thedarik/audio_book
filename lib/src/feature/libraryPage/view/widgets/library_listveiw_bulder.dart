@@ -2,11 +2,26 @@ import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LibraryListveiwBulder extends StatelessWidget {
-  const LibraryListveiwBulder({super.key});
+class LibraryListviewBuilder extends StatelessWidget {
+  const LibraryListviewBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
+    List<String> assets = [
+      "assets/images/the_black_witch.png",
+      "assets/images/the_prisoners_key.png",
+      "assets/images/the_kidnappers.png",
+      "assets/images/the_fire_queen.png",
+      "assets/images/light_mage.png"
+    ];
+    List<String> texts = [
+      "The Black Witch",
+      "The Prisoners Key",
+      "The Kidnappers",
+      "The Fire Queen",
+      "Light Mage"
+    ];
+
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -17,7 +32,7 @@ class LibraryListveiwBulder extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 4.0),
               child: SizedBox(
                 height: 104.h,
-                width: 335.w, // Set width for each ListTile
+                width: 335.w,
                 child: Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Row(
@@ -25,8 +40,15 @@ class LibraryListveiwBulder extends StatelessWidget {
                       SizedBox(
                         width: 80.w,
                         height: 80.h,
-                        child: const DecoratedBox(
-                          decoration: BoxDecoration(color: Colors.blue),
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      assets[index]
+                                  ),
+                                  fit: BoxFit.cover
+                              )
+                          ),
                         ),
                       ),
                       SizedBox(width: 16.w),

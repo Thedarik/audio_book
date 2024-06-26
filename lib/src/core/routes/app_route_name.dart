@@ -12,7 +12,7 @@ final class AppRouteName {
   static const String searchPage = "/search";
   static const String bookPage = "book";
   static const String profilePage = "profile";
-  static const String audioPage = "/audio";
+  static const String audioPage = "audio";
 
   /// splash
   static const String splash = '/splash';

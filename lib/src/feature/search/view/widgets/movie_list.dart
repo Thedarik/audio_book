@@ -8,6 +8,21 @@ class MovieListSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> assets = [
+      "assets/images/the_black_witch.png",
+      "assets/images/the_prisoners_key.png",
+      "assets/images/the_kidnappers.png",
+      "assets/images/the_fire_queen.png",
+      "assets/images/light_mage.png"
+    ];
+    List<String> texts = [
+      "The Black Witch",
+      "The Prisoners Key",
+      "The Kidnappers",
+      "The Fire Queen",
+      "Light Mage"
+    ];
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: SizedBox(
@@ -15,16 +30,21 @@ class MovieListSearch extends StatelessWidget {
         child: ListView.separated(
           separatorBuilder: (context, index) => const SizedBox(width: 17),
           scrollDirection: Axis.horizontal,
-          itemCount: 10,
+          itemCount: assets.length,
           itemBuilder: (context, index) {
             return Column(
               children: [
-                const SizedBox(
+                SizedBox(
                   width: 160,
                   height: 160,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                      color: AppColors.red
+                        image: DecorationImage(
+                            image: AssetImage(
+                                assets[index]
+                            ),
+                          fit: BoxFit.cover
+                        )
                     ),
                   ),
                 ),
@@ -32,7 +52,7 @@ class MovieListSearch extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 20),
                   child: Text(
-                    "The Fire Queen",
+                    texts[index],
                     style: AppTextStyle.homeCategoryTextMedium?.copyWith(
                         color: AppColors.c2E2E5D),
                     maxLines: 1,
