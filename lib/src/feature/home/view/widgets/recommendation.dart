@@ -53,8 +53,13 @@ class Recommendation extends StatelessWidget {
                     SizedBox(
                       width: 200,
                       height: 300,
-                      child: ColoredBox(
-                          color: Colors.blue
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage("assets/images/the_silence.png"),
+                              // fit: BoxFit.fitWidth
+                            )
+                        ),
                       ),
                     )
                   ],

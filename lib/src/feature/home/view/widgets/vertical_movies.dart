@@ -11,6 +11,19 @@ class VerticalMovies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> assets = [
+      "assets/images/the_black_witch.png",
+      "assets/images/the_prisoners_key.png",
+      "assets/images/the_kidnappers.png",
+      "assets/images/the_fire_queen.png",
+    ];
+    List<String> texts = [
+      "The Black Witch",
+      "Prisoners Key",
+      "The Kidnappers",
+      "TheFire Queen",
+    ];
+
     return GridView.builder(
       padding: const EdgeInsets.symmetric(horizontal: 14),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -18,7 +31,7 @@ class VerticalMovies extends StatelessWidget {
         crossAxisSpacing: 15.w,
         childAspectRatio: 0.73,
       ),
-      itemCount: 7,
+      itemCount: assets.length,
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: (){
@@ -26,12 +39,16 @@ class VerticalMovies extends StatelessWidget {
           },
           child: Column(
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 160,
                 width: 160,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                      color: Colors.blue
+                      image: DecorationImage(
+                          image: AssetImage(
+                              assets[index]
+                          )
+                      )
                   ),
                 ),
               ),
@@ -43,7 +60,7 @@ class VerticalMovies extends StatelessWidget {
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: "The Black Witch\n",
+                        text: "${texts[index]}\n",
                         style: AppTextStyle.homeCategoriesMedium?.copyWith(
                           fontWeight: FontWeight.w500
                         )

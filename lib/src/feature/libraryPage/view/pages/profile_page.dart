@@ -1,6 +1,7 @@
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
+import 'package:audio_book/src/feature/libraryPage/view/widgets/profile_save_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -27,14 +28,8 @@ class ProfilePage extends StatelessWidget {
           "Profile",
           style: AppTextStyle.homeBookNameMedium,
         ),
-        actions: [
-          MaterialButton(
-            onPressed: () {},
-            child: Text(
-              "Save",
-              style: AppTextStyle.settingProfileSaveMedium,
-            ),
-          )
+        actions: const [
+          ProfileSaveButton(),
         ],
       ),
       body: Column(

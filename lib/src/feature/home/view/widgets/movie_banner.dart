@@ -7,11 +7,25 @@ import '../../../../core/style/text_style.dart';
 
 class MovieBanner extends StatelessWidget {
   final String categoryText;
-  final String movieName;
-  const MovieBanner({super.key, required this.categoryText, required this.movieName});
+  const MovieBanner({super.key, required this.categoryText});
 
   @override
   Widget build(BuildContext context) {
+    List<String> assets = [
+      "assets/images/the_black_witch.png",
+      "assets/images/the_prisoners_key.png",
+      "assets/images/the_kidnappers.png",
+      "assets/images/the_fire_queen.png",
+      "assets/images/light_mage.png"
+    ];
+    List<String> texts = [
+      "The Black Witch",
+      "The Prisoners Key",
+      "The Kidnappers",
+      "The Fire Queen",
+      "Light Mage"
+    ];
+
     return Column(
       children: [
         Padding(
@@ -48,16 +62,21 @@ class MovieBanner extends StatelessWidget {
             child: ListView.separated(
               separatorBuilder: (context, index)=> const SizedBox(width: 10),
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: assets.length,
               itemBuilder: (context, index){
                 return Column(
                   children: [
-                    const SizedBox(
+                    SizedBox(
                       width: 160,
                       height: 160,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                          color: Colors.yellow,
+                          image: DecorationImage(
+                            image: AssetImage(
+                              assets[index]
+                            ),
+                            fit: BoxFit.cover
+                          )
                         ),
                       ),
                     ),
@@ -67,7 +86,7 @@ class MovieBanner extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(right: 20),
                       child: Text(
-                        movieName,
+                        texts[index],
                         style: AppTextStyle.homeCategoryTextMedium?.copyWith(
                             color: AppColors.c2E2E5D
                         ),

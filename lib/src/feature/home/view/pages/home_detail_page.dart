@@ -4,8 +4,6 @@ import 'package:audio_book/src/feature/home/view/widgets/vertical_movies.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../search/view/widgets/movie_list.dart';
-
 class HomeDetailPage extends StatelessWidget {
   const HomeDetailPage({super.key});
 

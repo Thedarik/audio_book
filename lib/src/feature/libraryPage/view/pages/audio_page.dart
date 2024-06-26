@@ -50,16 +50,17 @@ class AudioPage extends StatelessWidget {
               width: double.infinity,
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  image: DecorationImage(image: const AssetImage("assets/images/image copy 2.png")),
+                  image: const DecorationImage(
+                      image: AssetImage("assets/images/harry_potter.png")),
                   borderRadius: BorderRadius.circular(16),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black,
-                      spreadRadius: 1,
-                      blurRadius: 25,
-                      offset: Offset(0, 10), // horizontal offset is 0, vertical offset is 3
-                    ),
-                  ],
+                //   boxShadow: const [
+                //     BoxShadow(
+                //       color: Colors.black,
+                //       spreadRadius: 1,
+                //       blurRadius: 25,
+                //       offset: Offset(0, 10), // horizontal offset is 0, vertical offset is 3
+                //     ),
+                //   ],
                 ),
               ),
             ),

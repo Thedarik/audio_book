@@ -53,8 +53,15 @@ class _BookDetailPageState extends State<BookDetailPage> {
                 height: 260,
                 width: 260,
                 child: DecoratedBox(
-                  decoration: BoxDecoration(color: Colors.blue),
-                ),
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                              "assets/images/harry_potter.png"
+                          ),
+                          fit: BoxFit.cover
+                      )
+                  ),
+                )
               ),
               const SizedBox(height: 25),
               const AuthorTexts(),

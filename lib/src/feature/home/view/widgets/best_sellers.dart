@@ -71,12 +71,15 @@ class BestSellers extends StatelessWidget {
                               width: 120,
                               child: DecoratedBox(
                                 decoration: BoxDecoration(
-                                    color: AppColors.red,
+                                    image: DecorationImage(
+                                        image: AssetImage("assets/images/light_mage.png"),
+                                      // fit: BoxFit.cover
+                                    ),
                                     borderRadius: BorderRadius.all(
                                         Radius.circular(15)
                                     )
                                 ),
-                              ),
+                            ),
                             ),
 
                             const SizedBox(width: 15),
