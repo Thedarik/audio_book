@@ -1,3 +1,4 @@
+import "package:audio_book/src/feature/auth/view/pages/error_page.dart";
 import "package:audio_book/src/feature/auth/view/pages/on_boarding_second_page.dart";
 import "package:audio_book/src/feature/auth/view/pages/on_boarding_third_page.dart";
 import "package:audio_book/src/feature/auth/view/pages/personalization_page.dart";
@@ -7,7 +8,6 @@ import "package:audio_book/src/feature/home/view/pages/book_detail_page.dart";
 import "package:audio_book/src/feature/home/view/pages/home_detail_page.dart";
 import "package:audio_book/src/feature/home/view/pages/home_page.dart";
 import "package:audio_book/src/feature/home/view/pages/main_page.dart";
-import "package:audio_book/src/feature/libraryPage/view/pages/audio_page.dart";
 import "package:audio_book/src/feature/libraryPage/view/pages/library_page.dart";
 import "package:audio_book/src/feature/libraryPage/view/pages/profile_page.dart";
 import "package:audio_book/src/feature/libraryPage/view/pages/setting_page.dart";
@@ -32,28 +32,55 @@ final class AppRouter {
             ),
 
             //OnBoardings
-            GoRoute(path: AppRouteName.onBoardingMain, builder: (context, state) => OnBoardingMainPage(), routes: [
-              GoRoute(
-                  path: AppRouteName.onBoardingTwo,
-                  builder: (context, state) => const OnBoardingSecondPage(),
-                  routes: [GoRoute(path: AppRouteName.onBoardingThree, builder: (context, state) => const OnBoardingThirdPage())])
-            ]),
+            GoRoute(
+                path: AppRouteName.onBoardingMain,
+                builder: (context, state) => OnBoardingMainPage(),
+                routes: [
+                  GoRoute(
+                      path: AppRouteName.onBoardingTwo,
+                      builder: (context, state) => const OnBoardingSecondPage(),
+                      routes: [
+                        GoRoute(
+                            path: AppRouteName.onBoardingThree,
+                            builder: (context, state) =>
+                                const OnBoardingThirdPage())
+                      ])
+                ]),
+            GoRoute(
+              path: AppRouteName.errorPage,
+              builder: (context, state) => const ErrorPage(),
+            ),
 
             //Login
-            GoRoute(path: AppRouteName.loginPage, builder: (context, state) => LoginPage(), routes: [
-              GoRoute(
-                  path: AppRouteName.registerPage,
-                  builder: (context, state) => RegisterPage(),
-                  routes: [GoRoute(path: AppRouteName.confirmationPage, builder: (context, state) => ConfirmationCodePage())])
-            ]),
+            GoRoute(
+                path: AppRouteName.loginPage,
+                builder: (context, state) => LoginPage(),
+                routes: [
+                  GoRoute(
+                      path: AppRouteName.registerPage,
+                      builder: (context, state) => RegisterPage(),
+                      routes: [
+                        GoRoute(
+                            path: AppRouteName.confirmationPage,
+                            builder: (context, state) => ConfirmationCodePage())
+                      ])
+                ]),
 
             //Welcome
-            GoRoute(path: AppRouteName.welcomePage, builder: (context, state) => const WelcomePage(), routes: [
-              GoRoute(
-                  path: AppRouteName.personalizationPage,
-                  builder: (context, state) => PersonalizationPage(),
-                  routes: [GoRoute(path: AppRouteName.personalizationPageTwo, builder: (context, state) => const PersonalizationPageTwo())])
-            ]),
+            GoRoute(
+                path: AppRouteName.welcomePage,
+                builder: (context, state) => const WelcomePage(),
+                routes: [
+                  GoRoute(
+                      path: AppRouteName.personalizationPage,
+                      builder: (context, state) => PersonalizationPage(),
+                      routes: [
+                        GoRoute(
+                            path: AppRouteName.personalizationPageTwo,
+                            builder: (context, state) =>
+                                const PersonalizationPageTwo())
+                      ])
+                ]),
 
             //Home
             ShellRoute(
@@ -61,7 +88,9 @@ final class AppRouter {
                       child: child,
                     ),
                 routes: [
-                  GoRoute(path: AppRouteName.settingPage, builder: (context, state) => const SettingPage()),
+                  GoRoute(
+                      path: AppRouteName.settingPage,
+                      builder: (context, state) => const SettingPage()),
 
                   //Home
                   GoRoute(
@@ -74,26 +103,26 @@ final class AppRouter {
                           routes: [
                             GoRoute(
                                 path: AppRouteName.bookPage,
-                                builder: (context, state) => const BookDetailPage(),
-                              routes: [
-                                GoRoute(
-                                  path: AppRouteName.audioPage,
-                                  builder: (context, state)=> const AudioPage()
-                                )
-                              ]
-                            )
-                          ]
-                      )
+                                builder: (context, state) =>
+                                    const BookDetailPage())
+                          ])
                     ],
                   ),
 
                   //Search
-                  GoRoute(path: AppRouteName.searchPage, builder: (context, state) => const SearchPage()),
+                  GoRoute(
+                      path: AppRouteName.searchPage,
+                      builder: (context, state) => const SearchPage()),
 
                   //Library
-                  GoRoute(path: AppRouteName.libraryPage, builder: (context, state) => const LibraryPage(), routes: [
-                    GoRoute(path: AppRouteName.profilePage, builder: (context, state) => const ProfilePage()),
-                  ])
+                  GoRoute(
+                      path: AppRouteName.libraryPage,
+                      builder: (context, state) => const LibraryPage(),
+                      routes: [
+                        GoRoute(
+                            path: AppRouteName.profilePage,
+                            builder: (context, state) => const ProfilePage()),
+                      ])
                 ])
           ],
         )
@@ -111,7 +140,9 @@ final class AppRouter {
                       child: child,
                     ),
                 routes: [
-                  GoRoute(path: AppRouteName.settingPage, builder: (context, state) => const SettingPage()),
+                  GoRoute(
+                      path: AppRouteName.settingPage,
+                      builder: (context, state) => const SettingPage()),
 
                   //Home
                   GoRoute(
@@ -121,17 +152,29 @@ final class AppRouter {
                       GoRoute(
                           path: AppRouteName.homeDetailPage,
                           builder: (context, state) => const HomeDetailPage(),
-                          routes: [GoRoute(path: AppRouteName.bookPage, builder: (context, state) => const BookDetailPage())])
+                          routes: [
+                            GoRoute(
+                                path: AppRouteName.bookPage,
+                                builder: (context, state) =>
+                                    const BookDetailPage())
+                          ])
                     ],
                   ),
 
                   //Search
-                  GoRoute(path: AppRouteName.searchPage, builder: (context, state) => const SearchPage()),
+                  GoRoute(
+                      path: AppRouteName.searchPage,
+                      builder: (context, state) => const SearchPage()),
 
                   //Library
-                  GoRoute(path: AppRouteName.libraryPage, builder: (context, state) => const LibraryPage(), routes: [
-                    GoRoute(path: AppRouteName.profilePage, builder: (context, state) => const ProfilePage()),
-                  ])
+                  GoRoute(
+                      path: AppRouteName.libraryPage,
+                      builder: (context, state) => const LibraryPage(),
+                      routes: [
+                        GoRoute(
+                            path: AppRouteName.profilePage,
+                            builder: (context, state) => const ProfilePage()),
+                      ])
                 ])
           ],
         );

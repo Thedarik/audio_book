@@ -169,6 +169,27 @@ sealed class AppImages {
     fit: BoxFit.cover,
   );
 
+  static final onBoardingFirstImage = SvgPicture.asset(
+    'assets/icons/first_boarding_image (2).svg',
+    height: 260.h,
+    width: 260.w,
+    fit: BoxFit.cover,
+  );
+
+  static final onBoardingSecondImage = SvgPicture.asset(
+    'assets/icons/on_boarding_two.svg',
+    height: 260.h,
+    width: 260.w,
+    fit: BoxFit.cover,
+  );
+
+  static final onBoardingThirdImage = SvgPicture.asset(
+    'assets/icons/on_boarding_three.svg',
+    height: 260.h,
+    width: 260.w,
+    fit: BoxFit.cover,
+  );
+
   /// PNG
   static final authLogo = SvgPicture.asset(
     'assets/icons/small_logo.svg',
