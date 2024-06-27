@@ -10,9 +10,9 @@ import '../widgets/useful_widgets_for_all_pages.dart';
 
 class ForgetPasswordPageOne extends StatelessWidget {
   ForgetPasswordPageOne({super.key});
-  TextEditingController controller1 = TextEditingController();
-  FocusNode _firstFocusNode = FocusNode();
-  bool isCheckFilled = false;
+  final TextEditingController controller1 = TextEditingController();
+  final FocusNode _firstFocusNode = FocusNode();
+  final bool isCheckFilled = false;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class ForgetPasswordPageOne extends StatelessWidget {
                     minWidth: double.infinity,
                     height: 56,
                     onPressed: () {
-                      context.go(AppRouteName.forgetPasswordTwo);
+                      context.go("${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}/${AppRouteName.forgetPasswordTwo}");
                     },
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -68,7 +68,9 @@ class ForgetPasswordPageOne extends StatelessWidget {
                   ),
                   fixedSizedBox(height: 16),
                   MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.pop();
+                    },
                     minWidth: double.infinity,
                     height: 56,
                     shape: OutlineInputBorder(

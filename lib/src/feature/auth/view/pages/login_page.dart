@@ -111,7 +111,7 @@ class LoginPage extends StatelessWidget {
                         splashColor: AppColors.cF5F5FA,
                         borderRadius: BorderRadius.circular(8),
                         onTap: () {
-
+                          context.go("${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}");
                         },
                         child: Text(
                           "Forget Password ?",

@@ -10,9 +10,9 @@ import '../widgets/useful_widgets_for_all_pages.dart';
 
 class ForgetPasswordPageTwo extends StatelessWidget {
   ForgetPasswordPageTwo({super.key});
-  TextEditingController controller1 = TextEditingController();
-  FocusNode _firstFocusNode = FocusNode();
-  bool isCheckFilled = false;
+  final TextEditingController controller1 = TextEditingController();
+  final FocusNode firstFocusNode = FocusNode();
+  final bool isCheckFilled = false;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class ForgetPasswordPageTwo extends StatelessWidget {
               textFieldLogin(
                 controller: controller1,
                 hintText: "Email / Phone Number",
-                node: _firstFocusNode,
+                node: firstFocusNode,
                 isError: false,
                 keyboardType: TextInputType.emailAddress,
                 context: context,
@@ -63,7 +63,7 @@ class ForgetPasswordPageTwo extends StatelessWidget {
               fixedSizedBox(height: 24),
               MaterialButton(
                 onPressed: () {
-                  context.go(AppRouteName.welcomePage);
+                  context.go(AppRouteName.loginPage);
                 },
                 minWidth: double.infinity,
                 height: 56,

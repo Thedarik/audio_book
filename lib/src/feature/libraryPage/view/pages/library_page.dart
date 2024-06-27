@@ -4,14 +4,42 @@ import 'package:audio_book/src/feature/libraryPage/view/widgets/library_listveiw
 import 'package:audio_book/src/feature/libraryPage/view/widgets/library_search_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../core/routes/app_route_name.dart';
+import '../../../../core/style/images.dart';
+import '../../../home/view/widgets/logo_text.dart';
 
 class LibraryPage extends StatelessWidget {
   const LibraryPage({super.key});
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
+      appBar: AppBar(
+        title: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Row(
+            children: [
+              SizedBox(
+                height: 40,
+                width: 40,
+                child: AppImages.mainLogoIcon,
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              const LogoText(),
+              const Spacer(),
+              GestureDetector(
+                onTap: (){
+                  context.go("${AppRouteName.mainPage}${AppRouteName.settingPage.substring(1)}");
+                },
+                child: AppImages.settingIcon,
+              ),
+            ],
+          ),
+        ),
+      ),
       body: Column(
         children: [
           SizedBox(height: 42.h),
