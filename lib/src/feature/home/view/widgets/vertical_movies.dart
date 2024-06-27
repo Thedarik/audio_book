@@ -29,7 +29,7 @@ class VerticalMovies extends StatelessWidget {
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 15.w,
-        childAspectRatio: 0.73,
+        childAspectRatio: 0.73.sp,
       ),
       itemCount: assets.length,
       itemBuilder: (context, index) {
