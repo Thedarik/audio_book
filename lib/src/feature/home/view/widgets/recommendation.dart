@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -47,18 +48,23 @@ class Recommendation extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               itemBuilder: (context, index){
-                return const Column(
+                return Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SizedBox(
-                      width: 200,
-                      height: 300,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage("assets/images/the_silence.png"),
-                              // fit: BoxFit.fitWidth
-                            )
+                    GestureDetector(
+                      onTap: (){
+                        context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}");
+                      },
+                      child: const SizedBox(
+                        width: 200,
+                        height: 300,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("assets/images/the_silence.png"),
+                                // fit: BoxFit.fitWidth
+                              )
+                          ),
                         ),
                       ),
                     )

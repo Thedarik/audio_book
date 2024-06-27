@@ -35,13 +35,13 @@ class VerticalMovies extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: (){
-            context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}/${AppRouteName.bookPage}");
+            context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}");
           },
           child: Column(
             children: [
               SizedBox(
-                height: 160,
-                width: 160,
+                height: 160.h,
+                width: 160.w,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                       image: DecorationImage(
@@ -52,10 +52,11 @@ class VerticalMovies extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 8),
+              SizedBox(height: 8.h),
               Padding(
                 padding: const EdgeInsets.only(right: 30),
                 child: RichText(
+                  overflow: TextOverflow.fade,
                   textAlign: TextAlign.start,
                   text: TextSpan(
                     children: [

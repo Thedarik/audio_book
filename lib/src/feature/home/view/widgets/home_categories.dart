@@ -2,6 +2,8 @@ import 'package:audio_book/src/core/style/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
+import '../../../../core/routes/app_route_name.dart';
 import '../../../../core/style/text_style.dart';
 
 class HomeCategories extends StatelessWidget {
@@ -27,9 +29,14 @@ class HomeCategories extends StatelessWidget {
               style: AppTextStyle.homeCategoryTextMedium,
             ),
             const SizedBox(width: 75),
-            Text(
-              "See more",
-              style: AppTextStyle.homeSeeMoreSmall,
+            GestureDetector(
+              onTap: (){
+                context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}");
+              },
+              child: Text(
+                "See more",
+                style: AppTextStyle.homeSeeMoreSmall,
+              ),
             ),
           ],
         ),

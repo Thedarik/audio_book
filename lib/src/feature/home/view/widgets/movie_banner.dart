@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/routes/app_route_name.dart';
@@ -64,37 +65,42 @@ class MovieBanner extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: assets.length,
               itemBuilder: (context, index){
-                return Column(
-                  children: [
-                    SizedBox(
-                      width: 160,
-                      height: 160,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              assets[index]
-                            ),
-                            fit: BoxFit.cover
-                          )
+                return GestureDetector(
+                  onTap: (){
+                    context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}");
+                  },
+                  child: Column(
+                    children: [
+                      SizedBox(
+                        width: 160.w,
+                        height: 160.h,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                assets[index]
+                              ),
+                              fit: BoxFit.cover
+                            )
+                          ),
                         ),
                       ),
-                    ),
 
-                    const SizedBox(height: 15),
+                      SizedBox(height: 15.h),
 
-                    Padding(
-                      padding: const EdgeInsets.only(right: 20),
-                      child: Text(
-                        texts[index],
-                        style: AppTextStyle.homeCategoryTextMedium?.copyWith(
-                            color: AppColors.c2E2E5D
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: Text(
+                          texts[index],
+                          style: AppTextStyle.homeCategoryTextMedium?.copyWith(
+                              color: AppColors.c2E2E5D
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    )
-                  ],
+                      )
+                    ],
+                  ),
                 );
               },
             ),

@@ -2,6 +2,7 @@ import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:audio_book/src/feature/home/view/widgets/vertical_movies.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeDetailPage extends StatelessWidget {
@@ -14,7 +15,7 @@ class HomeDetailPage extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Row(
           children: <Widget>[
-            const SizedBox(width: 20),
+            SizedBox(width: 20.w),
 
             IconButton(
                 onPressed: (){
@@ -27,7 +28,7 @@ class HomeDetailPage extends StatelessWidget {
                 )
             ),
 
-            const SizedBox(width: 80),
+            SizedBox(width: 80.w),
 
             Text(
               "New Releases",
@@ -38,9 +39,11 @@ class HomeDetailPage extends StatelessWidget {
           ],
         ),
       ),
-      body: const Column(
+      body: Column(
         children: [
-          Expanded(
+          SizedBox(height: 20.h),
+
+          const Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: VerticalMovies(),
