@@ -246,6 +246,13 @@ final class AppTextStyle extends TextTheme {
 
   static TextStyle? get personalizationCategorySmall2 => TextStyle(
     fontWeight: FontWeight.w500,
+    fontSize: FontSize.size14,
+    fontFamily: 'Rubik',
+    color: AppColors.c4838D1,
+  );
+
+  static TextStyle? get personalizationCategorySmall3 => TextStyle(
+    fontWeight: FontWeight.w500,
     fontSize: FontSize.size13,
     fontFamily: 'Rubik',
     color: AppColors.c4838D1,

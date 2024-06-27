@@ -1,36 +1,31 @@
-import 'package:audio_book/src/core/style/colors.dart';
-import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-Widget categoryBuilder({required String category, pressed = false}) {
-  return MaterialButton(
-    minWidth: double.minPositive,
-    onPressed: (){
-      pressed = true;
+import '../../../../core/style/colors.dart';
+import '../../../../core/style/text_style.dart';
+import '../../controller/category_state_notifier_controller.dart';
+
+Widget categoryBuilder({required String category}) {
+  return Consumer<CategoryStateNotifier>(
+    builder: (context, categoryStateNotifier, child) {
+      final isPressed = categoryStateNotifier.isPressed(category);
+      return MaterialButton(
+        minWidth: double.minPositive,
+        onPressed: () {
+          categoryStateNotifier.toggleCategory(category);
+        },
+        color: isPressed ? AppColors.c4838D1 : null,
+        shape: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(24),
+          borderSide: const BorderSide(width: 1, color: AppColors.c4838D1),
+        ),
+        child: Text(
+          category,
+          style: isPressed
+              ? AppTextStyle.personalizationCategorySmall?.copyWith(color: Colors.white)
+              : AppTextStyle.personalizationCategorySmall3,
+        ),
+      );
     },
-    color: pressed ? AppColors.c4838D1 : null,
-    shape: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(24),
-      borderSide: const BorderSide(width: 1,color: AppColors.c4838D1)
-    ),
-    child: Text(
-      category,
-      style: AppTextStyle.personalizationCategorySmall,
-    ),
-  );
-}
-
-Widget categoryBuilder2({required String category}) {
-  return MaterialButton(
-    minWidth: double.maxFinite,
-    onPressed: () {},
-    shape: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(24),
-        borderSide: const BorderSide(width: 1,color: AppColors.c4838D1)
-    ),
-    child: Text(
-      category,
-      style: AppTextStyle.personalizationCategorySmall2,
-    ),
   );
 }

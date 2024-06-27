@@ -129,6 +129,7 @@ class RegisterPage extends StatelessWidget {
                     },
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide.none
                     ),
                     color: AppColors.c4838D1,
                     child: Text(

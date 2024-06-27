@@ -70,10 +70,12 @@ class LoginPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Consumer<CheckboxStateNotifier>(
-                        builder: (context, value, child) {
+                        builder: (context, checkboxStateNotifier, child) {
                           return Checkbox(
-                            value: value.isChecked,
-                            onChanged: (_) => value.toggleCheckbox,
+                            value: checkboxStateNotifier.isChecked,
+                            onChanged: (value) {
+                              checkboxStateNotifier.toggleCheckbox();
+                            },
                             checkColor: AppColors.cBBB1FA,
                             side: const BorderSide(width: 2),
                           );
@@ -98,6 +100,7 @@ class LoginPage extends StatelessWidget {
                     },
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide.none
                     ),
                     color: AppColors.c4838D1,
                     child: Text(

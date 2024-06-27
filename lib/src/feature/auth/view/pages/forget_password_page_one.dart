@@ -17,6 +17,7 @@ class ForgetPasswordPageOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -59,6 +60,8 @@ class ForgetPasswordPageOne extends StatelessWidget {
                     },
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide.none,
+
                     ),
                     color: AppColors.c4838D1,
                     child: Text(

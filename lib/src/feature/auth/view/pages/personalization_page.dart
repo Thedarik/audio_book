@@ -3,6 +3,7 @@ import 'package:audio_book/src/feature/auth/view/widgets/login_text_field_widget
 import 'package:audio_book/src/feature/auth/view/widgets/personalization_page_category_builder_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../core/style/colors.dart';
 import '../../../../core/style/images.dart';
@@ -85,47 +86,51 @@ class PersonalizationPage extends StatelessWidget {
                   ),
                   fixedSizedBox(height: 16),
                   /// categories
-                  Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                  Consumer(
+                    builder: (BuildContext context, value, Widget? child) {
+                      return Column(
                         children: [
-                          categoryBuilder(category: "Art",),
-                          fixedSizedBox(height: 0,width: 8),
-                          categoryBuilder(category: "Business",),
-                          fixedSizedBox(height: 0,width: 8),
-                          categoryBuilder(category: "Biography",)
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              categoryBuilder(category: "Art",),
+                              fixedSizedBox(height: 0,width: 8),
+                              categoryBuilder(category: "Business",),
+                              fixedSizedBox(height: 0,width: 8),
+                              categoryBuilder(category: "Biography",)
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              categoryBuilder(category: "Comedy",),
+                              fixedSizedBox(height: 0,width: 8),
+                              categoryBuilder(category: "Culture",),
+                              fixedSizedBox(height: 0,width: 8),
+                              categoryBuilder(category: "Education",)
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              categoryBuilder(category: "News",),
+                              fixedSizedBox(height: 0,width: 8),
+                              categoryBuilder(category: "Philosophy",),
+                              fixedSizedBox(height: 0,width: 8),
+                              categoryBuilder(category: "Psychology",),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              categoryBuilder(category: "Technology",),
+                              fixedSizedBox(height: 0,width: 8),
+                              categoryBuilder(category: "Travel",),
+                            ],
+                          ),
                         ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          categoryBuilder(category: "Comedy",),
-                          fixedSizedBox(height: 0,width: 8),
-                          categoryBuilder(category: "Culture",),
-                          fixedSizedBox(height: 0,width: 8),
-                          categoryBuilder(category: "Education",)
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          categoryBuilder(category: "News",),
-                          fixedSizedBox(height: 0,width: 8),
-                          categoryBuilder(category: "Philosophy",),
-                          fixedSizedBox(height: 0,width: 8),
-                          categoryBuilder(category: "Psychology",),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          categoryBuilder(category: "Technology",),
-                          fixedSizedBox(height: 0,width: 8),
-                          categoryBuilder(category: "Travel",),
-                        ],
-                      ),
-                    ],
+                      );
+                    },
                   ),
                   fixedSizedBox(height: 62),
                   MaterialButton(
