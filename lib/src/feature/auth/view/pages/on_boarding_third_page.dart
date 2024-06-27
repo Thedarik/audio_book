@@ -1,8 +1,4 @@
-import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
-import '../../../../core/style/colors.dart';
 import '../../../../core/style/images.dart';
 import '../../../../core/style/text_style.dart';
 

@@ -102,7 +102,7 @@ class AudioPage extends StatelessWidget {
           SizedBox(
             height: 28.h,
           ),
-          const PlayerButtommenuWidget()
+          const PlayerButtonMenuWidget()
         ],
       ),
     );

@@ -1,10 +1,7 @@
-import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../../core/routes/app_route_name.dart';
 
 class OnBoardingFirstPage extends StatelessWidget {
   const OnBoardingFirstPage({super.key});

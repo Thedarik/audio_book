@@ -1,5 +1,4 @@
 import 'package:audio_book/src/core/routes/app_route_name.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,9 +10,9 @@ import '../widgets/useful_widgets_for_all_pages.dart';
 
 class ConfirmationCodePage extends StatelessWidget {
   ConfirmationCodePage({super.key});
-  TextEditingController controller1 = TextEditingController();
+  final TextEditingController controller1 = TextEditingController();
   final FocusNode _firstFocusNode = FocusNode();
-  bool isCheckFilled = false;
+  final bool isCheckFilled = false;
 
   @override
   Widget build(BuildContext context) {

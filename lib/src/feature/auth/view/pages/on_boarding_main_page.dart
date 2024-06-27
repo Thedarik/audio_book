@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/feature/auth/view/pages/on_boarding_first_page.dart';
 import 'package:audio_book/src/feature/auth/view/pages/on_boarding_second_page.dart';
@@ -19,7 +18,7 @@ class OnBoardingMainPage extends StatelessWidget {
   final PageController _controller = PageController();
   final ValueNotifier<int> _currentIndexNotifier = ValueNotifier<int>(0);
 
-  List<Widget> pages = const [
+  final List<Widget> pages = const [
     OnBoardingFirstPage(),
     OnBoardingSecondPage(),
     OnBoardingThirdPage(),
@@ -56,7 +55,7 @@ class OnBoardingMainPage extends StatelessWidget {
                     dotWidth: 15,
                     dotHeight: 15,
                     spacing: 12,
-                    dotColor: Color(0xffc7466E3)),
+                    dotColor: Color(0xffc7466e3)),
                 controller: _controller,
                 count: pages.length,
               ),
