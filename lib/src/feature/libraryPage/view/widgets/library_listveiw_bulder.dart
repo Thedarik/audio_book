@@ -14,6 +14,7 @@ class LibraryListviewBuilder extends StatelessWidget {
       "assets/images/the_fire_queen.png",
       "assets/images/light_mage.png"
     ];
+    List<String> texts = ["The Black Witch", "The Prisoners Key", "The Kidnappers", "The Fire Queen", "Light Mage"];
 
     return Expanded(
       child: Padding(
@@ -34,14 +35,7 @@ class LibraryListviewBuilder extends StatelessWidget {
                         width: 80.w,
                         height: 80.h,
                         child: DecoratedBox(
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                      assets[index]
-                                  ),
-                                  fit: BoxFit.cover
-                              )
-                          ),
+                          decoration: BoxDecoration(image: DecorationImage(image: AssetImage(assets[index]), fit: BoxFit.cover)),
                         ),
                       ),
                       SizedBox(width: 16.w),

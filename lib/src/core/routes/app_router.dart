@@ -95,8 +95,7 @@ final class AppRouter {
                   routes: [
                     GoRoute(
                       path: AppRouteName.personalizationPageTwo,
-                      builder: (context, state) =>
-                          const PersonalizationPageTwo(),
+                      builder: (context, state) => const PersonalizationPageTwo(),
                     ),
                   ],
                 ),
@@ -109,10 +108,12 @@ final class AppRouter {
                 child: child,
               ),
               routes: [
-                GoRoute(
-                  path: AppRouteName.settingPage,
-                  builder: (context, state) => const SettingPage(),
-                ),
+                GoRoute(path: AppRouteName.settingPage, builder: (context, state) => const SettingPage(), routes: [
+                  GoRoute(
+                    path: AppRouteName.profilePage,
+                    builder: (context, state) => const ProfilePage(),
+                  ),
+                ]),
 
                 //Home
                 GoRoute(
@@ -129,7 +130,7 @@ final class AppRouter {
                           routes: [
                             GoRoute(
                               path: AppRouteName.audioPage,
-                              builder: (context, state)=> const AudioPage(),
+                              builder: (context, state) => const AudioPage(),
                             ),
                           ],
                         ),
@@ -202,8 +203,8 @@ final class AppRouter {
                           builder: (context, state) => const BookDetailPage(),
                           routes: [
                             GoRoute(
-                                path: AppRouteName.audioPage,
-                                builder: (context, state)=> const AudioPage(),
+                              path: AppRouteName.audioPage,
+                              builder: (context, state) => const AudioPage(),
                             ),
                           ],
                         ),
@@ -223,9 +224,7 @@ final class AppRouter {
                   path: AppRouteName.libraryPage,
                   builder: (context, state) => const LibraryPage(),
                   routes: [
-                    GoRoute(
-                        path: AppRouteName.profilePage,
-                        builder: (context, state) => const ProfilePage()),
+                    GoRoute(path: AppRouteName.profilePage, builder: (context, state) => const ProfilePage()),
                   ],
                 ),
               ],

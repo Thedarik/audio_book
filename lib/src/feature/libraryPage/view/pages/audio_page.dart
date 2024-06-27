@@ -21,11 +21,7 @@ class AudioPage extends StatelessWidget {
             onPressed: () {
               context.pop();
             },
-            icon: SvgPicture.asset(
-              "assets/icons/arow_down.svg",
-              height: 24.h,
-              width: 24.w,
-            ),
+            icon: Icon(Icons.arrow_downward_outlined),
           ),
         ),
         centerTitle: true,
@@ -50,17 +46,16 @@ class AudioPage extends StatelessWidget {
               width: double.infinity,
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  image: const DecorationImage(
-                      image: AssetImage("assets/images/harry_potter.png")),
+                  image: const DecorationImage(image: AssetImage("assets/images/harry_potter.png")),
                   borderRadius: BorderRadius.circular(16),
-                //   boxShadow: const [
-                //     BoxShadow(
-                //       color: Colors.black,
-                //       spreadRadius: 1,
-                //       blurRadius: 25,
-                //       offset: Offset(0, 10), // horizontal offset is 0, vertical offset is 3
-                //     ),
-                //   ],
+                  //   boxShadow: const [
+                  //     BoxShadow(
+                  //       color: Colors.black,
+                  //       spreadRadius: 1,
+                  //       blurRadius: 25,
+                  //       offset: Offset(0, 10), // horizontal offset is 0, vertical offset is 3
+                  //     ),
+                  //   ],
                 ),
               ),
             ),
