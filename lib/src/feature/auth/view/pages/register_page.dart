@@ -11,15 +11,15 @@ import '../widgets/useful_widgets_for_all_pages.dart';
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
 
-  TextEditingController controller1 = TextEditingController();
-  TextEditingController controller2 = TextEditingController();
-  TextEditingController controller3 = TextEditingController();
+  final TextEditingController controller1 = TextEditingController();
+  final TextEditingController controller2 = TextEditingController();
+  final TextEditingController controller3 = TextEditingController();
 
-  FocusNode _firstFocusNode = FocusNode();
-  FocusNode _secondFocusNode = FocusNode();
-  FocusNode _thirdFocusNode = FocusNode();
+  final FocusNode _firstFocusNode = FocusNode();
+  final FocusNode _secondFocusNode = FocusNode();
+  final FocusNode _thirdFocusNode = FocusNode();
 
-  bool isCheckFilled = false;
+  final bool isCheckFilled = false;
 
   @override
   Widget build(BuildContext context) {

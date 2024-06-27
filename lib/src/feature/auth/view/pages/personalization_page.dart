@@ -12,10 +12,10 @@ import '../widgets/useful_widgets_for_all_pages.dart';
 class PersonalizationPage extends StatelessWidget {
   PersonalizationPage({super.key});
 
-  TextEditingController controller = TextEditingController();
-  FocusNode node = FocusNode();
+  final TextEditingController controller = TextEditingController();
+  final FocusNode node = FocusNode();
 
-  bool isCategoryChoosed = false;
+  final bool isCategoryChoosed = false;
 
   @override
   Widget build(BuildContext context) {

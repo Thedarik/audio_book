@@ -55,7 +55,7 @@ class Api {
     }
   }
 
-  static Future<String?> MULTIPART(
+  static Future<String?> multiPart(
       String api, String filePath, Map<String, String> body) async {
     final Uri uri = Uri.http(baseurl, api);
     final http.MultipartRequest request = MultipartRequest("POST", uri);

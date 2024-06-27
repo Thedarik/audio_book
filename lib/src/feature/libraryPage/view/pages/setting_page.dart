@@ -58,7 +58,7 @@ class SettingPage extends StatelessWidget {
                           "John Doe",
                           style: AppTextStyle.settingProfileNameMedium,
                         ),
-                        const SettignViewProfileButton()
+                        const SettingViewProfileButton()
                       ],
                     ),
                   )

@@ -1,7 +1,4 @@
 // ignore_for_file: override_on_non_overriding_member
-
-import 'dart:ui';
-
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
