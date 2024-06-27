@@ -108,13 +108,6 @@ final class AppRouter {
                 child: child,
               ),
               routes: [
-                GoRoute(path: AppRouteName.settingPage, builder: (context, state) => const SettingPage(), routes: [
-                  GoRoute(
-                    path: AppRouteName.profilePage,
-                    builder: (context, state) => const ProfilePage(),
-                  ),
-                ]),
-
                 //Home
                 GoRoute(
                   path: AppRouteName.homePage,
@@ -136,6 +129,12 @@ final class AppRouter {
                         ),
                       ],
                     ),
+                    GoRoute(path: AppRouteName.settingPage, builder: (context, state) => const SettingPage(), routes: [
+                      GoRoute(
+                        path: AppRouteName.profilePage,
+                        builder: (context, state) => const ProfilePage(),
+                      ),
+                    ]),
                   ],
                 ),
 

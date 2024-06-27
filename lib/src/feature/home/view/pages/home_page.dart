@@ -32,8 +32,8 @@ class HomePage extends StatelessWidget {
               const LogoText(),
               const Spacer(),
               GestureDetector(
-                onTap: (){
-                  context.go("${AppRouteName.mainPage}${AppRouteName.settingPage.substring(1)}");
+                onTap: () {
+                  context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.settingPage}");
                 },
                 child: AppImages.settingIcon,
               ),
@@ -51,9 +51,13 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 30.h),
             const BestSellers(),
             SizedBox(height: 30.h),
-            const MovieBanner(categoryText: "New Releases",),
+            const MovieBanner(
+              categoryText: "New Releases",
+            ),
             SizedBox(height: 20.h),
-            const MovieBanner(categoryText: "Trending Now",),
+            const MovieBanner(
+              categoryText: "Trending Now",
+            ),
           ],
         ),
       ),
