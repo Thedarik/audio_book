@@ -23,10 +23,10 @@ Widget textFieldLogin(
       filled: true,
       fillColor: AppColors.cF5F5FA,
       hintText: hintText,
-      label: Text(hintText),
-      labelStyle: const TextStyle(
-        color: AppColors.cB8B8C7,
-      ),
+      // label: Text(hintText),
+      // labelStyle: const TextStyle(
+      //   color: AppColors.cB8B8C7,
+      // ),
       hintStyle: isError ? TextStyle(
         fontWeight: FontWeight.w500,
         fontSize: FontSize.size14,

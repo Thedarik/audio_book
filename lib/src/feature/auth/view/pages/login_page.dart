@@ -7,6 +7,9 @@ import 'package:audio_book/src/feature/auth/view/widgets/useful_widgets_for_all_
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+
+import '../../controller/check_box_controller.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -66,11 +69,15 @@ class LoginPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Checkbox(
-                        value: false,
-                        onChanged: (value) => value,
-                        checkColor: AppColors.cBBB1FA,
-                        side: const BorderSide(width: 2),
+                      Consumer<CheckboxStateNotifier>(
+                        builder: (context, value, child) {
+                          return Checkbox(
+                            value: value.isChecked,
+                            onChanged: (_) => value.toggleCheckbox,
+                            checkColor: AppColors.cBBB1FA,
+                            side: const BorderSide(width: 2),
+                          );
+                        },
                       ),
                       fixedSizedBox(
                         height: 0,

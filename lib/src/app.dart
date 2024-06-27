@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
+import 'feature/auth/controller/check_box_controller.dart';
+
 class App extends StatelessWidget {
   const App({super.key});
 
@@ -12,6 +14,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MultiProvider(
     providers: [
+      ChangeNotifierProvider(
+        create: (context) => CheckboxStateNotifier(),
+      ),
       ChangeNotifierProvider(
         create: (context)=> HomeController(),
       )
