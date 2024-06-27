@@ -25,7 +25,7 @@ Widget textFieldLogin(
       hintText: hintText,
       label: Text(hintText),
       labelStyle: const TextStyle(
-        color: AppColors.black,
+        color: AppColors.cB8B8C7,
       ),
       hintStyle: isError ? TextStyle(
         fontWeight: FontWeight.w500,

@@ -19,7 +19,7 @@ class LibraryListviewBuilder extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: ListView.builder(
-          itemCount: 10,
+          itemCount: assets.length,
           itemBuilder: (context, index) {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 4.0),

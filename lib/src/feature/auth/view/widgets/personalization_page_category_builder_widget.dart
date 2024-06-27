@@ -2,10 +2,13 @@ import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:flutter/material.dart';
 
-Widget categoryBuilder({required String category}) {
+Widget categoryBuilder({required String category, pressed = false}) {
   return MaterialButton(
     minWidth: double.minPositive,
-    onPressed: () {},
+    onPressed: (){
+      pressed = true;
+    },
+    color: pressed ? AppColors.c4838D1 : null,
     shape: OutlineInputBorder(
       borderRadius: BorderRadius.circular(24),
       borderSide: const BorderSide(width: 1,color: AppColors.c4838D1)

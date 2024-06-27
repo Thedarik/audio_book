@@ -71,7 +71,7 @@ final class AppTextStyle extends TextTheme {
     fontWeight: FontWeight.w600,
     fontSize: FontSize.size16,
     fontFamily: 'Rubik',
-    color: AppColors.c4838D1,
+    color: AppColors.c2E2E5D,
   );
 
   static TextStyle? get loginFieldSmall => TextStyle(
@@ -96,10 +96,10 @@ final class AppTextStyle extends TextTheme {
       );
 
   static TextStyle? get loginForgotPasswordSmall => TextStyle(
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w600,
         fontSize: FontSize.size14,
         fontFamily: 'Rubik',
-        color: AppColors.c2E2E5D,
+        color: AppColors.cF77A55,
       );
 
   static TextStyle? get loginOrLoginWithSmall => TextStyle(
