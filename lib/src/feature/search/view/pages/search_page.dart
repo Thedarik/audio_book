@@ -43,12 +43,12 @@ class _SearchPageState extends State<SearchPage> {
           child: Row(
             children: [
               SizedBox(
-                height: 40,
-                width: 40,
+                height: 40.h,
+                width: 40.w,
                 child: AppImages.mainLogoIcon,
               ),
-              const SizedBox(
-                width: 5,
+              SizedBox(
+                width: 5.w,
               ),
               const LogoText(),
               const Spacer(),
@@ -74,11 +74,11 @@ class _SearchPageState extends State<SearchPage> {
             ),
           ),
 
-          const SizedBox(height: 20),
+          SizedBox(height: 20.h),
 
           TextFieldWidget(controller: controller),
 
-          const SizedBox(height: 50),
+          SizedBox(height: 50.h),
 
           Padding(
             padding: const EdgeInsets.only(right: 150),
