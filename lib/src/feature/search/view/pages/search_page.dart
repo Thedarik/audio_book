@@ -1,6 +1,5 @@
 import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
-import 'package:audio_book/src/feature/home/view/widgets/movie_list.dart';
 import 'package:audio_book/src/feature/search/view/widgets/movie_list.dart';
 import 'package:audio_book/src/feature/search/view/widgets/recommendations.dart';
 import 'package:audio_book/src/feature/search/view/widgets/text_field_widget.dart';

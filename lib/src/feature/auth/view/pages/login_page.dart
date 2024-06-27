@@ -10,13 +10,13 @@ import 'package:go_router/go_router.dart';
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
 
-  TextEditingController controller1 = TextEditingController();
-  TextEditingController controller2 = TextEditingController();
+  final TextEditingController controller1 = TextEditingController();
+  final TextEditingController controller2 = TextEditingController();
 
   final FocusNode _firstFocusNode = FocusNode();
   final FocusNode _secondFocusNode = FocusNode();
 
-  bool isCheckFilled = false;
+  final bool isCheckFilled = false;
 
   @override
   Widget build(BuildContext context) {
