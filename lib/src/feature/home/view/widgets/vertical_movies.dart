@@ -34,8 +34,8 @@ class VerticalMovies extends StatelessWidget {
       itemCount: assets.length,
       itemBuilder: (context, index) {
         return GestureDetector(
-          onTap: (){
-            context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}");
+          onTap: () {
+            context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}/${AppRouteName.bookPage}");
           },
           child: Column(
             children: [
@@ -43,13 +43,7 @@ class VerticalMovies extends StatelessWidget {
                 height: 160.h,
                 width: 160.w,
                 child: DecoratedBox(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                              assets[index]
-                          )
-                      )
-                  ),
+                  decoration: BoxDecoration(image: DecorationImage(image: AssetImage(assets[index]))),
                 ),
               ),
               SizedBox(height: 8.h),
@@ -60,17 +54,10 @@ class VerticalMovies extends StatelessWidget {
                   textAlign: TextAlign.start,
                   text: TextSpan(
                     children: [
-                      TextSpan(
-                        text: "${texts[index]}\n",
-                        style: AppTextStyle.homeCategoriesMedium?.copyWith(
-                          fontWeight: FontWeight.w500
-                        )
-                      ),
+                      TextSpan(text: "${texts[index]}\n", style: AppTextStyle.homeCategoriesMedium?.copyWith(fontWeight: FontWeight.w500)),
                       TextSpan(
                         text: "Laurie Forest",
-                        style: AppTextStyle.homeSubtitleSmall?.copyWith(
-                          color: AppColors.c4838D1
-                        ),
+                        style: AppTextStyle.homeSubtitleSmall?.copyWith(color: AppColors.c4838D1),
                       ),
                     ],
                   ),
