@@ -1,7 +1,9 @@
 import 'package:audio_book/src/core/routes/app_route_name.dart';
+import 'package:audio_book/src/feature/auth/controller/category_state_notifier_controller.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/login_text_field_widget.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/personalization_page_category_builder_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -17,6 +19,8 @@ class PersonalizationPage extends StatelessWidget {
   final FocusNode node = FocusNode();
 
   final bool isCategoryChoosed = false;
+
+  final int topicsSelected = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +42,7 @@ class PersonalizationPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 34.0),
               child: Column(
                 children: [
-                  fixedSizedBox(height: 204),
+                  fixedSizedBox(height: 204.h),
                   Row(
                     children: [
                       Text(
@@ -48,7 +52,7 @@ class PersonalizationPage extends StatelessWidget {
                       const Spacer(),
                     ],
                   ),
-                  fixedSizedBox(height: 12),
+                  fixedSizedBox(height: 12.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -75,7 +79,7 @@ class PersonalizationPage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  fixedSizedBox(height: 40),
+                  fixedSizedBox(height: 40.h),
                   textFieldLogin(
                     hintText: "Search Categories",
                     context: context,
@@ -84,72 +88,120 @@ class PersonalizationPage extends StatelessWidget {
                     isError: false,
                     keyboardType: TextInputType.text,
                   ),
-                  fixedSizedBox(height: 16),
+                  fixedSizedBox(height: 16.h),
+
                   /// categories
-                  Consumer(
-                    builder: (BuildContext context, value, Widget? child) {
+                  Consumer<CategoryStateNotifier>(
+                    builder: (context, value, child) {
                       return Column(
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                          Column(
                             children: [
-                              categoryBuilder(category: "Art",),
-                              fixedSizedBox(height: 0,width: 8),
-                              categoryBuilder(category: "Business",),
-                              fixedSizedBox(height: 0,width: 8),
-                              categoryBuilder(category: "Biography",)
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  categoryBuilder(
+                                    category: "Art",
+                                  ),
+                                  fixedSizedBox(height: 0, width: 8.w),
+                                  categoryBuilder(
+                                    category: "Business",
+                                  ),
+                                  fixedSizedBox(height: 0, width: 8.w),
+                                  categoryBuilder(
+                                    category: "Biography",
+                                  )
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  categoryBuilder(
+                                    category: "Comedy",
+                                  ),
+                                  fixedSizedBox(height: 0, width: 8.w),
+                                  categoryBuilder(
+                                    category: "Culture",
+                                  ),
+                                  fixedSizedBox(height: 0, width: 8.w),
+                                  categoryBuilder(
+                                    category: "Education",
+                                  )
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  categoryBuilder(
+                                    category: "News",
+                                  ),
+                                  fixedSizedBox(height: 0, width: 8.w),
+                                  categoryBuilder(
+                                    category: "Philosophy",
+                                  ),
+                                  fixedSizedBox(height: 0, width: 8.w),
+                                  categoryBuilder(
+                                    category: "Psychology",
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  categoryBuilder(
+                                    category: "Technology",
+                                  ),
+                                  fixedSizedBox(height: 0, width: 8.w),
+                                  categoryBuilder(
+                                    category: "Travel",
+                                  ),
+                                ],
+                              ),
                             ],
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
+                          value.topicsSelected >= 3 ? Column(
                             children: [
-                              categoryBuilder(category: "Comedy",),
-                              fixedSizedBox(height: 0,width: 8),
-                              categoryBuilder(category: "Culture",),
-                              fixedSizedBox(height: 0,width: 8),
-                              categoryBuilder(category: "Education",)
+                              fixedSizedBox(height: 12.h),
+                              Row(
+                                children: [
+                                  Text(
+                                    "${value.topicsSelected} topics Selected",
+                                    style: AppTextStyle
+                                        .personalizationEndSubtitleSmall,
+                                  ),
+                                  const Spacer(),
+                                ],
+                              ),
                             ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              categoryBuilder(category: "News",),
-                              fixedSizedBox(height: 0,width: 8),
-                              categoryBuilder(category: "Philosophy",),
-                              fixedSizedBox(height: 0,width: 8),
-                              categoryBuilder(category: "Psychology",),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              categoryBuilder(category: "Technology",),
-                              fixedSizedBox(height: 0,width: 8),
-                              categoryBuilder(category: "Travel",),
-                            ],
-                          ),
+                          ): fixedSizedBox(height: 0),
+                          fixedSizedBox(height: value.topicsSelected >= 3 ? 39 : 62)
                         ],
                       );
                     },
                   ),
-                  fixedSizedBox(height: 62),
-                  MaterialButton(
-                    minWidth: double.infinity,
-                    height: 56,
-                    onPressed: () {
-                      context.go("${AppRouteName.welcomePage}/${AppRouteName.personalizationPage}/${AppRouteName.personalizationPageTwo}");
-                    },
-                    shape: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide.none
-                    ),
-                    color: isCategoryChoosed ? AppColors.c4838D1 : const Color(0xffDAD7F6),
-                    child: Text(
-                      "Submit",
-                      style: AppTextStyle.loginLoginButtonMedium,
-                    ),
-                  ),
-                  fixedSizedBox(height: 16),
+                  Consumer<CategoryStateNotifier>(builder: (context, value, _) {
+                    return MaterialButton(
+                      minWidth: double.infinity,
+                      height: 56,
+                      onPressed: () {
+                        if (value.topicsSelected >= 3) {
+                          context.go(
+                              "${AppRouteName.welcomePage}/${AppRouteName.personalizationPage}/${AppRouteName.personalizationPageTwo}");
+                        }
+                      },
+                      shape: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide.none),
+                      color: value.topicsSelected >= 3
+                          ? AppColors.c4838D1
+                          : const Color(0xffDAD7F6),
+                      child: Text(
+                        "Submit",
+                        style: AppTextStyle.loginLoginButtonMedium,
+                      ),
+                    );
+                  }),
+                  fixedSizedBox(height: 16.h),
                   MaterialButton(
                     onPressed: () {},
                     minWidth: double.infinity,
