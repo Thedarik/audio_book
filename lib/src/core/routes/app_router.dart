@@ -154,16 +154,6 @@ final class AppRouter {
                       builder: (context, state) => const ProfilePage(),
                     ),
                   ],
-                ),
-                GoRoute(
-                  path: AppRouteName.libraryPage,
-                  builder: (context, state) => const LibraryPage(),
-                  routes: [
-                    GoRoute(
-                      path: AppRouteName.profilePage,
-                      builder: (context, state) => const ProfilePage(),
-                    ),
-                  ],
                 )
               ],
             )
