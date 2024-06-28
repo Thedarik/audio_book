@@ -8,10 +8,17 @@ import "../../../setup.dart";
 
 class Api {
   // baseurl
-  static const String baseurl = "";
+  static const String baseurl = "localhost:8080";
 
   // APIS
   static String apiPostRegister = "/api/auth/register";
+  static String apiPostSignUp = "/api/auth/sign-up";
+  static String apiGetRefresh = "/api/refresh";
+  static String apiPostSignUpVerify = "/api/auth/sign-up/verify";
+  static String apiPostSignUpResend = "/api/auth/sign-up/resend";
+  static String apiPostLogin = "/api/auth/login";
+  static String apiPostLoginForgotPassword = "/api/auth/login/forgot-password";
+  static String apiPostLoginConfirm = "/api/auth/login/confirm";
 
   // headers
   static Map<String, String> headers = <String, String>{
