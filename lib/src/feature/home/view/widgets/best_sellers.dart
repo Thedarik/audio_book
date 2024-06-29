@@ -1,3 +1,4 @@
+import 'package:audio_book/src/feature/home/view/widgets/rating_star.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -38,7 +39,7 @@ class BestSellers extends StatelessWidget {
           ),
         ),
 
-        const SizedBox(height: 5),
+        SizedBox(height: 5.h),
 
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -114,7 +115,14 @@ class BestSellers extends StatelessWidget {
                                     ),
                                   ),
 
-                                  const SizedBox(height: 15),
+                                  SizedBox(height: 15.h),
+
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 18.w),
+                                    child: RatingStar(size: 20,),
+                                  ),
+
+                                  SizedBox(height: 10.h),
 
                                   Text(
                                     "1000+ Listeners",

@@ -20,23 +20,11 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   TextEditingController controller = TextEditingController();
-  List<String> texts = [
-    "Business",
-    "Personal...",
-    "Music",
-    "Photogra..."
-  ];
-
-  List<Widget> widgets = [
-    AppImages.businessIcon,
-    AppImages.personalIcon,
-    AppImages.musicsIcon,
-    AppImages.photographyIcon
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -67,7 +55,7 @@ class _SearchPageState extends State<SearchPage> {
           SizedBox(height: 20.h),
 
           Padding(
-            padding: const EdgeInsets.only(right: 276),
+            padding: EdgeInsets.only(right: 248.w),
             child: Text(
               "Explore",
               style: AppTextStyle.searchTitleLarge,
@@ -81,7 +69,7 @@ class _SearchPageState extends State<SearchPage> {
           SizedBox(height: 50.h),
 
           Padding(
-            padding: const EdgeInsets.only(right: 150),
+            padding: EdgeInsets.only(right: 137.w),
             child: Text(
               "Recommended Categories",
               style: AppTextStyle.searchRecommendationMedium,
@@ -90,12 +78,12 @@ class _SearchPageState extends State<SearchPage> {
 
           SizedBox(height: 20.h),
 
-          Recommendations(widget: widgets, text: texts),
+          const Recommendations(),
 
           SizedBox(height: 25.h),
 
           Padding(
-            padding: const EdgeInsets.only(right: 255),
+            padding: EdgeInsets.only(right: 236.w),
             child: Text(
               "Latest Search",
               style: AppTextStyle.searchRecommendationMedium,

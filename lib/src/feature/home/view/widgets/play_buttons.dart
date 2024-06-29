@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/routes/app_route_name.dart';
@@ -12,24 +13,24 @@ class PlayButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 36),
+      padding: EdgeInsets.symmetric(horizontal: 27.w),
       child: Row(
         children: [
           MaterialButton(
             onPressed: (){
               context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}/${AppRouteName.bookPage}/${AppRouteName.audioPage}");
             },
-            height: 55,
-            minWidth: 150,
+            height: 55.h,
+            minWidth: 150.w,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10)
             ),
-            color: AppColors.c0057FF,
+            color: AppColors.c4838D1,
             child: Row(
               children: [
                 AppImages.miniPlayIcon,
 
-                const SizedBox(width: 5),
+                SizedBox(width: 5.w),
 
                 Text(
                   "Play Audio",
@@ -41,16 +42,16 @@ class PlayButtons extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(width: 25),
+          SizedBox(width: 15.w),
 
           MaterialButton(
             onPressed: (){},
-            height: 55,
-            minWidth: 150,
+            height: 55.h,
+            minWidth: 150.w,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
                 side: const BorderSide(
-                    color: AppColors.c0057FF,
+                    color: AppColors.c4838D1,
                     width: 2
                 )
             ),
@@ -59,12 +60,12 @@ class PlayButtons extends StatelessWidget {
               children: [
                 AppImages.miniLibraryIcon,
 
-                const SizedBox(width: 5),
+                SizedBox(width: 5.w),
 
                 Text(
                   "Read Book",
                   style: AppTextStyle.homeSeeMoreSmall?.copyWith(
-                      color: AppColors.c0057FF
+                      color: AppColors.c4838D1
                   ),
                 )
               ],

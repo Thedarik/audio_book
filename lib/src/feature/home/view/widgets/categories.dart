@@ -1,5 +1,6 @@
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/style/text_style.dart';
 
@@ -9,18 +10,18 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 44),
+      padding: EdgeInsets.only(left: 38.w),
       child: Row(
         children: [
           SizedBox(
-            height: 32,
-            width: 74,
+            height: 32.h,
+            width: 74.w,
             child: DecoratedBox(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
                   border: Border.all(
                       color: AppColors.c6A6A8B,
-                      width: 2
+                      width: 1
                   )
               ),
               child: Center(
@@ -34,17 +35,17 @@ class Categories extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(width: 10),
+          SizedBox(width: 10.w),
 
           SizedBox(
-            height: 32,
-            width: 74,
+            height: 32.h,
+            width: 74.w,
             child: DecoratedBox(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
                   border: Border.all(
                       color: AppColors.c6A6A8B,
-                      width: 2
+                      width: 1
                   )
               ),
               child: Center(
@@ -58,17 +59,17 @@ class Categories extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(width: 10),
+          SizedBox(width: 10.w),
 
           SizedBox(
-            height: 32,
-            width: 74,
+            height: 32.h,
+            width: 74.w,
             child: DecoratedBox(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
                   border: Border.all(
                       color: AppColors.c6A6A8B,
-                      width: 2
+                      width: 1
                   )
               ),
               child: Center(

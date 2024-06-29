@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/style/colors.dart';
 import '../../../../core/style/text_style.dart';
@@ -9,7 +10,7 @@ class AuthorTexts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 60),
+      padding: EdgeInsets.only(right: 50.w),
       child: RichText(
         text: TextSpan(
           children: [

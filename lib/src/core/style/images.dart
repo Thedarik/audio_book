@@ -14,6 +14,20 @@ sealed class AppImages {
     fit: BoxFit.cover,
   );
 
+  static final starFilledIcon = SvgPicture.asset(
+    'assets/icons/filled_star_icon.svg',
+    height: 16.h,
+    width: 16.w,
+    fit: BoxFit.cover,
+  );
+
+  static final starOutlinedIcon = SvgPicture.asset(
+    'assets/icons/outlined_star_icon.svg',
+    height: 16.h,
+    width: 16.w,
+    fit: BoxFit.cover,
+  );
+
   static final businessIcon = SvgPicture.asset(
     'assets/icons/business_icon.svg',
     height: 24.h,

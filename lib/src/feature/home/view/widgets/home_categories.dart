@@ -28,7 +28,7 @@ class HomeCategories extends StatelessWidget {
               "Categories",
               style: AppTextStyle.homeCategoryTextMedium,
             ),
-            const SizedBox(width: 75),
+            SizedBox(width: 75.w),
             GestureDetector(
               onTap: (){
                 context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}");
@@ -46,7 +46,7 @@ class HomeCategories extends StatelessWidget {
         SizedBox(
           height: 40,
           child: Padding(
-            padding: const EdgeInsets.only(left: 20),
+            padding: EdgeInsets.symmetric(horizontal: 30.w),
             child: ListView.separated(
               separatorBuilder: (context, index)=> SizedBox(width: 12.w,),
               scrollDirection: Axis.horizontal,

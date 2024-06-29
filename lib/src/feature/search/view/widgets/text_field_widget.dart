@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/style/colors.dart';
 import '../../../../core/style/text_style.dart';
@@ -10,9 +11,9 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: 20.w),
       child: SizedBox(
-        height: 60,
+        height: 60.h,
         child: TextField(
           controller: controller,
           style: AppTextStyle.searchRecommendationMedium?.copyWith(
