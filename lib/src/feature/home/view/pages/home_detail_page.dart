@@ -15,7 +15,7 @@ class HomeDetailPage extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Row(
           children: <Widget>[
-            SizedBox(width: 20.w),
+            SizedBox(width: 15.w),
 
             IconButton(
                 onPressed: (){
@@ -28,7 +28,7 @@ class HomeDetailPage extends StatelessWidget {
                 )
             ),
 
-            SizedBox(width: 80.w),
+            SizedBox(width: 60.w),
 
             Text(
               "New Releases",
@@ -38,6 +38,7 @@ class HomeDetailPage extends StatelessWidget {
             )
           ],
         ),
+        centerTitle: true,
       ),
       body: Column(
         children: [

@@ -16,6 +16,7 @@ final class AppRouteName {
 
   /// splash
   static const String splash = '/splash';
+  static const String rating = '/rating';
 
   /// AUTH PAGES
   /// login page

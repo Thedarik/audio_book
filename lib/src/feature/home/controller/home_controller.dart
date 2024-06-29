@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -12,6 +14,15 @@ class HomeController extends ChangeNotifier {
 
 
   int selectedIndex = 0;
+  double rating = 0.0;
+
+  void onTap(double value){
+    rating = value.ceilToDouble();
+    notifyListeners();
+    log(rating.toString());
+  }
+
+
   void onItemTapped(int index, BuildContext context) {
     selectedIndex = index;
     notifyListeners();
