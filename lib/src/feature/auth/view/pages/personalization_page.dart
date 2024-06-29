@@ -159,22 +159,25 @@ class PersonalizationPage extends StatelessWidget {
                               ),
                             ],
                           ),
-                          value.topicsSelected >= 3 ? Column(
-                            children: [
-                              fixedSizedBox(height: 12.h),
-                              Row(
-                                children: [
-                                  Text(
-                                    "${value.topicsSelected} topics Selected",
-                                    style: AppTextStyle
-                                        .personalizationEndSubtitleSmall,
-                                  ),
-                                  const Spacer(),
-                                ],
-                              ),
-                            ],
-                          ): fixedSizedBox(height: 0),
-                          fixedSizedBox(height: value.topicsSelected >= 3 ? 39 : 62)
+                          value.topicsSelected >= 3
+                              ? Column(
+                                  children: [
+                                    fixedSizedBox(height: 12.h),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "${value.topicsSelected} topics Selected",
+                                          style: AppTextStyle
+                                              .personalizationEndSubtitleSmall,
+                                        ),
+                                        const Spacer(),
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              : fixedSizedBox(height: 0),
+                          fixedSizedBox(
+                              height: value.topicsSelected >= 3 ? 39.h : 62.h)
                         ],
                       );
                     },
@@ -189,9 +192,11 @@ class PersonalizationPage extends StatelessWidget {
                               "${AppRouteName.welcomePage}/${AppRouteName.personalizationPage}/${AppRouteName.personalizationPageTwo}");
                         }
                       },
+                      elevation: 0,
                       shape: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide.none),
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide.none,
+                      ),
                       color: value.topicsSelected >= 3
                           ? AppColors.c4838D1
                           : const Color(0xffDAD7F6),
@@ -215,6 +220,7 @@ class PersonalizationPage extends StatelessWidget {
                       style: AppTextStyle.registerCancelButtonMedium,
                     ),
                   ),
+                  // fixedSizedBox(height: 81.h),
                   const Spacer(),
                 ],
               ),

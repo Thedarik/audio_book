@@ -1,5 +1,6 @@
 import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/style/colors.dart';
@@ -21,12 +22,12 @@ class ConfirmationCodePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            fixedSizedBox(height: 60),
+            fixedSizedBox(height: 60.h),
             AppImages.authLogo,
-            fixedSizedBox(height: 24),
+            fixedSizedBox(height: 24.h),
             Row(
               children: [
-                fixedSizedBox(height: 0, width: 48),
+                fixedSizedBox(height: 0, width: 48.w),
                 Text(
                   "Confirmation Code",
                   style: AppTextStyle.loginTitleMedium,
@@ -34,22 +35,22 @@ class ConfirmationCodePage extends StatelessWidget {
                 const Spacer(),
               ],
             ),
-            fixedSizedBox(height: 16),
+            fixedSizedBox(height: 16.h),
             Row(
               children: [
-                fixedSizedBox(height: 0,width: 48),
-                Text("Enter the confirmation code we sent to",style: AppTextStyle.loginForgotPasswordSmall,),
+                fixedSizedBox(height: 0,width: 48.w),
+                Text("Enter the confirmation code we sent to",style: AppTextStyle.loginForgotPasswordOffSmall,),
                 const Spacer(),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                fixedSizedBox(height: 0,width: 48),
+                fixedSizedBox(height: 0,width: 48.w),
                 Text("your@mail.com.",style: AppTextStyle.registerConfirmSubtitleSmall,),
               ],
             ),
-            fixedSizedBox(height: 16),
+            fixedSizedBox(height: 16.h),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
               child: Column(
@@ -62,7 +63,7 @@ class ConfirmationCodePage extends StatelessWidget {
                     keyboardType: TextInputType.number,
                     context: context,
                   ),
-                  fixedSizedBox(height: 16),
+                  fixedSizedBox(height: 16.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -79,7 +80,7 @@ class ConfirmationCodePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  fixedSizedBox(height: 16),
+                  fixedSizedBox(height: 16.h),
                   MaterialButton(
                     minWidth: double.infinity,
                     height: 56,
@@ -96,7 +97,7 @@ class ConfirmationCodePage extends StatelessWidget {
                       style: AppTextStyle.loginLoginButtonMedium,
                     ),
                   ),
-                  fixedSizedBox(height: 16),
+                  fixedSizedBox(height: 16.h),
                   MaterialButton(
                     onPressed: () {},
                     minWidth: double.infinity,

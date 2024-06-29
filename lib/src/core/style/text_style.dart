@@ -102,6 +102,12 @@ final class AppTextStyle extends TextTheme {
         color: AppColors.cF77A55,
       );
 
+  static TextStyle? get loginForgotPasswordOffSmall => TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: FontSize.size14,
+    fontFamily: 'Rubik',
+    color: AppColors.c2E2E5D,
+  );
   static TextStyle? get loginOrLoginWithSmall => TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: FontSize.size14,

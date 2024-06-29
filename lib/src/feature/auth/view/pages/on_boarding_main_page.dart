@@ -113,8 +113,10 @@ class OnBoardingMainPage extends StatelessWidget {
                         minWidth: double.infinity,
                         height: 56,
                         color: AppColors.c4838D1,
+                        elevation: 0,
                         shape: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
+                          borderSide: BorderSide.none,
                         ),
                         onPressed: (){
                           context.go(AppRouteName.errorPage);

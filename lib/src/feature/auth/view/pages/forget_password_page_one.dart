@@ -10,6 +10,7 @@ import '../widgets/useful_widgets_for_all_pages.dart';
 
 class ForgetPasswordPageOne extends StatelessWidget {
   ForgetPasswordPageOne({super.key});
+
   final TextEditingController controller1 = TextEditingController();
   final FocusNode _firstFocusNode = FocusNode();
   final bool isCheckFilled = false;
@@ -36,8 +37,15 @@ class ForgetPasswordPageOne extends StatelessWidget {
               ],
             ),
             fixedSizedBox(height: 16),
-            fixedSizedBox(height: 0,width: 48),
-            Text("Please fill email or phone number and \nwe'll send you a link to get back into your\naccount.",style: AppTextStyle.loginForgotPasswordSmall,),
+            Row(
+              children: [
+                fixedSizedBox(height: 0, width: 48),
+                Text(
+                  "Please fill email or phone number and \nwe'll send you a link to get back into your\naccount.",
+                  style: AppTextStyle.loginForgotPasswordOffSmall,
+                ),
+              ],
+            ),
             fixedSizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -56,12 +64,12 @@ class ForgetPasswordPageOne extends StatelessWidget {
                     minWidth: double.infinity,
                     height: 56,
                     onPressed: () {
-                      context.go("${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}/${AppRouteName.forgetPasswordTwo}");
+                      context.go(
+                          "${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}/${AppRouteName.forgetPasswordTwo}");
                     },
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide.none,
-
                     ),
                     color: AppColors.c4838D1,
                     child: Text(

@@ -48,12 +48,14 @@ class PersonalizationPageTwo extends StatelessWidget {
                     child: MaterialButton(
                       minWidth: double.infinity,
                       height: 56,
+                      elevation: 0 ,
                       onPressed: () {
                         context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}");
                       },
                       shape: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide.none),
+                          borderSide: BorderSide.none,
+                      ),
                       color: AppColors.c4838D1,
                       child: Text(
                         "Finish",

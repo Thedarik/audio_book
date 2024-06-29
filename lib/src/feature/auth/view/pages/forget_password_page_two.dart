@@ -41,24 +41,15 @@ class ForgetPasswordPageTwo extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text("We sent an email to ",style: AppTextStyle.loginForgotPasswordSmall,),
+                  Text("We sent an email to ",style: AppTextStyle.loginForgotPasswordOffSmall,),
                   Text("y***@mail.com",style: AppTextStyle.registerTermsSmall,)
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text("with a link to get back into your account.",style: AppTextStyle.loginForgotPasswordSmall,),
+                  Text("with a link to get back into your account.",style: AppTextStyle.loginForgotPasswordOffSmall,),
                 ],
-              ),
-              fixedSizedBox(height: 16),
-              textFieldLogin(
-                controller: controller1,
-                hintText: "Email / Phone Number",
-                node: firstFocusNode,
-                isError: false,
-                keyboardType: TextInputType.emailAddress,
-                context: context,
               ),
               fixedSizedBox(height: 24),
               MaterialButton(

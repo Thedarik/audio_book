@@ -76,8 +76,9 @@ class LoginPage extends StatelessWidget {
                             onChanged: (value) {
                               checkboxStateNotifier.toggleCheckbox();
                             },
+
                             checkColor: AppColors.cBBB1FA,
-                            side: const BorderSide(width: 2),
+                            side: const BorderSide(width: 1,color: AppColors.cBBB1FA),
                           );
                         },
                       ),
@@ -98,6 +99,7 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {
                       context.go(AppRouteName.welcomePage);
                     },
+                    elevation: 0,
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide.none
