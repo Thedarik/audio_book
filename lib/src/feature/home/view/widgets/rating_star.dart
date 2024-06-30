@@ -55,8 +55,9 @@ class RatingStar1 extends StatelessWidget {
 }
 
 class RatingStar extends StatelessWidget {
-  double? size;
-  RatingStar({super.key, this.size});
+  final double? size;
+  final double rating;
+  const RatingStar({super.key, this.size, required this.rating});
 
   @override
   Widget build(BuildContext context) {

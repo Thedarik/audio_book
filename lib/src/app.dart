@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'feature/auth/controller/category_state_notifier_controller.dart';
 import 'feature/auth/controller/check_box_controller.dart';
+import 'data/repository/app_repository_impl.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -22,14 +23,14 @@ class App extends StatelessWidget {
         create: (context) => CheckboxStateNotifier(),
       ),
       ChangeNotifierProvider(
-        create: (context)=> HomeController(),
-      )
+        create: (context) => HomeController(AppRepositoryImpl())..getHomeBooks(),
+      ),
     ],
     child: ScreenUtilInit(
-          designSize: const Size(375, 812),
-          minTextAdapt: true,
-          splitScreenMode: true,
-          builder: (_, child) =>  AppMaterialContext(),
-        ),
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (_, __) => AppMaterialContext(),
+    ),
   );
 }

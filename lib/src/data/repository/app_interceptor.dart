@@ -15,7 +15,7 @@ class AppInterceptor implements InterceptorContract{
     if (kDebugMode) {
       log(
         "---------[Interceptor]---------ON_REQUEST(${data.method})------------------\n\n"
-            "URL: ${data.url}\n"
+            "URL: ${data.method}\n"
             "HEADERS: ${data.headers}\n"
             "---------------------------------------------------------------------------\n\n",
       );

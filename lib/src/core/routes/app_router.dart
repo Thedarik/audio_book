@@ -10,7 +10,6 @@ import "package:audio_book/src/feature/home/view/pages/book_detail_page.dart";
 import "package:audio_book/src/feature/home/view/pages/home_detail_page.dart";
 import "package:audio_book/src/feature/home/view/pages/home_page.dart";
 import "package:audio_book/src/feature/home/view/pages/main_page.dart";
-import "package:audio_book/src/feature/home/view/widgets/rating_star.dart";
 import "package:audio_book/src/feature/libraryPage/view/pages/audio_page.dart";
 import "package:audio_book/src/feature/libraryPage/view/pages/library_page.dart";
 import "package:audio_book/src/feature/libraryPage/view/pages/profile_page.dart";
@@ -112,7 +111,7 @@ final class AppRouter {
                 //Home
                 GoRoute(
                   path: AppRouteName.homePage,
-                  builder: (context, state) => const HomePage(),
+                  builder: (context, state) => HomePage(),
                   routes: [
                     GoRoute(
                       path: AppRouteName.homeDetailPage,
@@ -182,7 +181,7 @@ final class AppRouter {
                 //Home
                 GoRoute(
                   path: AppRouteName.homePage,
-                  builder: (context, state) => const HomePage(),
+                  builder: (context, state) => HomePage(),
                   routes: [
                     GoRoute(
                       path: AppRouteName.homeDetailPage,

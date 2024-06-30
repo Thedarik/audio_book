@@ -1,11 +1,8 @@
 import "dart:convert";
-
 import "package:audio_book/src/data/repository/app_interceptor.dart";
 import "package:http/http.dart";
 import "package:http_interceptor/http/http.dart";
 import "package:http_parser/http_parser.dart";
-
-import "../../../setup.dart";
 
 class Api {
   // baseurl
@@ -43,8 +40,8 @@ class Api {
   // headers
   static Map<String, String> headers = <String, String>{
     "Content-Type": "application/json",
-    "Accept": "application/json",
-    "Authorization": "Bearer $token",
+    "Accept": "*/*",
+    "Authorization": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlc2htYXQiLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUiIsImlhdCI6MTcxOTc4NDE3OCwiaXNzIjoiYXVkaW8uYm9vayIsImV4cCI6MTcxOTc4NTk3OH0.od9xyxLSJ9J8G95neF_B1usej6rR8G0Oek97sbnNhtNJaz54C05h3vpO_Fp0rP9g",
   };
 
 
@@ -57,8 +54,8 @@ class Api {
 
   //methods
   // ignore: non_constant_identifier_names
-  static Future<String?> GET(String api, Map<String, String> params) async {
-    final Uri url = Uri.https(baseurl, api, params);
+  static Future<String?> GET(String api,) async {
+    final Uri url = Uri.http(baseurl, api);
     final Response response = await http.get(url, headers: headers);
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.body;

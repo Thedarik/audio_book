@@ -7,7 +7,8 @@ import '../../../../core/routes/app_route_name.dart';
 import '../../../../core/style/text_style.dart';
 
 class Recommendation extends StatelessWidget {
-  const Recommendation({super.key});
+  final String image;
+  const Recommendation({super.key, required this.image});
 
   @override
   Widget build(BuildContext context) {

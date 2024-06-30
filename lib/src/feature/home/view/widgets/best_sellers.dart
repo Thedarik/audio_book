@@ -6,9 +6,14 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/routes/app_route_name.dart';
 import '../../../../core/style/colors.dart';
 import '../../../../core/style/text_style.dart';
+import '../../model/home_book_model.dart';
 
 class BestSellers extends StatelessWidget {
-  const BestSellers({super.key});
+  final List<BestSeller> bookList;
+  const BestSellers({
+    super.key,
+    required this.bookList,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +101,7 @@ class BestSellers extends StatelessWidget {
                                     text: TextSpan(
                                       children: <InlineSpan>[
                                         TextSpan(
-                                          text: "Light Mage\n",
+                                          text: "${bookList[index].title}\n",
                                           style: AppTextStyle.homeBookNameMedium,
                                         ),
                                         const TextSpan(
@@ -104,7 +109,7 @@ class BestSellers extends StatelessWidget {
                                           style: TextStyle(fontSize: 10),
                                         ),
                                         TextSpan(
-                                          text: "Laurie Forest",
+                                          text: bookList[index].author,
                                           style: AppTextStyle.homeBookNameMedium?.copyWith(
                                             fontSize: 12,
                                             fontWeight: FontWeight.w400,
@@ -119,7 +124,7 @@ class BestSellers extends StatelessWidget {
 
                                   Padding(
                                     padding: EdgeInsets.only(left: 18.w),
-                                    child: RatingStar(size: 20,),
+                                    child: RatingStar(size: 20,rating: bookList[index].rating.toDouble(),),
                                   ),
 
                                   SizedBox(height: 10.h),

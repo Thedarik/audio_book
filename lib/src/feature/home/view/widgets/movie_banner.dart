@@ -1,3 +1,4 @@
+import 'package:audio_book/src/feature/home/model/home_book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -8,7 +9,8 @@ import '../../../../core/style/text_style.dart';
 
 class MovieBanner extends StatelessWidget {
   final String categoryText;
-  const MovieBanner({super.key, required this.categoryText});
+  final List<BestSeller> bookList;
+  const MovieBanner({super.key, required this.categoryText, required this.bookList});
 
   @override
   Widget build(BuildContext context) {
@@ -18,13 +20,6 @@ class MovieBanner extends StatelessWidget {
       "assets/images/the_kidnappers.png",
       "assets/images/the_fire_queen.png",
       "assets/images/light_mage.png"
-    ];
-    List<String> texts = [
-      "The Black Witch",
-      "The Prisoners Key",
-      "The Kidnappers",
-      "The Fire Queen",
-      "Light Mage"
     ];
 
     return Column(
@@ -91,7 +86,7 @@ class MovieBanner extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(right: 20),
                         child: Text(
-                          texts[index],
+                          bookList[index].title,
                           style: AppTextStyle.homeCategoryTextMedium?.copyWith(
                               color: AppColors.c2E2E5D
                           ),
