@@ -24,13 +24,15 @@ dependencies:
   device_preview: ^1.1.0
   image_picker: ^1.1.1
   flutter_pannable_rating_bar: ^2.7.2+1
+  http_interceptor: ^1.0.2
+
 
   #for locale storage
   shared_preferences: ^2.2.2
 
   #for state management
 
-  http: ^1.2.1
+  http: any
   http_parser: ^4.0.2
   go_router: ^14.2.0
 
