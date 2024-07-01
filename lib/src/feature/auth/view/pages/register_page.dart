@@ -81,7 +81,7 @@ class RegisterPage extends StatelessWidget {
                         children: [
                           Text(
                             "By signing up, you agree to our ",
-                            style: AppTextStyle.registerTermsSmall,
+                            style: AppTextStyle.registerTerms2Small,
                           ),
                           InkWell(
                             splashColor: AppColors.cF5F5FA,
@@ -106,7 +106,7 @@ class RegisterPage extends StatelessWidget {
                               style: AppTextStyle.loginForgotPasswordSmall,
                             ),
                           ),
-                          Text("and ",style: AppTextStyle.registerTermsSmall,),
+                          Text("and ",style: AppTextStyle.registerTerms2Small,),
                           InkWell(
                             splashColor: AppColors.cF5F5FA,
                             borderRadius: BorderRadius.circular(8),
@@ -127,9 +127,10 @@ class RegisterPage extends StatelessWidget {
                     onPressed: () {
                       context.go("${AppRouteName.loginPage}/${AppRouteName.registerPage}/${AppRouteName.confirmationPage}");
                     },
+                    elevation: 0,
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide.none
+                      borderSide: BorderSide.none,
                     ),
                     color: AppColors.c4838D1,
                     child: Text(
