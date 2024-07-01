@@ -1,9 +1,12 @@
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 Widget textFieldLogin(
-    {required String hintText,
+    {List<TextInputFormatter>? formatters,
+      String? Function(String?)? validator,
+      required String hintText,
       required BuildContext context,
       FocusNode? nextNode,
       required TextEditingController controller,
@@ -11,6 +14,8 @@ Widget textFieldLogin(
     required bool isError,
     required TextInputType keyboardType}) {
   return TextFormField(
+  validator: validator,
+    inputFormatters: formatters,
     controller: controller,
     focusNode: node,
     keyboardType: keyboardType,

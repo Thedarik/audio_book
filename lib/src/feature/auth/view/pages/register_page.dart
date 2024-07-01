@@ -1,10 +1,16 @@
+import 'dart:developer';
+
+import 'package:audio_book/src/core/api/api.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
+import 'package:audio_book/src/feature/auth/model/register_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/style/colors.dart';
 import '../../../../core/style/images.dart';
 import '../../../../core/style/text_style.dart';
+import '../widgets/date_text_formatter_widget.dart';
 import '../widgets/login_text_field_widget.dart';
 import '../widgets/useful_widgets_for_all_pages.dart';
 
@@ -20,6 +26,41 @@ class RegisterPage extends StatelessWidget {
   final FocusNode _thirdFocusNode = FocusNode();
 
   final bool isCheckFilled = false;
+
+  final _formKey = GlobalKey<FormState>();
+
+  /// validators
+  String? _validateEmail(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter an email';
+    }
+    final RegExp emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+    if (!emailRegex.hasMatch(value)) {
+      return 'example: email@gmail.com';
+    }
+    return null;
+  }
+
+  String? _validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter a password';
+    }
+    if (value.length < 8) {
+      return 'Password must be at least 8 characters long';
+    }
+    return null;
+  }
+
+  String? _validateBirthDate(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your birth date';
+    }
+    final RegExp dateRegex = RegExp(r'^\d{4}-\d{2}-\d{2}$');
+    if (!dateRegex.hasMatch(value)) {
+      return 'Birth date (YYYY-MM-DD)';
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,117 +85,145 @@ class RegisterPage extends StatelessWidget {
             fixedSizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
-              child: Column(
-                children: [
-                  textFieldLogin(
-                    controller: controller1,
-                    hintText: "Email",
-                    node: _firstFocusNode,
-                    isError: false,
-                    keyboardType: TextInputType.emailAddress,
-                    context: context,
-                    nextNode: _secondFocusNode,
-                  ),
-                  fixedSizedBox(height: 16),
-                  textFieldLogin(
-                    controller: controller2,
-                    hintText: "Password",
-                    node: _secondFocusNode,
-                    isError: false,
-                    keyboardType: TextInputType.visiblePassword,
-                    context: context,
-                    nextNode: _thirdFocusNode
-                  ),
-                  fixedSizedBox(height: 16),
-                  textFieldLogin(
-                    controller: controller3,
-                    hintText: "Date of Birth",
-                    node: _thirdFocusNode,
-                    isError: false,
-                    keyboardType: const TextInputType.numberWithOptions(),
-                    context: context,
-                  ),
-                  fixedSizedBox(height: 16),
-                  Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            "By signing up, you agree to our ",
-                            style: AppTextStyle.registerTerms2Small,
-                          ),
-                          InkWell(
-                            splashColor: AppColors.cF5F5FA,
-                            borderRadius: BorderRadius.circular(8),
-                            onTap: () {},
-                            child: Text(
-                              "Terms  ",
-                              style: AppTextStyle.loginForgotPasswordSmall,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          InkWell(
-                            splashColor: AppColors.cF5F5FA,
-                            borderRadius: BorderRadius.circular(8),
-                            onTap: () {},
-                            child: Text(
-                              "Data Policy " ,
-                              style: AppTextStyle.loginForgotPasswordSmall,
-                            ),
-                          ),
-                          Text("and ",style: AppTextStyle.registerTerms2Small,),
-                          InkWell(
-                            splashColor: AppColors.cF5F5FA,
-                            borderRadius: BorderRadius.circular(8),
-                            onTap: () {},
-                            child: Text(
-                              "Cookies Policy.",
-                              style: AppTextStyle.loginForgotPasswordSmall,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  fixedSizedBox(height: 16),
-                  MaterialButton(
-                    minWidth: double.infinity,
-                    height: 56,
-                    onPressed: () {
-                      context.go("${AppRouteName.loginPage}/${AppRouteName.registerPage}/${AppRouteName.confirmationPage}");
-                    },
-                    elevation: 0,
-                    shape: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide.none,
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    textFieldLogin(
+                      validator: _validateEmail,
+                      controller: controller1,
+                      hintText: "Email",
+                      node: _firstFocusNode,
+                      isError: false,
+                      keyboardType: TextInputType.emailAddress,
+                      context: context,
+                      nextNode: _secondFocusNode,
                     ),
-                    color: AppColors.c4838D1,
-                    child: Text(
-                      "Register",
-                      style: AppTextStyle.loginLoginButtonMedium,
+                    fixedSizedBox(height: 16),
+                    textFieldLogin(
+                      validator: _validatePassword,
+                      controller: controller2,
+                      hintText: "Password",
+                      node: _secondFocusNode,
+                      isError: false,
+                      keyboardType: TextInputType.visiblePassword,
+                      context: context,
+                      nextNode: _thirdFocusNode
                     ),
-                  ),
-                  fixedSizedBox(height: 16),
-                  MaterialButton(
-                    onPressed: () {
-                      context.pop();
-                    },
-                    minWidth: double.infinity,
-                    height: 56,
-                    shape: OutlineInputBorder(
+                    fixedSizedBox(height: 16),
+                    textFieldLogin(
+                      validator: _validateBirthDate,
+                      controller: controller3,
+                      hintText: "Date of Birth",
+                      node: _thirdFocusNode,
+                      isError: false,
+                      keyboardType: const TextInputType.numberWithOptions(),
+                      context: context,
+                      formatters: [
+                        FilteringTextInputFormatter.digitsOnly,
+                        LengthLimitingTextInputFormatter(8),
+                        DateTextFormatter(),
+                      ],
+                    ),
+                    fixedSizedBox(height: 16),
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              "By signing up, you agree to our ",
+                              style: AppTextStyle.registerTerms2Small,
+                            ),
+                            InkWell(
+                              splashColor: AppColors.cF5F5FA,
+                              borderRadius: BorderRadius.circular(8),
+                              onTap: () {},
+                              child: Text(
+                                "Terms  ",
+                                style: AppTextStyle.loginForgotPasswordSmall,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            InkWell(
+                              splashColor: AppColors.cF5F5FA,
+                              borderRadius: BorderRadius.circular(8),
+                              onTap: () {},
+                              child: Text(
+                                "Data Policy " ,
+                                style: AppTextStyle.loginForgotPasswordSmall,
+                              ),
+                            ),
+                            Text("and ",style: AppTextStyle.registerTerms2Small,),
+                            InkWell(
+                              splashColor: AppColors.cF5F5FA,
+                              borderRadius: BorderRadius.circular(8),
+                              onTap: () {},
+                              child: Text(
+                                "Cookies Policy.",
+                                style: AppTextStyle.loginForgotPasswordSmall,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    fixedSizedBox(height: 16),
+                    MaterialButton(
+                      minWidth: double.infinity,
+                      height: 56,
+                      onPressed: () async{
+                        if (_formKey.currentState?.validate() == true) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('Loading...')),
+                          );
+                        }else{
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('WROONNGG')),
+                          );
+                          RegisterModel model = RegisterModel(password: controller2.text,email: controller1.text, birthDate: controller3.text);
+                          log(model.birthDate.toString());
+                          String? result = await Api.POST(Api.apiPostRegister, model.toJson());
+                          if(result != null){
+                            log(result);
+                          }else{
+                            log("\n\n\nNOT WORKED\n\n\n");
+                          }
+                        }
+                        // context.go("${AppRouteName.loginPage}/${AppRouteName.registerPage}/${AppRouteName.confirmationPage}");
+                      },
+                      elevation: 0,
+                      shape: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(
-                            width: 1, color: AppColors.c4838D1)),
-                    child: Text(
-                      "Cancel",
-                      style: AppTextStyle.registerCancelButtonMedium,
+                        borderSide: BorderSide.none,
+                      ),
+                      color: AppColors.c4838D1,
+                      child: Text(
+                        "Register",
+                        style: AppTextStyle.loginLoginButtonMedium,
+                      ),
                     ),
-                  ),
-                ],
+                    fixedSizedBox(height: 16),
+                    MaterialButton(
+                      onPressed: () {
+                        context.pop();
+                      },
+                      minWidth: double.infinity,
+                      height: 56,
+                      shape: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              width: 1, color: AppColors.c4838D1)),
+                      child: Text(
+                        "Cancel",
+                        style: AppTextStyle.registerCancelButtonMedium,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             const Spacer(),

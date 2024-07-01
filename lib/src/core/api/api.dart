@@ -65,7 +65,7 @@ class Api {
 
   // ignore: non_constant_identifier_names
   static Future<String?> POST(String api, Map<String, dynamic> body) async {
-    final Uri url = Uri.https(baseurl, api);
+    final Uri url = Uri.http(baseurl, api);
     final Response response =
         await http.post(url, headers: headers, body: jsonEncode(body));
     if (response.statusCode == 200 || response.statusCode == 201) {
