@@ -63,10 +63,10 @@ class RatingStar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HomeController>(
       builder: (context, controller, child) => PannableRatingBar(
-        rate: controller.rating,
+        rate: rating,
         onChanged: controller.onTap,
         items: List.generate(5, (index) {
-          bool isActive = index < controller.rating.ceil();
+          bool isActive = index < rating.ceil();
           return RatingWidget(
             selectedColor: AppColors.cF77A55,
             child: isActive

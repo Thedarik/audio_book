@@ -63,17 +63,17 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(height: 30.h),
                   BestSellers(
-                    bookList: controller.homeBooksModel!.bestSeller,
+                    bookList: controller.homeBooksModel!.bestSeller!,
                   ),
                   SizedBox(height: 30.h),
                   MovieBanner(
                     categoryText: "New Releases",
-                    bookList: controller.homeBooksModel!.newRelease,
+                    bookList: controller.homeBooksModel!.newRelease!,
                   ),
                   SizedBox(height: 20.h),
                   MovieBanner(
                     categoryText: "Trending Now",
-                    bookList: controller.homeBooksModel!.trendingNow,
+                    bookList: controller.homeBooksModel!.trendingNow!,
                   ),
                 ],
               ),

@@ -51,13 +51,16 @@ class BestSellers extends StatelessWidget {
           child: SizedBox(
             height: 150,
             child: ListView.separated(
-              separatorBuilder: (context, index)=> const SizedBox(width: 20),
+              separatorBuilder: (context, index) => const SizedBox(width: 20),
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (context, index){
+              itemCount: bookList.length,
+              itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: (){
-                    context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}");
+                  onTap: () {
+                    context.go(
+                        "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}",
+                      extra: bookList
+                    );
                   },
                   child: SizedBox(
                     width: 315.w,
@@ -72,73 +75,66 @@ class BestSellers extends StatelessWidget {
                       child: Column(
                         children: [
                           SizedBox(height: 10.h),
-
                           Row(
                             children: [
                               SizedBox(width: 10.w),
-
                               SizedBox(
                                 height: 120.h,
                                 width: 120.w,
                                 child: const DecoratedBox(
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
-                                          image: AssetImage("assets/images/light_mage.png"),
-                                        // fit: BoxFit.cover
+                                        image: AssetImage("assets/images/light_mage.png"),
                                       ),
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(15)
                                       )
                                   ),
+                                ),
                               ),
-                              ),
-
                               SizedBox(width: 15.w),
-
-                              Column(
-                                children: [
-                                  RichText(
-                                    text: TextSpan(
-                                      children: <InlineSpan>[
-                                        TextSpan(
-                                          text: "${bookList[index].title}\n",
-                                          style: AppTextStyle.homeBookNameMedium,
-                                        ),
-                                        const TextSpan(
-                                          text: "\n",
-                                          style: TextStyle(fontSize: 10),
-                                        ),
-                                        TextSpan(
-                                          text: bookList[index].author,
-                                          style: AppTextStyle.homeBookNameMedium?.copyWith(
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                            color: AppColors.c6A6A8B,
-                                          ),
-                                        ),
-                                      ],
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      height: 20.h,
+                                      child: Text(
+                                        bookList[index].title!.length >= 20
+                                            ? "${bookList[index].title?.substring(0, 12)}..."
+                                            : bookList[index].title!,
+                                        style: AppTextStyle.homeBookNameMedium,
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                      ),
                                     ),
-                                  ),
-
-                                  SizedBox(height: 15.h),
-
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 18.w),
-                                    child: RatingStar(size: 20,rating: bookList[index].rating.toDouble(),),
-                                  ),
-
-                                  SizedBox(height: 10.h),
-
-                                  Text(
-                                    "1000+ Listeners",
-                                    style: AppTextStyle.homeBookNameMedium?.copyWith(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: AppColors.c6A6A8B,
+                                    SizedBox(height: 5.h),
+                                    SizedBox(
+                                      height: 15.h,
+                                      child: Text(
+                                        bookList[index].author!,
+                                        style: AppTextStyle.homeBookNameMedium?.copyWith(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                          color: AppColors.c6A6A8B,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                      ),
                                     ),
-                                  )
-
-                                ],
+                                    SizedBox(height: 15.h),
+                                    RatingStar(size: 20, rating: bookList[index].rating!.toDouble()),
+                                    SizedBox(height: 10.h),
+                                    Text(
+                                      "1000+ Listeners",
+                                      style: AppTextStyle.homeBookNameMedium?.copyWith(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                        color: AppColors.c6A6A8B,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               )
                             ],
                           )
@@ -151,6 +147,7 @@ class BestSellers extends StatelessWidget {
             ),
           ),
         )
+
       ],
     );
   }
