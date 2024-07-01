@@ -1,5 +1,6 @@
 import 'package:audio_book/src/core/widget/app_material_context.dart';
 import 'package:audio_book/src/feature/home/controller/home_controller.dart';
+import 'package:audio_book/src/feature/search/controller/search_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -24,6 +25,9 @@ class App extends StatelessWidget {
       ),
       ChangeNotifierProvider(
         create: (context) => HomeController(AppRepositoryImpl()),
+      ),
+      ChangeNotifierProvider(
+        create: (context) => SearchBookController(AppRepositoryImpl()),
       ),
     ],
     child: ScreenUtilInit(
