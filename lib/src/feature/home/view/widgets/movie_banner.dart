@@ -65,6 +65,7 @@ class MovieBanner extends StatelessWidget {
                     context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}");
                   },
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
                         width: 160.w,
@@ -86,7 +87,9 @@ class MovieBanner extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(right: 20),
                         child: Text(
-                          bookList[index].title,
+                          bookList[index].title!.length >= 20
+                              ? "${bookList[index].title?.substring(0, 12)}..."
+                              : bookList[index].title!,
                           style: AppTextStyle.homeCategoryTextMedium?.copyWith(
                               color: AppColors.c2E2E5D
                           ),

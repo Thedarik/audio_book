@@ -23,7 +23,7 @@ class App extends StatelessWidget {
         create: (context) => CheckboxStateNotifier(),
       ),
       ChangeNotifierProvider(
-        create: (context) => HomeController(AppRepositoryImpl())..getHomeBooks(),
+        create: (context) => HomeController(AppRepositoryImpl()),
       ),
     ],
     child: ScreenUtilInit(

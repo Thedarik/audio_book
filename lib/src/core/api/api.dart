@@ -6,7 +6,7 @@ import "package:http_parser/http_parser.dart";
 
 class Api {
   // baseurl
-  static const String baseurl = "localhost:8080";
+  static const String baseurl = "16.171.15.113:8080";
 
   // APIS
   static String apiPostRegister = "/api/auth/register";
@@ -40,8 +40,8 @@ class Api {
   // headers
   static Map<String, String> headers = <String, String>{
     "Content-Type": "application/json",
-    "Accept": "*/*",
-    "Authorization": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlc2htYXQiLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUiIsImlhdCI6MTcxOTc4NDE3OCwiaXNzIjoiYXVkaW8uYm9vayIsImV4cCI6MTcxOTc4NTk3OH0.od9xyxLSJ9J8G95neF_B1usej6rR8G0Oek97sbnNhtNJaz54C05h3vpO_Fp0rP9g",
+    // "Accept": "*/*",
+    "Authorization": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlc2htYXQiLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUiIsImlhdCI6MTcxOTgxODUxMCwiaXNzIjoiaG9tZXdvcmsuaW8iLCJleHAiOjE3MjEwMjgxMTB9.Szr3jQ-eFLTcPH5YYNlZlMzwgMPoySc6cxZkEv9TLIp239_RoEliVNlI0g-4pAbi",
   };
 
 
