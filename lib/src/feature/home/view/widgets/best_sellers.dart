@@ -33,8 +33,10 @@ class BestSellers extends StatelessWidget {
 
               TextButton(
                 onPressed: (){
-                  context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}");
-                },
+                  context.go(
+                      "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}",
+                      extra: bookList
+                  );                },
                 child: Text(
                   "See more",
                   style: AppTextStyle.homeSeeMoreSmall,
