@@ -1,10 +1,5 @@
-import 'package:audio_book/src/feature/home/view/widgets/rating_star.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../core/style/colors.dart';
-import '../../../../core/style/text_style.dart';
 
 class ReviewDetails extends StatelessWidget {
   final PageController _controller = PageController();

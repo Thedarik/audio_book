@@ -1,5 +1,6 @@
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
+import 'package:audio_book/src/feature/home/model/home_book_model.dart';
 import 'package:audio_book/src/feature/home/view/widgets/vertical_movies.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,6 +11,7 @@ class HomeDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bookList = GoRouterState.of(context).extra as List<BestSeller>;
 
     return Scaffold(
       appBar: AppBar(
@@ -45,10 +47,10 @@ class HomeDetailPage extends StatelessWidget {
         children: [
           SizedBox(height: 20.h),
 
-          const Expanded(
+          Expanded(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: VerticalMovies(),
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              child: VerticalMovies(listBook: bookList,),
             ),
           )
         ],

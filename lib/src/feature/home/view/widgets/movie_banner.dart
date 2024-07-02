@@ -38,8 +38,10 @@ class MovieBanner extends StatelessWidget {
 
               TextButton(
                 onPressed: (){
-                  context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}");
-                },
+                  context.go(
+                      "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}",
+                      extra: bookList
+                  );                },
                 child: Text(
                   "See more",
                   style: AppTextStyle.homeSeeMoreSmall,
@@ -62,8 +64,10 @@ class MovieBanner extends StatelessWidget {
               itemBuilder: (context, index){
                 return GestureDetector(
                   onTap: (){
-                    context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}");
-                  },
+                    context.go(
+                        "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}",
+                        extra: bookList
+                    );                  },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

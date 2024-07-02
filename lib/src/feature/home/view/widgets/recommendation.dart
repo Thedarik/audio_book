@@ -51,7 +51,10 @@ class Recommendation extends StatelessWidget {
               itemBuilder: (context, index){
                 return GestureDetector(
                   onTap: (){
-                    context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}");
+                    context.go(
+                        "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}",
+                        extra: []
+                    );
                   },
                   child: SizedBox(
                     width: 200.w,

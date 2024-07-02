@@ -141,7 +141,7 @@ final class AppRouter {
                 //Search
                 GoRoute(
                   path: AppRouteName.searchPage,
-                  builder: (context, state) => const SearchPage(),
+                  builder: (context, state) => SearchPage(),
                 ),
 
                 //Library
@@ -205,7 +205,7 @@ final class AppRouter {
                 //Search
                 GoRoute(
                   path: AppRouteName.searchPage,
-                  builder: (context, state) => const SearchPage(),
+                  builder: (context, state) => SearchPage(),
                 ),
 
                 //Library
