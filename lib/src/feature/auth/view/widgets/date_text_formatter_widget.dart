@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 class DateTextFormatter extends TextInputFormatter {
@@ -10,18 +9,15 @@ class DateTextFormatter extends TextInputFormatter {
 
     String formattedText = '';
 
-    if (newTextLength >= 5) {
-      formattedText = newValue.text.substring(0, 4) +
-          '-' +
-          newValue.text.substring(4, 6) +
-          (newTextLength > 6 ? '-' + newValue.text.substring(6, newTextLength) : '');
-    } else if (newTextLength >= 4) {
-      formattedText = newValue.text.substring(0, 4) + '-' + newValue.text.substring(4, newTextLength);
+    if (newTextLength > 4 && newTextLength <= 6) {
+      formattedText = '${newValue.text.substring(0, 4)}-${newValue.text.substring(4, newTextLength)}';
+      selectionIndex++;
+    } else if (newTextLength > 6) {
+      formattedText = '${newValue.text.substring(0, 4)}-${newValue.text.substring(4, 6)}-${newValue.text.substring(6, newTextLength)}';
+      selectionIndex += 2;
     } else {
       formattedText = newValue.text;
     }
-
-    selectionIndex += selectionIndex > 4 ? (selectionIndex > 6 ? 2 : 1) : 0;
 
     return TextEditingValue(
       text: formattedText,

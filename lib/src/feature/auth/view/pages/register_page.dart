@@ -176,13 +176,10 @@ class RegisterPage extends StatelessWidget {
                       minWidth: double.infinity,
                       height: 56,
                       onPressed: () async{
+                        log("message");
                         if (_formKey.currentState?.validate() == true) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(content: Text('Loading...')),
-                          );
-                        }else{
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('WROONNGG')),
                           );
                           RegisterModel model = RegisterModel(password: controller2.text,email: controller1.text, birthDate: controller3.text);
                           log(model.birthDate.toString());
@@ -192,6 +189,11 @@ class RegisterPage extends StatelessWidget {
                           }else{
                             log("\n\n\nNOT WORKED\n\n\n");
                           }
+                        }else{
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(content: Text('WROONNGG')),
+                          );
+
                         }
                         // context.go("${AppRouteName.loginPage}/${AppRouteName.registerPage}/${AppRouteName.confirmationPage}");
                       },
