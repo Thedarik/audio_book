@@ -6,7 +6,9 @@ import "package:http_parser/http_parser.dart";
 
 class Api {
   // baseurl
-  static const String baseurl = "16.171.15.113:8080";
+  static const String baseurl = "16.171.23.147:8080";
+  // static const String baseurl = "localhost:8080";
+
 
   // APIS
   static String apiPostRegister = "/api/auth/register";
@@ -68,6 +70,16 @@ class Api {
     final Uri url = Uri.http(baseurl, api);
     final Response response =
         await http.post(url, headers: headers, body: jsonEncode(body));
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return response.body;
+    }
+    return null;
+  }
+
+  static Future<String?> POST2(String api, String body) async {
+    final Uri url = Uri.http(baseurl, api);
+    final Response response =
+    await http.post(url, headers: headers, body: jsonEncode(body));
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.body;
     }

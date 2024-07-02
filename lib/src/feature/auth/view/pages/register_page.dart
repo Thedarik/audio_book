@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:audio_book/src/core/api/api.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
+import 'package:audio_book/src/core/storage/app_storage.dart';
 import 'package:audio_book/src/feature/auth/model/register_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -101,15 +102,14 @@ class RegisterPage extends StatelessWidget {
                     ),
                     fixedSizedBox(height: 16),
                     textFieldLogin(
-                      validator: _validatePassword,
-                      controller: controller2,
-                      hintText: "Password",
-                      node: _secondFocusNode,
-                      isError: false,
-                      keyboardType: TextInputType.visiblePassword,
-                      context: context,
-                      nextNode: _thirdFocusNode
-                    ),
+                        validator: _validatePassword,
+                        controller: controller2,
+                        hintText: "Password",
+                        node: _secondFocusNode,
+                        isError: false,
+                        keyboardType: TextInputType.visiblePassword,
+                        context: context,
+                        nextNode: _thirdFocusNode),
                     fixedSizedBox(height: 16),
                     textFieldLogin(
                       validator: _validateBirthDate,
@@ -153,11 +153,14 @@ class RegisterPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(8),
                               onTap: () {},
                               child: Text(
-                                "Data Policy " ,
+                                "Data Policy ",
                                 style: AppTextStyle.loginForgotPasswordSmall,
                               ),
                             ),
-                            Text("and ",style: AppTextStyle.registerTerms2Small,),
+                            Text(
+                              "and ",
+                              style: AppTextStyle.registerTerms2Small,
+                            ),
                             InkWell(
                               splashColor: AppColors.cF5F5FA,
                               borderRadius: BorderRadius.circular(8),
@@ -175,27 +178,27 @@ class RegisterPage extends StatelessWidget {
                     MaterialButton(
                       minWidth: double.infinity,
                       height: 56,
-                      onPressed: () async{
-                        log("message");
+                      onPressed: () async {
                         if (_formKey.currentState?.validate() == true) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Loading...')),
+                          // log('TRUE');
+                          RegisterModel model = RegisterModel(
+                              birthDate: controller3.text,
+                              email: controller1.text,
+                              password: controller2.text,
+                              verificationCode: "String");
+                          var result = await Api.POST(
+                            Api.apiPostSignUp,
+                            model.toJson(),
                           );
-                          RegisterModel model = RegisterModel(password: controller2.text,email: controller1.text, birthDate: controller3.text);
-                          log(model.birthDate.toString());
-                          String? result = await Api.POST(Api.apiPostRegister, model.toJson());
-                          if(result != null){
-                            log(result);
-                          }else{
-                            log("\n\n\nNOT WORKED\n\n\n");
+                          if (result != null) {
+                            context.go("${AppRouteName.loginPage}/${AppRouteName.registerPage}/${AppRouteName.confirmationPage}");
+                            // log('\n\n\n\n RESULT: $result');
                           }
-                        }else{
+                        } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(content: Text('WROONNGG')),
                           );
-
                         }
-                        // context.go("${AppRouteName.loginPage}/${AppRouteName.registerPage}/${AppRouteName.confirmationPage}");
                       },
                       elevation: 0,
                       shape: OutlineInputBorder(

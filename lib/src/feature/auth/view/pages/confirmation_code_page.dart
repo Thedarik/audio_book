@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:audio_book/src/core/api/api.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,6 +21,7 @@ class ConfirmationCodePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -56,6 +60,7 @@ class ConfirmationCodePage extends StatelessWidget {
               child: Column(
                 children: [
                   textFieldLogin(
+                    maxLength: 6,
                     controller: controller1,
                     hintText: "Confirmation Code",
                     node: _firstFocusNode,
@@ -84,8 +89,18 @@ class ConfirmationCodePage extends StatelessWidget {
                   MaterialButton(
                     minWidth: double.infinity,
                     height: 56,
-                    onPressed: () {
-                      context.go(AppRouteName.loginPage);
+                    onPressed: () async{
+                      if(controller1.text.length == 6){
+                        String? result = await Api.POST2(Api.apiPostSignUpVerify,controller1.text);
+                        if(result != null){
+                          log("\n\n\n\n\nWORKED\n\n\n\n");
+                          // context.go(AppRouteName.loginPage);
+                        }
+                      }else{
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Confirmation code\'s length is 6 digits')),
+                        );
+                      }
                     },
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),

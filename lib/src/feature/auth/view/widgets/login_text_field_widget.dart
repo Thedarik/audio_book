@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 
 Widget textFieldLogin(
     {List<TextInputFormatter>? formatters,
+      int? maxLength,
       String? Function(String?)? validator,
       required String hintText,
       required BuildContext context,
@@ -15,6 +16,7 @@ Widget textFieldLogin(
     required TextInputType keyboardType}) {
   return TextFormField(
   validator: validator,
+    maxLength: maxLength,
     inputFormatters: formatters,
     controller: controller,
     focusNode: node,
