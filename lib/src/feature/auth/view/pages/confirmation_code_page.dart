@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/storage/app_storage.dart';
 import '../../../../core/style/colors.dart';
 import '../../../../core/style/images.dart';
 import '../../../../core/style/text_style.dart';
@@ -13,7 +14,8 @@ import '../widgets/login_text_field_widget.dart';
 import '../widgets/useful_widgets_for_all_pages.dart';
 
 class ConfirmationCodePage extends StatelessWidget {
-  ConfirmationCodePage({super.key});
+  final String token = '';
+  ConfirmationCodePage({super.key,required token});
   final TextEditingController controller1 = TextEditingController();
   final FocusNode _firstFocusNode = FocusNode();
   final bool isCheckFilled = false;
@@ -91,10 +93,14 @@ class ConfirmationCodePage extends StatelessWidget {
                     height: 56,
                     onPressed: () async{
                       if(controller1.text.length == 6){
-                        String? result = await Api.POST2(Api.apiPostSignUpVerify,controller1.text);
+                        log(token);
+                        log(controller1.text);
+                        String? info = await AppStorage.load(key: StorageKey.token);
+                        log(info??'null');
+                        String? result = await Api.POST2FORCONFIRM(Api.apiPostSignUpVerify,controller1 != int ? 000000 : controller1 as int,{"TempAuthorization":info!});
                         if(result != null){
                           log("\n\n\n\n\nWORKED\n\n\n\n");
-                          // context.go(AppRouteName.loginPage);
+                          context.go(AppRouteName.welcomePage);
                         }
                       }else{
                         ScaffoldMessenger.of(context).showSnackBar(

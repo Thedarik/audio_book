@@ -186,12 +186,13 @@ class RegisterPage extends StatelessWidget {
                               email: controller1.text,
                               password: controller2.text,
                               verificationCode: "String");
-                          var result = await Api.POST(
+                          String? result = await Api.POST(
                             Api.apiPostSignUp,
                             model.toJson(),
                           );
                           if (result != null) {
-                            context.go("${AppRouteName.loginPage}/${AppRouteName.registerPage}/${AppRouteName.confirmationPage}");
+                            await AppStorage.store(key: StorageKey.token, value: result);
+                            context.go("${AppRouteName.loginPage}/${AppRouteName.registerPage}/${AppRouteName.confirmationPage}",extra: "info");
                             // log('\n\n\n\n RESULT: $result');
                           }
                         } else {

@@ -6,8 +6,9 @@ import "package:http_parser/http_parser.dart";
 
 class Api {
   // baseurl
-  static const String baseurl = "16.171.23.147:8080";
+  // static const String baseurl = "16.171.23.147:8080";
   // static const String baseurl = "localhost:8080";
+  static const String baseurl = "127.0.0.1:8080";
 
 
   // APIS
@@ -76,10 +77,10 @@ class Api {
     return null;
   }
 
-  static Future<String?> POST2(String api, String body) async {
+  static Future<String?> POST2FORCONFIRM(String api, int body,Map<String,String> param) async {
     final Uri url = Uri.http(baseurl, api);
     final Response response =
-    await http.post(url, headers: headers, body: jsonEncode(body));
+    await http.post(url, headers: param, body: body);
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.body;
     }

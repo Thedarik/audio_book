@@ -67,7 +67,10 @@ final class AppRouter {
                   routes: [
                     GoRoute(
                       path: AppRouteName.confirmationPage,
-                      builder: (context, state) => ConfirmationCodePage(),
+                      builder: (context, state) {
+                        String info = state.extra as String;
+                        return ConfirmationCodePage(token: info,);
+                      },
                     ),
                   ],
                 ),
