@@ -13,7 +13,7 @@ class StorageService {
     return db.getString(key);
   }
 
-  Future<bool> remov(String key) {
+  Future<bool> remove(String key) {
     return db.remove(key);
   }
 

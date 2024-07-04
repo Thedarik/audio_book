@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:audio_book/src/core/api/api.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/images.dart';
@@ -96,8 +99,13 @@ class LoginPage extends StatelessWidget {
                   MaterialButton(
                     minWidth: double.infinity,
                     height: 56.h,
-                    onPressed: () {
-                      context.go(AppRouteName.welcomePage);
+                    onPressed: () async{
+                      String? result = await Api.POST(Api.apiPostLogin,{"email": controller1.text, "password":controller2.text});
+                      if(result != null){
+                        context.go(AppRouteName.welcomePage);
+                      }else{
+
+                      }
                     },
                     elevation: 0,
                     shape: OutlineInputBorder(

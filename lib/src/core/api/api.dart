@@ -1,4 +1,5 @@
 import "dart:convert";
+import "dart:developer";
 import "package:audio_book/src/data/repository/app_interceptor.dart";
 import "package:http/http.dart";
 import "package:http_interceptor/http/http.dart";
@@ -6,9 +7,10 @@ import "package:http_parser/http_parser.dart";
 
 class Api {
   // baseurl
-  // static const String baseurl = "16.171.23.147:8080";
+  static const String baseurl = "10.10.1.170:8080";
+  // static const String baseurl2 = "http://10.10.1.170:8080";
   // static const String baseurl = "localhost:8080";
-  static const String baseurl = "127.0.0.1:8080";
+  // static const String baseurl = "10.0.2.2:8080";
 
 
   // APIS
@@ -72,19 +74,60 @@ class Api {
     final Response response =
         await http.post(url, headers: headers, body: jsonEncode(body));
     if (response.statusCode == 200 || response.statusCode == 201) {
+      log("\n\nPost of Login${response.body}\n\n");
       return response.body;
     }
     return null;
   }
 
-  static Future<String?> POST2FORCONFIRM(String api, int body,Map<String,String> param) async {
+  static Future<String?> forgetPassword(String api, Map<String, dynamic> body) async {
     final Uri url = Uri.http(baseurl, api);
     final Response response =
-    await http.post(url, headers: param, body: body);
+    await http.post(url, headers: headers, body: jsonEncode(body));
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      log("\n\nPost of Login${response.body}\n\n");
+      return response.body;
+    }
+    return null;
+  }
+
+  static Future<String?> resendCode(String api, String tempAuthorizationToken) async {
+    Map<String, String> headers3 = <String, String>{
+      "Content-Type": "application/json",
+      // "Accept": "*/*",
+      "TempAuthorization": tempAuthorizationToken,
+    };
+    final Uri url = Uri.http(baseurl, api);
+    final Response response =
+    await http.post(url, headers: headers3);
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.body;
     }
     return null;
+  }
+
+  static Future<String?> verifyCode({required String verificationCode, required String api, required String tempAuthorizationToken}) async {
+    final Uri url = Uri.http(baseurl, api);
+    final headers1 = {
+      "Content-Type": "application/json",
+      'TempAuthorization': tempAuthorizationToken,
+    };
+
+    final body = jsonEncode({
+      'verificationCode': verificationCode,
+    });
+
+    final response = await http.post(url, headers: headers1, body: body);
+      log('SHUNAQA XABAR: ${response.body}');
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      log('\nJSON BODY: ${jsonDecode(response.body)}\n');
+      return jsonEncode(response.body);
+    } else {
+      // Handle error
+      log('Error: ${response.statusCode}');
+      return null;
+    }
   }
 
   // ignore: non_constant_identifier_names

@@ -192,6 +192,8 @@ class RegisterPage extends StatelessWidget {
                           );
                           if (result != null) {
                             await AppStorage.store(key: StorageKey.token, value: result);
+                            var inf = await AppStorage.load(key: StorageKey.token);
+                            log("TOKEEEEEN: $inf"?? "Nothing haveeeeeeeeee");
                             context.go("${AppRouteName.loginPage}/${AppRouteName.registerPage}/${AppRouteName.confirmationPage}",extra: "info");
                             // log('\n\n\n\n RESULT: $result');
                           }

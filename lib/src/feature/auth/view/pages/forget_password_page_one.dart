@@ -1,3 +1,4 @@
+import 'package:audio_book/src/core/api/api.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -63,9 +64,20 @@ class ForgetPasswordPageOne extends StatelessWidget {
                   MaterialButton(
                     minWidth: double.infinity,
                     height: 56,
-                    onPressed: () {
-                      context.go(
-                          "${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}/${AppRouteName.forgetPasswordTwo}");
+                    onPressed: () async {
+                      String? result = await Api.forgetPassword(
+                        Api.apiPostLoginForgotPassword,
+                        {"email": controller1.text},
+                      );
+
+                      if(result != null){
+                        context.go(
+                        "${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}/${AppRouteName.forgetPasswordTwo}");
+                      }else{
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Email not exist')),
+                        );
+                      }
                     },
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
