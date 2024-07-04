@@ -57,29 +57,7 @@ class Api {
   );
 
 
-  //methods
-  // ignore: non_constant_identifier_names
-  static Future<String?> GET(String api,) async {
-    final Uri url = Uri.http(baseurl, api);
-    final Response response = await http.get(url, headers: headers);
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return response.body;
-    }
-    return null;
-  }
-
-  // ignore: non_constant_identifier_names
-  static Future<String?> POST(String api, Map<String, dynamic> body) async {
-    final Uri url = Uri.http(baseurl, api);
-    final Response response =
-        await http.post(url, headers: headers, body: jsonEncode(body));
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      log("\n\nPost of Login${response.body}\n\n");
-      return response.body;
-    }
-    return null;
-  }
-
+  /// Auth small posts
   static Future<String?> forgetPassword(String api, Map<String, dynamic> body) async {
     final Uri url = Uri.http(baseurl, api);
     final Response response =
@@ -118,7 +96,7 @@ class Api {
     });
 
     final response = await http.post(url, headers: headers1, body: body);
-      log('SHUNAQA XABAR: ${response.body}');
+    log('SHUNAQA XABAR: ${response.body}');
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       log('\nJSON BODY: ${jsonDecode(response.body)}\n');
@@ -129,6 +107,30 @@ class Api {
       return null;
     }
   }
+
+  //methods
+  // ignore: non_constant_identifier_names
+  static Future<String?> GET(String api,) async {
+    final Uri url = Uri.http(baseurl, api);
+    final Response response = await http.get(url, headers: headers);
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return response.body;
+    }
+    return null;
+  }
+
+  // ignore: non_constant_identifier_names
+  static Future<String?> POST(String api, Map<String, dynamic> body) async {
+    final Uri url = Uri.http(baseurl, api);
+    final Response response =
+        await http.post(url, headers: headers, body: jsonEncode(body));
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      log("\n\nPost of Login${response.body}\n\n");
+      return response.body;
+    }
+    return null;
+  }
+
 
   // ignore: non_constant_identifier_names
   static Future<String?> PUT(
