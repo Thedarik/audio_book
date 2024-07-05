@@ -1,3 +1,4 @@
+import 'package:audio_book/src/core/localization/tr_language.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/images.dart';
@@ -36,7 +37,7 @@ class LoginPage extends StatelessWidget {
               children: [
                 fixedSizedBox(height: 0, width: 41.w),
                 Text(
-                  "Login to Your Account",
+                  "Login to Your Account".tr,
                   style: AppTextStyle.loginTitleMedium,
                 ),
                 const Spacer(),
@@ -76,9 +77,8 @@ class LoginPage extends StatelessWidget {
                             onChanged: (value) {
                               checkboxStateNotifier.toggleCheckbox();
                             },
-
                             checkColor: AppColors.cBBB1FA,
-                            side: const BorderSide(width: 1,color: AppColors.cBBB1FA),
+                            side: const BorderSide(width: 1, color: AppColors.cBBB1FA),
                           );
                         },
                       ),
@@ -87,7 +87,7 @@ class LoginPage extends StatelessWidget {
                         width: 12.w,
                       ),
                       Text(
-                        "Remember me",
+                        "Remember me".tr,
                         style: AppTextStyle.loginRememberSmall,
                       )
                     ],
@@ -100,13 +100,10 @@ class LoginPage extends StatelessWidget {
                       context.go(AppRouteName.welcomePage);
                     },
                     elevation: 0,
-                    shape: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide.none
-                    ),
+                    shape: OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: BorderSide.none),
                     color: AppColors.c4838D1,
                     child: Text(
-                      "Login",
+                      "Login".tr,
                       style: AppTextStyle.loginLoginButtonMedium,
                     ),
                   ),
@@ -121,7 +118,7 @@ class LoginPage extends StatelessWidget {
                           context.go("${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}");
                         },
                         child: Text(
-                          "Forget Password ?",
+                          "Forget Password ?".tr,
                           style: AppTextStyle.loginForgotPasswordSmall,
                         ),
                       ),
@@ -129,7 +126,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   fixedSizedBox(height: 32.h),
                   Text(
-                    "Or login with",
+                    "Or login with".tr,
                     style: AppTextStyle.loginOrLoginWithSmall,
                   ),
                   fixedSizedBox(height: 20.h),
@@ -141,9 +138,7 @@ class LoginPage extends StatelessWidget {
                         minWidth: 87.w,
                         height: 56.h,
                         shape: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(
-                                width: 1, color: AppColors.c4838D1)),
+                            borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(width: 1, color: AppColors.c4838D1)),
                         child: AppImages.googleIcon,
                       ),
                       MaterialButton(
@@ -151,9 +146,7 @@ class LoginPage extends StatelessWidget {
                         minWidth: 87.w,
                         height: 56.h,
                         shape: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(
-                                width: 1, color: AppColors.c4838D1)),
+                            borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(width: 1, color: AppColors.c4838D1)),
                         child: AppImages.facebookIcon,
                       ),
                       MaterialButton(
@@ -161,9 +154,7 @@ class LoginPage extends StatelessWidget {
                         minWidth: 87.w,
                         height: 56.h,
                         shape: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: const BorderSide(
-                                width: 1, color: AppColors.c4838D1)),
+                            borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(width: 1, color: AppColors.c4838D1)),
                         child: AppImages.twitterIcon,
                       ),
                     ],
@@ -173,17 +164,16 @@ class LoginPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Don’t have an accoun’t ? ",
+                        "Don’t have an accoun’t ? ".tr,
                         style: AppTextStyle.loginAccountSmall,
                       ),
                       InkWell(
                         onTap: () {
-                          context.go(
-                              "${AppRouteName.loginPage}/${AppRouteName.registerPage}");
+                          context.go("${AppRouteName.loginPage}/${AppRouteName.registerPage}");
                         },
                         borderRadius: BorderRadius.circular(8),
                         child: Text(
-                          " Register",
+                          "Register".tr,
                           style: AppTextStyle.loginAccountSmall2,
                         ),
                       ),

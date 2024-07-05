@@ -1,3 +1,4 @@
+import 'package:audio_book/src/core/localization/tr_language.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/style/images.dart';
 import '../../../../core/style/text_style.dart';
@@ -22,7 +23,7 @@ class OnBoardingThirdPage extends StatelessWidget {
                 height: 21,
               ),
               Text(
-                "Tittle Three",
+                "Tittle Three".tr,
                 style: AppTextStyle.onBoardingTitleLarge,
               ),
               const SizedBox(

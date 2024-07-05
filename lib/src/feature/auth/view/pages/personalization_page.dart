@@ -1,3 +1,4 @@
+import 'package:audio_book/src/core/localization/tr_language.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:audio_book/src/feature/auth/controller/category_state_notifier_controller.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/login_text_field_widget.dart';
@@ -46,7 +47,7 @@ class PersonalizationPage extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        "Personalize Suggestion",
+                        "Personalize Suggestion".tr,
                         style: AppTextStyle.loginTitleMedium2,
                       ),
                       const Spacer(),
@@ -57,15 +58,15 @@ class PersonalizationPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        "Choose ",
+                        "Choose ".tr,
                         style: AppTextStyle.personalizationSubtitleSmall,
                       ),
                       Text(
-                        "min. 3 topic ",
+                        "min. 3 topic ".tr,
                         style: AppTextStyle.personalizationEndTwoTitleMedium,
                       ),
                       Text(
-                        "you like, we will give",
+                        "you like, we will give".tr,
                         style: AppTextStyle.personalizationSubtitleSmall,
                       ),
                     ],
@@ -74,14 +75,14 @@ class PersonalizationPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        "you more often that relate to it.",
+                        "you more often that relate to it.".tr,
                         style: AppTextStyle.personalizationSubtitleSmall,
                       ),
                     ],
                   ),
                   fixedSizedBox(height: 40.h),
                   textFieldLogin(
-                    hintText: "Search Categories",
+                    hintText: "Search Categories".tr,
                     context: context,
                     controller: controller,
                     node: node,
@@ -101,11 +102,11 @@ class PersonalizationPage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   categoryBuilder(
-                                    category: "Art",
+                                    category: "Art".tr,
                                   ),
                                   fixedSizedBox(height: 0, width: 8.w),
                                   categoryBuilder(
-                                    category: "Business",
+                                    category: "Business".tr,
                                   ),
                                   fixedSizedBox(height: 0, width: 8.w),
                                   categoryBuilder(
@@ -117,15 +118,15 @@ class PersonalizationPage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   categoryBuilder(
-                                    category: "Comedy",
+                                    category: "Comedy".tr,
                                   ),
                                   fixedSizedBox(height: 0, width: 8.w),
                                   categoryBuilder(
-                                    category: "Culture",
+                                    category: "Culture".tr,
                                   ),
                                   fixedSizedBox(height: 0, width: 8.w),
                                   categoryBuilder(
-                                    category: "Education",
+                                    category: "Education".tr,
                                   )
                                 ],
                               ),
@@ -133,15 +134,15 @@ class PersonalizationPage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   categoryBuilder(
-                                    category: "News",
+                                    category: "News".tr,
                                   ),
                                   fixedSizedBox(height: 0, width: 8.w),
                                   categoryBuilder(
-                                    category: "Philosophy",
+                                    category: "Philosophy".tr,
                                   ),
                                   fixedSizedBox(height: 0, width: 8.w),
                                   categoryBuilder(
-                                    category: "Psychology",
+                                    category: "Psychology".tr,
                                   ),
                                 ],
                               ),
@@ -149,11 +150,11 @@ class PersonalizationPage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   categoryBuilder(
-                                    category: "Technology",
+                                    category: "Technology".tr,
                                   ),
                                   fixedSizedBox(height: 0, width: 8.w),
                                   categoryBuilder(
-                                    category: "Travel",
+                                    category: "Travel".tr,
                                   ),
                                 ],
                               ),
@@ -166,9 +167,8 @@ class PersonalizationPage extends StatelessWidget {
                                     Row(
                                       children: [
                                         Text(
-                                          "${value.topicsSelected} topics Selected",
-                                          style: AppTextStyle
-                                              .personalizationEndSubtitleSmall,
+                                          "${value.topicsSelected} ${"topics Selected".tr}",
+                                          style: AppTextStyle.personalizationEndSubtitleSmall,
                                         ),
                                         const Spacer(),
                                       ],
@@ -176,8 +176,7 @@ class PersonalizationPage extends StatelessWidget {
                                   ],
                                 )
                               : fixedSizedBox(height: 0),
-                          fixedSizedBox(
-                              height: value.topicsSelected >= 3 ? 39.h : 62.h)
+                          fixedSizedBox(height: value.topicsSelected >= 3 ? 39.h : 62.h)
                         ],
                       );
                     },
@@ -188,8 +187,7 @@ class PersonalizationPage extends StatelessWidget {
                       height: 56,
                       onPressed: () {
                         if (value.topicsSelected >= 3) {
-                          context.go(
-                              "${AppRouteName.welcomePage}/${AppRouteName.personalizationPage}/${AppRouteName.personalizationPageTwo}");
+                          context.go("${AppRouteName.welcomePage}/${AppRouteName.personalizationPage}/${AppRouteName.personalizationPageTwo}");
                         }
                       },
                       elevation: 0,
@@ -197,11 +195,9 @@ class PersonalizationPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                         borderSide: BorderSide.none,
                       ),
-                      color: value.topicsSelected >= 3
-                          ? AppColors.c4838D1
-                          : const Color(0xffDAD7F6),
+                      color: value.topicsSelected >= 3 ? AppColors.c4838D1 : const Color(0xffDAD7F6),
                       child: Text(
-                        "Submit",
+                        "Submit".tr,
                         style: AppTextStyle.loginLoginButtonMedium,
                       ),
                     );
@@ -211,12 +207,10 @@ class PersonalizationPage extends StatelessWidget {
                     onPressed: () {},
                     minWidth: double.infinity,
                     height: 56,
-                    shape: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(
-                            width: 1, color: AppColors.c4838D1)),
+                    shape:
+                        OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(width: 1, color: AppColors.c4838D1)),
                     child: Text(
-                      "Skip",
+                      "Skip".tr,
                       style: AppTextStyle.registerCancelButtonMedium,
                     ),
                   ),

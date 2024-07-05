@@ -1,3 +1,4 @@
+import 'package:audio_book/src/core/localization/tr_language.dart';
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/feature/auth/view/pages/on_boarding_first_page.dart';
 import 'package:audio_book/src/feature/auth/view/pages/on_boarding_second_page.dart';
@@ -50,12 +51,7 @@ class OnBoardingMainPage extends StatelessWidget {
               fixedSizedBox(height: 624.h),
               SmoothPageIndicator(
                 effect: const ExpandingDotsEffect(
-                    activeDotColor: AppColors.cF77A55,
-                    expansionFactor: 1.1,
-                    dotWidth: 15,
-                    dotHeight: 15,
-                    spacing: 12,
-                    dotColor: Color(0xffc7466e3)),
+                    activeDotColor: AppColors.cF77A55, expansionFactor: 1.1, dotWidth: 15, dotHeight: 15, spacing: 12, dotColor: Color(0xffc7466e3)),
                 controller: _controller,
                 count: pages.length,
               ),
@@ -75,12 +71,10 @@ class OnBoardingMainPage extends StatelessWidget {
                           minWidth: 140,
                           height: 56,
                           onPressed: () {
-                            context.go(
-                                "${AppRouteName.mainPage}${AppRouteName.homePage
-                                    .substring(1)}");
+                            context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}");
                           },
                           child: Text(
-                            "Skip",
+                            "Skip".tr,
                             style: AppTextStyle.onBoardingButtonSkipMedium,
                           ),
                         ),
@@ -99,14 +93,14 @@ class OnBoardingMainPage extends StatelessWidget {
                               }
                             },
                             child: Text(
-                              "Next",
+                              "Next".tr,
                               style: AppTextStyle.onBoardingButtonNextMedium,
                             ),
                           ),
                         ),
                       ],
                     );
-                  }else{
+                  } else {
                     return Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 40),
                       child: MaterialButton(
@@ -118,10 +112,13 @@ class OnBoardingMainPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                           borderSide: BorderSide.none,
                         ),
-                        onPressed: (){
+                        onPressed: () {
                           context.go(AppRouteName.errorPage);
                         },
-                        child: Text("Lets Get Started",style: AppTextStyle.onBoardingButtonNextMedium,),
+                        child: Text(
+                          "Lets Get Started".tr,
+                          style: AppTextStyle.onBoardingButtonNextMedium,
+                        ),
                       ),
                     );
                   }
@@ -134,5 +131,3 @@ class OnBoardingMainPage extends StatelessWidget {
     );
   }
 }
-
-

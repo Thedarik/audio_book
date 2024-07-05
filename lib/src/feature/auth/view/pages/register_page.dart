@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:audio_book/src/core/api/api.dart';
+import 'package:audio_book/src/core/localization/tr_language.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:audio_book/src/core/storage/app_storage.dart';
 import 'package:audio_book/src/feature/auth/model/register_model.dart';
@@ -77,7 +78,7 @@ class RegisterPage extends StatelessWidget {
               children: [
                 fixedSizedBox(height: 0, width: 41),
                 Text(
-                  "Register",
+                  "Register".tr,
                   style: AppTextStyle.loginTitleMedium,
                 ),
                 const Spacer(),
@@ -86,149 +87,131 @@ class RegisterPage extends StatelessWidget {
             fixedSizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    textFieldLogin(
-                      validator: _validateEmail,
-                      controller: controller1,
-                      hintText: "Email",
-                      node: _firstFocusNode,
+              child: Column(
+                children: [
+                  textFieldLogin(
+                    controller: controller1,
+                    hintText: "Email",
+                    node: _firstFocusNode,
+                    isError: false,
+                    keyboardType: TextInputType.emailAddress,
+                    context: context,
+                    nextNode: _secondFocusNode,
+                  ),
+                  fixedSizedBox(height: 16),
+                  textFieldLogin(
+                      controller: controller2,
+                      hintText: "Password",
+                      node: _secondFocusNode,
                       isError: false,
-                      keyboardType: TextInputType.emailAddress,
+                      keyboardType: TextInputType.visiblePassword,
                       context: context,
-                      nextNode: _secondFocusNode,
-                    ),
-                    fixedSizedBox(height: 16),
-                    textFieldLogin(
-                        validator: _validatePassword,
-                        controller: controller2,
-                        hintText: "Password",
-                        node: _secondFocusNode,
-                        isError: false,
-                        keyboardType: TextInputType.visiblePassword,
-                        context: context,
-                        nextNode: _thirdFocusNode),
-                    fixedSizedBox(height: 16),
-                    textFieldLogin(
-                      validator: _validateBirthDate,
-                      controller: controller3,
-                      hintText: "Date of Birth",
-                      node: _thirdFocusNode,
-                      isError: false,
-                      keyboardType: const TextInputType.numberWithOptions(),
-                      context: context,
-                      formatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        LengthLimitingTextInputFormatter(8),
-                        DateTextFormatter(),
-                      ],
-                    ),
-                    fixedSizedBox(height: 16),
-                    Column(
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              "By signing up, you agree to our ",
-                              style: AppTextStyle.registerTerms2Small,
+                      nextNode: _thirdFocusNode),
+                  fixedSizedBox(height: 16),
+                  textFieldLogin(
+                    controller: controller3,
+                    hintText: "Date of Birth".tr,
+                    node: _thirdFocusNode,
+                    isError: false,
+                    keyboardType: const TextInputType.numberWithOptions(),
+                    context: context,
+                  ),
+                  fixedSizedBox(height: 16),
+                  Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            "By signing up, you agree to our ".tr,
+                            style: AppTextStyle.registerTerms2Small,
+                          ),
+                          InkWell(
+                            splashColor: AppColors.cF5F5FA,
+                            borderRadius: BorderRadius.circular(8),
+                            onTap: () {},
+                            child: Text(
+                              "Terms  ".tr,
+                              style: AppTextStyle.loginForgotPasswordSmall,
                             ),
-                            InkWell(
-                              splashColor: AppColors.cF5F5FA,
-                              borderRadius: BorderRadius.circular(8),
-                              onTap: () {},
-                              child: Text(
-                                "Terms  ",
-                                style: AppTextStyle.loginForgotPasswordSmall,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              splashColor: AppColors.cF5F5FA,
-                              borderRadius: BorderRadius.circular(8),
-                              onTap: () {},
-                              child: Text(
-                                "Data Policy ",
-                                style: AppTextStyle.loginForgotPasswordSmall,
-                              ),
-                            ),
-                            Text(
-                              "and ",
-                              style: AppTextStyle.registerTerms2Small,
-                            ),
-                            InkWell(
-                              splashColor: AppColors.cF5F5FA,
-                              borderRadius: BorderRadius.circular(8),
-                              onTap: () {},
-                              child: Text(
-                                "Cookies Policy.",
-                                style: AppTextStyle.loginForgotPasswordSmall,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    fixedSizedBox(height: 16),
-                    MaterialButton(
-                      minWidth: double.infinity,
-                      height: 56,
-                      onPressed: () async {
-                        if (_formKey.currentState?.validate() == true) {
-                          // log('TRUE');
-                          RegisterModel model = RegisterModel(
-                              birthDate: controller3.text,
-                              email: controller1.text,
-                              password: controller2.text,
-                              verificationCode: "String");
-                          var result = await Api.POST(
-                            Api.apiPostSignUp,
-                            model.toJson(),
-                          );
-                          if (result != null) {
-                            context.go("${AppRouteName.loginPage}/${AppRouteName.registerPage}/${AppRouteName.confirmationPage}");
-                            // log('\n\n\n\n RESULT: $result');
-                          }
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('WROONNGG')),
-                          );
-                        }
-                      },
-                      elevation: 0,
-                      shape: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide.none,
+                          ),
+                        ],
                       ),
-                      color: AppColors.c4838D1,
-                      child: Text(
-                        "Register",
-                        style: AppTextStyle.loginLoginButtonMedium,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          InkWell(
+                            splashColor: AppColors.cF5F5FA,
+                            borderRadius: BorderRadius.circular(8),
+                            onTap: () {},
+                            child: Text(
+                              "Data Policy ".tr,
+                              style: AppTextStyle.loginForgotPasswordSmall,
+                            ),
+                          ),
+                          Text(
+                            "and ".tr,
+                            style: AppTextStyle.registerTerms2Small,
+                          ),
+                          InkWell(
+                            splashColor: AppColors.cF5F5FA,
+                            borderRadius: BorderRadius.circular(8),
+                            onTap: () {},
+                            child: Text(
+                              "Cookies Policy.".tr,
+                              style: AppTextStyle.loginForgotPasswordSmall,
+                            ),
+                          ),
+                        ],
                       ),
+                    ],
+                  ),
+                  fixedSizedBox(height: 16),
+                  MaterialButton(
+                    minWidth: double.infinity,
+                    height: 56,
+                    onPressed: () {
+                      context.go("${AppRouteName.loginPage}/${AppRouteName.registerPage}/${AppRouteName.confirmationPage}");
+                    },
+                    elevation: 0,
+                    shape: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide.none,
                     ),
-                    fixedSizedBox(height: 16),
-                    MaterialButton(
-                      onPressed: () {
-                        context.pop();
-                      },
-                      minWidth: double.infinity,
-                      height: 56,
-                      shape: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: const BorderSide(
-                              width: 1, color: AppColors.c4838D1)),
-                      child: Text(
-                        "Cancel",
-                        style: AppTextStyle.registerCancelButtonMedium,
-                      ),
+                    color: AppColors.c4838D1,
+                    child: Text(
+                      "Register".tr,
+                      style: AppTextStyle.loginLoginButtonMedium,
                     ),
-                  ],
-                ),
+                  ),
+                  fixedSizedBox(height: 16),
+                  MaterialButton(
+                    onPressed: () {
+                      context.pop();
+                    },
+                    minWidth: double.infinity,
+                    height: 56,
+                    shape:
+                        OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(width: 1, color: AppColors.c4838D1)),
+                    child: Text(
+                      "Cancel".tr,
+                      style: AppTextStyle.registerCancelButtonMedium,
+                    ),
+                  ),
+                  fixedSizedBox(height: 16),
+                  MaterialButton(
+                    onPressed: () {
+                      context.pop();
+                    },
+                    minWidth: double.infinity,
+                    height: 56,
+                    shape:
+                        OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(width: 1, color: AppColors.c4838D1)),
+                    child: Text(
+                      "Cancel",
+                      style: AppTextStyle.registerCancelButtonMedium,
+                    ),
+                  ),
+                ],
               ),
             ),
             const Spacer(),
