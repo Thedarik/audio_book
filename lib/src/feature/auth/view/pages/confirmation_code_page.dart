@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:audio_book/src/core/api/api.dart';
+import 'package:audio_book/src/core/localization/tr_language.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,7 +34,7 @@ class ConfirmationCodePage extends StatelessWidget {
               children: [
                 fixedSizedBox(height: 0, width: 48.w),
                 Text(
-                  "Confirmation Code",
+                  "Confirmation Code".tr,
                   style: AppTextStyle.loginTitleMedium,
                 ),
                 const Spacer(),
@@ -42,16 +43,22 @@ class ConfirmationCodePage extends StatelessWidget {
             fixedSizedBox(height: 16.h),
             Row(
               children: [
-                fixedSizedBox(height: 0,width: 48.w),
-                Text("Enter the confirmation code we sent to",style: AppTextStyle.loginForgotPasswordOffSmall,),
+                fixedSizedBox(height: 0, width: 48.w),
+                Text(
+                  "Enter the confirmation code we sent to".tr,
+                  style: AppTextStyle.loginForgotPasswordOffSmall,
+                ),
                 const Spacer(),
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                fixedSizedBox(height: 0,width: 48.w),
-                Text("your@mail.com.",style: AppTextStyle.registerConfirmSubtitleSmall,),
+                fixedSizedBox(height: 0, width: 48.w),
+                Text(
+                  "your@mail.com.",
+                  style: AppTextStyle.registerConfirmSubtitleSmall,
+                ),
               ],
             ),
             fixedSizedBox(height: 16.h),
@@ -62,7 +69,7 @@ class ConfirmationCodePage extends StatelessWidget {
                   textFieldLogin(
                     maxLength: 6,
                     controller: controller1,
-                    hintText: "Confirmation Code",
+                    hintText: "Confirmation Code".tr,
                     node: _firstFocusNode,
                     isError: false,
                     keyboardType: TextInputType.number,
@@ -72,14 +79,17 @@ class ConfirmationCodePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      fixedSizedBox(height: 0,width: 10),
-                      Text("Didn’t receive the code? ",style: AppTextStyle.registerReceiveSmall,),
+                      fixedSizedBox(height: 0, width: 10),
+                      Text(
+                        "Didn’t receive the code? ".tr,
+                        style: AppTextStyle.registerReceiveSmall,
+                      ),
                       InkWell(
                         splashColor: AppColors.cF5F5FA,
                         borderRadius: BorderRadius.circular(8),
                         onTap: () {},
                         child: Text(
-                          "Resend",
+                          "Resend".tr,
                           style: AppTextStyle.registerTermsOrangeSmall,
                         ),
                       ),
@@ -89,14 +99,14 @@ class ConfirmationCodePage extends StatelessWidget {
                   MaterialButton(
                     minWidth: double.infinity,
                     height: 56,
-                    onPressed: () async{
-                      if(controller1.text.length == 6){
-                        String? result = await Api.POST2(Api.apiPostSignUpVerify,controller1.text);
-                        if(result != null){
+                    onPressed: () async {
+                      if (controller1.text.length == 6) {
+                        String? result = await Api.POST2(Api.apiPostSignUpVerify, controller1.text);
+                        if (result != null) {
                           log("\n\n\n\n\nWORKED\n\n\n\n");
                           // context.go(AppRouteName.loginPage);
                         }
-                      }else{
+                      } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Confirmation code\'s length is 6 digits')),
                         );
@@ -108,7 +118,7 @@ class ConfirmationCodePage extends StatelessWidget {
                     ),
                     color: AppColors.c4838D1,
                     child: Text(
-                      "Submit",
+                      "Submit".tr,
                       style: AppTextStyle.loginLoginButtonMedium,
                     ),
                   ),
@@ -117,12 +127,10 @@ class ConfirmationCodePage extends StatelessWidget {
                     onPressed: () {},
                     minWidth: double.infinity,
                     height: 56,
-                    shape: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(
-                            width: 1, color: AppColors.c4838D1)),
+                    shape:
+                        OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(width: 1, color: AppColors.c4838D1)),
                     child: Text(
-                      "Cancel",
+                      "Cancel".tr,
                       style: AppTextStyle.registerCancelButtonMedium,
                     ),
                   ),

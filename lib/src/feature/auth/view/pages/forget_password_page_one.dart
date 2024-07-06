@@ -1,3 +1,4 @@
+import 'package:audio_book/src/core/localization/tr_language.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -30,7 +31,7 @@ class ForgetPasswordPageOne extends StatelessWidget {
               children: [
                 fixedSizedBox(height: 0, width: 48),
                 Text(
-                  "Forget Password",
+                  "Forget Password".tr,
                   style: AppTextStyle.loginTitleMedium,
                 ),
                 const Spacer(),
@@ -41,7 +42,7 @@ class ForgetPasswordPageOne extends StatelessWidget {
               children: [
                 fixedSizedBox(height: 0, width: 48),
                 Text(
-                  "Please fill email or phone number and \nwe'll send you a link to get back into your\naccount.",
+                  "Please fill email or phone number and \nwe'll send you a link to get back into your\naccount.".tr,
                   style: AppTextStyle.loginForgotPasswordOffSmall,
                 ),
               ],
@@ -53,7 +54,7 @@ class ForgetPasswordPageOne extends StatelessWidget {
                 children: [
                   textFieldLogin(
                     controller: controller1,
-                    hintText: "Email / Phone Number",
+                    hintText: "Email / Phone Number".tr,
                     node: _firstFocusNode,
                     isError: false,
                     keyboardType: TextInputType.emailAddress,
@@ -64,8 +65,7 @@ class ForgetPasswordPageOne extends StatelessWidget {
                     minWidth: double.infinity,
                     height: 56,
                     onPressed: () {
-                      context.go(
-                          "${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}/${AppRouteName.forgetPasswordTwo}");
+                      context.go("${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}/${AppRouteName.forgetPasswordTwo}");
                     },
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -73,7 +73,7 @@ class ForgetPasswordPageOne extends StatelessWidget {
                     ),
                     color: AppColors.c4838D1,
                     child: Text(
-                      "Submit",
+                      "Submit".tr,
                       style: AppTextStyle.loginLoginButtonMedium,
                     ),
                   ),
@@ -84,12 +84,10 @@ class ForgetPasswordPageOne extends StatelessWidget {
                     },
                     minWidth: double.infinity,
                     height: 56,
-                    shape: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(
-                            width: 1, color: AppColors.c4838D1)),
+                    shape:
+                        OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(width: 1, color: AppColors.c4838D1)),
                     child: Text(
-                      "Cancel",
+                      "Cancel".tr,
                       style: AppTextStyle.registerCancelButtonMedium,
                     ),
                   ),

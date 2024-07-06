@@ -1,3 +1,4 @@
+import "package:audio_book/src/core/localization/test_page.dart";
 import "package:audio_book/src/feature/auth/view/pages/error_page.dart";
 import "package:audio_book/src/feature/auth/view/pages/forget_password_page_one.dart";
 import "package:audio_book/src/feature/auth/view/pages/forget_password_page_two.dart";
@@ -28,11 +29,15 @@ import "app_route_name.dart";
 final class AppRouter {
   static GoRouter router = token == null
       ? GoRouter(
-          initialLocation: "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}/${AppRouteName.bookPage}" ,
+          initialLocation: AppRouteName.splash,
           routes: <RouteBase>[
             GoRoute(
               path: AppRouteName.splash,
               builder: (context, state) => const SplashPage(),
+            ),
+            GoRoute(
+              path: AppRouteName.testPage,
+              builder: (context, state) => const TestPage(),
             ),
 
             //OnBoardings
