@@ -11,7 +11,7 @@ class HomeDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bookList = GoRouterState.of(context).extra as List<BestSeller>;
+    // final bookList = GoRouterState.of(context).extra as List<BestSeller>;
 
     return Scaffold(
       appBar: AppBar(
@@ -50,7 +50,7 @@ class HomeDetailPage extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
-              child: VerticalMovies(listBook: bookList,),
+              child: VerticalMovies(listBook: [],),
             ),
           )
         ],

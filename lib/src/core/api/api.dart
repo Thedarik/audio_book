@@ -65,6 +65,12 @@ class Api {
     return null;
   }
 
+  static Future<Response> getPDF(String api,) async {
+    final Uri url = Uri.http(baseurl, api);
+    final Response response = await http.get(url, headers: headers);
+    return response;
+  }
+
   // ignore: non_constant_identifier_names
   static Future<String?> POST(String api, Map<String, dynamic> body) async {
     final Uri url = Uri.http(baseurl, api);

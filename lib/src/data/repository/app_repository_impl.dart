@@ -1,6 +1,7 @@
 import 'package:audio_book/src/feature/home/model/home_book_model.dart';
 import 'package:audio_book/src/feature/home/model/refresh_model.dart';
 import 'package:audio_book/src/feature/search/model/search_model.dart';
+import 'package:http/src/response.dart';
 
 import '../../core/api/api.dart';
 import 'app_repository.dart';
@@ -36,5 +37,11 @@ class AppRepositoryImpl implements AppRepository{
     }else{
       return [];
     }
+  }
+
+  @override
+  Future<Response> fetchPDF()async{
+    Response str = await Api.getPDF("${Api.apiFilePDF}/30ed30d5-e8e0-44bf-bfef-efd4f0addf52");
+    return str;
   }
 }
