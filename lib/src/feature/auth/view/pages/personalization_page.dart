@@ -62,7 +62,7 @@ class _PersonalizationPageState extends State<PersonalizationPage> {
           Align(
             alignment: const Alignment(0, -0.1),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 34.0),
+              padding: const EdgeInsets.symmetric(horizontal: 33.0),
               child: Column(
                 children: [
                   fixedSizedBox(height: 204.h),
@@ -122,35 +122,102 @@ class _PersonalizationPageState extends State<PersonalizationPage> {
                           children: [
                             Consumer<TakeCategoryProvider>(
                               builder: (context, provider, _) {
+                                var providerOff = provider.data;
                                 if (provider.isLoading) {
                                   return const CircularProgressIndicator();
                                 } else if (provider.data != null &&
                                     provider.data!.isNotEmpty) {
-                                  return Expanded(
-                                    child: GridView.custom(
-                                      gridDelegate:
-                                          const SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 3,
-                                        mainAxisSpacing: 10.0,
-                                        crossAxisSpacing: 10.0,
-                                        childAspectRatio: 2,
-                                      ),
-                                      childrenDelegate:
-                                          SliverChildBuilderDelegate(
-                                              (context, index) {
-                                        // log(provider.data![index]!.name!);
-                                        return categoryBuilder(
-                                            category:
-                                                provider.data?[index]?.name ??
-                                                    "",
-                                            onPress: () {
-                                              listOfCategory.add(
-                                                  provider.data?[index]?.id ??
-                                                      '');
-                                              log(provider.data![index]!.id!);
-                                              log(listOfCategory.toString());
-                                            });
-                                      }, childCount: provider.data!.length),
+                                  return  Expanded(
+                                    child: ListView(
+                                      scrollDirection: Axis.vertical,
+                                      children: [
+                                        Column(
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: [
+                                                categoryBuilder(
+                                                  category: providerOff![0]!.name!, onPress: () {
+                                                  listOfCategory.add(providerOff[0]?.id??'');
+                                                },
+                                                ),
+                                                fixedSizedBox(height: 0, width: 8.w),
+                                                categoryBuilder(
+                                                  category: providerOff[1]!.name!, onPress: () {
+                                                  listOfCategory.add(providerOff[1]?.id??'');
+                                                },
+                                                ),
+                                              ],
+                                            ),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: [
+                                                categoryBuilder(
+                                                  category: providerOff[2]!.name!, onPress: () {
+                                                  listOfCategory.add(providerOff[2]?.id??'');
+                                                },
+                                                ),
+                                                fixedSizedBox(height: 0, width: 8.w),
+                                                categoryBuilder(
+                                                  category: providerOff[3]!.name!, onPress: () {
+                                                  listOfCategory.add(providerOff[3]?.id??'');
+                                                },
+                                                ),
+                                              ],
+                                            ),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: [
+                                                categoryBuilder(
+                                                  category: providerOff[4]!.name!, onPress: () {
+                                                  listOfCategory.add(providerOff[4]?.id??'');
+                                                },
+                                                ),
+                                                fixedSizedBox(height: 0, width: 8.w),
+                                                categoryBuilder(
+                                                  category: providerOff[5]!.name!, onPress: () {
+                                                  listOfCategory.add(providerOff[5]?.id??'');
+                                                },
+                                                ),
+                                                fixedSizedBox(height: 0, width: 8.w),
+                                                categoryBuilder(
+                                                  category: providerOff[8]!.name!, onPress: () {
+                                                  listOfCategory.add(providerOff[8]?.id??'');
+                                                },
+                                                ),
+                                              ],
+                                            ),
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: [
+                                                categoryBuilder(
+                                                  category: providerOff[6]!.name!, onPress: () {
+                                                  listOfCategory.add(providerOff[6]?.id??'');
+                                                },
+                                                ),
+                                                fixedSizedBox(height: 0, width: 8.w),
+                                                categoryBuilder(
+                                                  category: providerOff[7]!.name!, onPress: () {
+                                                  listOfCategory.add(providerOff[7]?.id??'');
+                                                },
+                                                ),
+                                              ],
+                                            ),
+                                            // Row(
+                                            //   mainAxisAlignment: MainAxisAlignment.start,
+                                            //   children: [
+                                            //     categoryBuilder(
+                                            //       category: "Technology", onPress: () {  },
+                                            //     ),
+                                            //     fixedSizedBox(height: 0, width: 8.w),
+                                            //     categoryBuilder(
+                                            //       category: "Travel",
+                                            //     ),
+                                            //   ],
+                                            // ),
+                                          ],
+                                        ),
+                                      ],
                                     ),
                                   );
                                 } else {
@@ -245,67 +312,31 @@ class _PersonalizationPageState extends State<PersonalizationPage> {
   }
 }
 
-//                              Column(
-//                                 children: [
-//                                   Row(
-//                                     mainAxisAlignment: MainAxisAlignment.start,
-//                                     children: [
-//                                       categoryBuilder(
-//                                         category: "Art",
+///Expanded(
+//                                     child: GridView.custom(
+//                                       gridDelegate:
+//                                           const SliverGridDelegateWithFixedCrossAxisCount(
+//                                         crossAxisCount: 3,
+//                                         mainAxisSpacing: 10.0,
+//                                         crossAxisSpacing: 10.0,
+//                                         childAspectRatio: 2,
 //                                       ),
-//                                       fixedSizedBox(height: 0, width: 8.w),
-//                                       categoryBuilder(
-//                                         category: "Business",
-//                                       ),
-//                                       fixedSizedBox(height: 0, width: 8.w),
-//                                       categoryBuilder(
-//                                         category: "Biography",
-//                                       )
-//                                     ],
-//                                   ),
-//                                   Row(
-//                                     mainAxisAlignment: MainAxisAlignment.start,
-//                                     children: [
-//                                       categoryBuilder(
-//                                         category: "Comedy",
-//                                       ),
-//                                       fixedSizedBox(height: 0, width: 8.w),
-//                                       categoryBuilder(
-//                                         category: "Culture",
-//                                       ),
-//                                       fixedSizedBox(height: 0, width: 8.w),
-//                                       categoryBuilder(
-//                                         category: "Education",
-//                                       )
-//                                     ],
-//                                   ),
-//                                   Row(
-//                                     mainAxisAlignment: MainAxisAlignment.start,
-//                                     children: [
-//                                       categoryBuilder(
-//                                         category: "News",
-//                                       ),
-//                                       fixedSizedBox(height: 0, width: 8.w),
-//                                       categoryBuilder(
-//                                         category: "Philosophy",
-//                                       ),
-//                                       fixedSizedBox(height: 0, width: 8.w),
-//                                       categoryBuilder(
-//                                         category: "Psychology",
-//                                       ),
-//                                     ],
-//                                   ),
-//                                   Row(
-//                                     mainAxisAlignment: MainAxisAlignment.start,
-//                                     children: [
-//                                       categoryBuilder(
-//                                         category: "Technology",
-//                                       ),
-//                                       fixedSizedBox(height: 0, width: 8.w),
-//                                       categoryBuilder(
-//                                         category: "Travel",
-//                                       ),
-//                                     ],
-//                                   ),
-//                                 ],
-//                               )
+//                                       childrenDelegate:
+//                                           SliverChildBuilderDelegate(
+//                                               (context, index) {
+//                                         // log(provider.data![index]!.name!);
+//                                         return categoryBuilder(
+//                                             category:
+//                                                 provider.data?[index]?.name ??
+//                                                     "",
+//                                             onPress: () {
+//                                               listOfCategory.add(
+//                                                   provider.data?[index]?.id ??
+//                                                       '');
+//                                               log(provider.data![index]!.id!);
+//                                               log(listOfCategory.toString());
+//                                             });
+//                                       }, childCount: provider.data!.length),
+//                                     ),
+//                                   );
+
