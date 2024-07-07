@@ -1,8 +1,16 @@
-import 'package:audio_book/src/core/localization/tr_language.dart';
+import 'dart:developer';
+
+import 'package:audio_book/setup.dart';
+import 'package:audio_book/src/core/api/api.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
+import 'package:audio_book/src/core/storage/app_storage.dart';
 import 'package:audio_book/src/feature/auth/controller/category_state_notifier_controller.dart';
+import 'package:audio_book/src/feature/auth/controller/catergory_take_controller.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/login_text_field_widget.dart';
+import 'package:audio_book/src/feature/auth/view/widgets/personalization_buttons_widgets.dart';
+import 'package:audio_book/src/feature/auth/view/widgets/personalization_categories_widgets.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/personalization_page_category_builder_widget.dart';
+import 'package:audio_book/src/feature/auth/view/widgets/personatization_text_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -13,16 +21,33 @@ import '../../../../core/style/images.dart';
 import '../../../../core/style/text_style.dart';
 import '../widgets/useful_widgets_for_all_pages.dart';
 
-class PersonalizationPage extends StatelessWidget {
+class PersonalizationPage extends StatefulWidget {
   PersonalizationPage({super.key});
 
+  @override
+  State<PersonalizationPage> createState() => _PersonalizationPageState();
+}
+
+class _PersonalizationPageState extends State<PersonalizationPage> {
   final TextEditingController controller = TextEditingController();
+
   final FocusNode node = FocusNode();
 
   final bool isCategoryChoosed = false;
 
   final int topicsSelected = 0;
 
+  List<String> listOfCategory = [];
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<TakeCategoryProvider>(context, listen: false).fetchData();
+    });
+    super.initState();
+  }
+
+  //
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,49 +65,20 @@ class PersonalizationPage extends StatelessWidget {
           Align(
             alignment: const Alignment(0, -0.1),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 34.0),
+              padding: const EdgeInsets.symmetric(horizontal: 33.0),
               child: Column(
                 children: [
                   fixedSizedBox(height: 204.h),
-                  Row(
-                    children: [
-                      Text(
-                        "Personalize Suggestion".tr,
-                        style: AppTextStyle.loginTitleMedium2,
-                      ),
-                      const Spacer(),
-                    ],
-                  ),
+                  // Title
+                  PersonalizationTextWidgets.personalizationTitle(),
                   fixedSizedBox(height: 12.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Choose ".tr,
-                        style: AppTextStyle.personalizationSubtitleSmall,
-                      ),
-                      Text(
-                        "min. 3 topic ".tr,
-                        style: AppTextStyle.personalizationEndTwoTitleMedium,
-                      ),
-                      Text(
-                        "you like, we will give".tr,
-                        style: AppTextStyle.personalizationSubtitleSmall,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        "you more often that relate to it.".tr,
-                        style: AppTextStyle.personalizationSubtitleSmall,
-                      ),
-                    ],
-                  ),
+                  // Subtitle
+                  PersonalizationTextWidgets.personalizationSubtitle(),
+                  PersonalizationTextWidgets.personalizationSubtitle2(),
                   fixedSizedBox(height: 40.h),
+                  // field
                   textFieldLogin(
-                    hintText: "Search Categories".tr,
+                    hintText: "Search Categories",
                     context: context,
                     controller: controller,
                     node: node,
@@ -90,130 +86,15 @@ class PersonalizationPage extends StatelessWidget {
                     keyboardType: TextInputType.text,
                   ),
                   fixedSizedBox(height: 16.h),
-
                   /// categories
-                  Consumer<CategoryStateNotifier>(
-                    builder: (context, value, child) {
-                      return Column(
-                        children: [
-                          Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  categoryBuilder(
-                                    category: "Art".tr,
-                                  ),
-                                  fixedSizedBox(height: 0, width: 8.w),
-                                  categoryBuilder(
-                                    category: "Business".tr,
-                                  ),
-                                  fixedSizedBox(height: 0, width: 8.w),
-                                  categoryBuilder(
-                                    category: "Biography",
-                                  )
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  categoryBuilder(
-                                    category: "Comedy".tr,
-                                  ),
-                                  fixedSizedBox(height: 0, width: 8.w),
-                                  categoryBuilder(
-                                    category: "Culture".tr,
-                                  ),
-                                  fixedSizedBox(height: 0, width: 8.w),
-                                  categoryBuilder(
-                                    category: "Education".tr,
-                                  )
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  categoryBuilder(
-                                    category: "News".tr,
-                                  ),
-                                  fixedSizedBox(height: 0, width: 8.w),
-                                  categoryBuilder(
-                                    category: "Philosophy".tr,
-                                  ),
-                                  fixedSizedBox(height: 0, width: 8.w),
-                                  categoryBuilder(
-                                    category: "Psychology".tr,
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  categoryBuilder(
-                                    category: "Technology".tr,
-                                  ),
-                                  fixedSizedBox(height: 0, width: 8.w),
-                                  categoryBuilder(
-                                    category: "Travel".tr,
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          value.topicsSelected >= 3
-                              ? Column(
-                                  children: [
-                                    fixedSizedBox(height: 12.h),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "${value.topicsSelected} ${"topics Selected".tr}",
-                                          style: AppTextStyle.personalizationEndSubtitleSmall,
-                                        ),
-                                        const Spacer(),
-                                      ],
-                                    ),
-                                  ],
-                                )
-                              : fixedSizedBox(height: 0),
-                          fixedSizedBox(height: value.topicsSelected >= 3 ? 39.h : 62.h)
-                        ],
-                      );
-                    },
+                  PersonalizationCategoriesWidgets.personalizationCategories(
+                    listOfCategory: listOfCategory,
                   ),
-                  Consumer<CategoryStateNotifier>(builder: (context, value, _) {
-                    return MaterialButton(
-                      minWidth: double.infinity,
-                      height: 56,
-                      onPressed: () {
-                        if (value.topicsSelected >= 3) {
-                          context.go("${AppRouteName.welcomePage}/${AppRouteName.personalizationPage}/${AppRouteName.personalizationPageTwo}");
-                        }
-                      },
-                      elevation: 0,
-                      shape: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: BorderSide.none,
-                      ),
-                      color: value.topicsSelected >= 3 ? AppColors.c4838D1 : const Color(0xffDAD7F6),
-                      child: Text(
-                        "Submit".tr,
-                        style: AppTextStyle.loginLoginButtonMedium,
-                      ),
-                    );
-                  }),
+                  PersonalizationButtonsWidgets.personalizationButtonOne(
+                    listOfCategory: listOfCategory,
+                  ),
                   fixedSizedBox(height: 16.h),
-                  MaterialButton(
-                    onPressed: () {},
-                    minWidth: double.infinity,
-                    height: 56,
-                    shape:
-                        OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(width: 1, color: AppColors.c4838D1)),
-                    child: Text(
-                      "Skip".tr,
-                      style: AppTextStyle.registerCancelButtonMedium,
-                    ),
-                  ),
+                  PersonalizationButtonsWidgets.personalizationButtonTwo(context),
                   // fixedSizedBox(height: 81.h),
                   const Spacer(),
                 ],
@@ -225,3 +106,32 @@ class PersonalizationPage extends StatelessWidget {
     );
   }
 }
+
+/// PLEASE NOT DELETE IT !!!
+//Expanded(
+//                                     child: GridView.custom(
+//                                       gridDelegate:
+//                                           const SliverGridDelegateWithFixedCrossAxisCount(
+//                                         crossAxisCount: 3,
+//                                         mainAxisSpacing: 10.0,
+//                                         crossAxisSpacing: 10.0,
+//                                         childAspectRatio: 2,
+//                                       ),
+//                                       childrenDelegate:
+//                                           SliverChildBuilderDelegate(
+//                                               (context, index) {
+//                                         // log(provider.data![index]!.name!);
+//                                         return categoryBuilder(
+//                                             category:
+//                                                 provider.data?[index]?.name ??
+//                                                     "",
+//                                             onPress: () {
+//                                               listOfCategory.add(
+//                                                   provider.data?[index]?.id ??
+//                                                       '');
+//                                               log(provider.data![index]!.id!);
+//                                               log(listOfCategory.toString());
+//                                             });
+//                                       }, childCount: provider.data!.length),
+//                                     ),
+//                                   );

@@ -1,7 +1,7 @@
 import "dart:convert";
-import "package:audio_book/src/data/repository/app_interceptor.dart";
+import "dart:developer";
 import "package:http/http.dart";
-import "package:http_interceptor/http/http.dart";
+import 'package:http/http.dart' as http;
 import "package:http_parser/http_parser.dart";
 
 class Api {
@@ -9,6 +9,11 @@ class Api {
   // static const String baseurl = "16.171.23.147:8080";
   static const String baseurl = "192.168.100.110:8080";
 
+  // static const String baseurl1 = "10.10.1.83:8080";
+
+  // static const String baseurl2 = "http://10.10.1.170:8080";
+  // static const String baseurl = "localhost:8080";
+  // static const String baseurl = "192.168.0.105:8080";
 
   // APIS
   static String apiPostRegister = "/api/auth/register";
@@ -36,27 +41,88 @@ class Api {
   static String apiFileImage = "api/file/image";
   static String apiFileAudio = "api/file/audio";
 
-
-
-
   // headers
   static Map<String, String> headers = <String, String>{
     "Content-Type": "application/json",
     // "Accept": "*/*",
-    "Authorization": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlc2htYXQiLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUiIsImlhdCI6MTcxOTgxODUxMCwiaXNzIjoiaG9tZXdvcmsuaW8iLCJleHAiOjE3MjEwMjgxMTB9.Szr3jQ-eFLTcPH5YYNlZlMzwgMPoySc6cxZkEv9TLIp239_RoEliVNlI0g-4pAbi",
+    "Authorization":
+        "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlc2htYXQiLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUiIsImlhdCI6MTcxOTgxODUxMCwiaXNzIjoiaG9tZXdvcmsuaW8iLCJleHAiOjE3MjEwMjgxMTB9.Szr3jQ-eFLTcPH5YYNlZlMzwgMPoySc6cxZkEv9TLIp239_RoEliVNlI0g-4pAbi",
   };
 
+  // static final http = InterceptedHttp.build(interceptors: [AppInterceptor()]);
 
-  static final http = InterceptedHttp.build(
-    interceptors: [
-      AppInterceptor()
-    ]
-  );
+  /// Auth small posts
+  static Future<String?> forgetPassword(
+      String api, Map<String, dynamic> body) async {
+    final Uri url = Uri.http(baseurl, api);
+    final Response response =
+        await http.post(url, headers: headers, body: jsonEncode(body));
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      log("\n\nPost of Login${response.body}\n\n");
+      return response.body;
+    }
+    return null;
+  }
 
+  static Future<String?> resendCode(
+      String api, String tempAuthorizationToken) async {
+    Map<String, String> headers3 = <String, String>{
+      "Content-Type": "application/json",
+      // "Accept": "*/*",
+      "TempAuthorization": tempAuthorizationToken,
+    };
+    final Uri url = Uri.http(baseurl, api);
+    final Response response = await http.post(url, headers: headers3);
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return response.body;
+    }
+    return null;
+  }
+
+  static Future<String?> verifyCode(
+      {required String verificationCode,
+      required String api,
+      required String tempAuthorizationToken}) async {
+    final Uri url = Uri.http(baseurl, api);
+    final headers1 = {
+      "Content-Type": "application/json",
+      'TempAuthorization': tempAuthorizationToken,
+    };
+
+    final body = jsonEncode({
+      'verificationCode': verificationCode,
+    });
+
+    final response = await http.post(url, headers: headers1, body: body);
+    log('SHUNAQA XABAR: ${response.body}');
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      log('\nJSON BODY: ${jsonDecode(response.body)}\n');
+      return response.body.toString();
+    } else {
+      // Handle error
+      log('Error: ${response.statusCode}');
+      return null;
+    }
+  }
+
+  static Future<String?> getCategories(String api, String token) async {
+    final Uri url = Uri.http(baseurl, api);
+    Map<String, String> headers7 = {
+      "Authorization": token,
+    };
+    final Response response = await http.get(url, headers: headers);
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return response.body.toString();
+    }
+    return null;
+  }
 
   //methods
   // ignore: non_constant_identifier_names
-  static Future<String?> GET(String api,) async {
+  static Future<String?> GET(
+    String api,
+  ) async {
     final Uri url = Uri.http(baseurl, api);
     final Response response = await http.get(url, headers: headers);
     if (response.statusCode == 200 || response.statusCode == 201) {
@@ -72,25 +138,34 @@ class Api {
   }
 
   // ignore: non_constant_identifier_names
+  static Future<String?> postCategoryCustomize(
+      String api, Map<String, dynamic> body, String accesToken) async {
+    final headers = {
+      "Content-Type": "application/json",
+      'Authorization': accesToken,
+    };
+    final Uri url = Uri.http(baseurl, api);
+    final Response response =
+        await http.post(url, headers: headers, body: jsonEncode(body));
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return jsonEncode(response.body);
+    } else {
+      log('\n\nBOOODDDYYY: ${jsonEncode(body)}');
+      log('\n\n ${response.statusCode}');
+      return null;
+    }
+  }
+
+  // ignore: non_constant_identifier_names
   static Future<String?> POST(String api, Map<String, dynamic> body) async {
     final Uri url = Uri.http(baseurl, api);
     final Response response =
         await http.post(url, headers: headers, body: jsonEncode(body));
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.body;
+    } else {
+      return null;
     }
-    return null;
-  }
-
-  // ignore: non_constant_identifier_names
-  static Future<String?> POST2(String api, String body) async {
-    final Uri url = Uri.http(baseurl, api);
-    final Response response =
-    await http.post(url, headers: headers, body: jsonEncode(body));
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return response.body;
-    }
-    return null;
   }
 
   // ignore: non_constant_identifier_names

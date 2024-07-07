@@ -1,4 +1,4 @@
-import 'package:audio_book/src/core/localization/tr_language.dart';
+import 'package:audio_book/src/core/api/api.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -31,7 +31,7 @@ class ForgetPasswordPageOne extends StatelessWidget {
               children: [
                 fixedSizedBox(height: 0, width: 48),
                 Text(
-                  "Forget Password".tr,
+                  "Forget Password",
                   style: AppTextStyle.loginTitleMedium,
                 ),
                 const Spacer(),
@@ -42,7 +42,7 @@ class ForgetPasswordPageOne extends StatelessWidget {
               children: [
                 fixedSizedBox(height: 0, width: 48),
                 Text(
-                  "Please fill email or phone number and \nwe'll send you a link to get back into your\naccount.".tr,
+                  "Please fill email or phone number and \nwe'll send you a link to get back into your\naccount.",
                   style: AppTextStyle.loginForgotPasswordOffSmall,
                 ),
               ],
@@ -54,7 +54,7 @@ class ForgetPasswordPageOne extends StatelessWidget {
                 children: [
                   textFieldLogin(
                     controller: controller1,
-                    hintText: "Email / Phone Number".tr,
+                    hintText: "Email / Phone Number",
                     node: _firstFocusNode,
                     isError: false,
                     keyboardType: TextInputType.emailAddress,
@@ -64,8 +64,20 @@ class ForgetPasswordPageOne extends StatelessWidget {
                   MaterialButton(
                     minWidth: double.infinity,
                     height: 56,
-                    onPressed: () {
-                      context.go("${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}/${AppRouteName.forgetPasswordTwo}");
+                    onPressed: () async {
+                      String? result = await Api.forgetPassword(
+                        Api.apiPostLoginForgotPassword,
+                        {"email": controller1.text},
+                      );
+
+                      if(result != null){
+                        context.go(
+                        "${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}/${AppRouteName.forgetPasswordTwo}");
+                      }else{
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Email not exist')),
+                        );
+                      }
                     },
                     shape: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -73,7 +85,7 @@ class ForgetPasswordPageOne extends StatelessWidget {
                     ),
                     color: AppColors.c4838D1,
                     child: Text(
-                      "Submit".tr,
+                      "Submit",
                       style: AppTextStyle.loginLoginButtonMedium,
                     ),
                   ),
@@ -84,10 +96,12 @@ class ForgetPasswordPageOne extends StatelessWidget {
                     },
                     minWidth: double.infinity,
                     height: 56,
-                    shape:
-                        OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(width: 1, color: AppColors.c4838D1)),
+                    shape: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(
+                            width: 1, color: AppColors.c4838D1)),
                     child: Text(
-                      "Cancel".tr,
+                      "Cancel",
                       style: AppTextStyle.registerCancelButtonMedium,
                     ),
                   ),

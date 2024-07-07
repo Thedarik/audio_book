@@ -29,7 +29,7 @@ import "app_route_name.dart";
 final class AppRouter {
   static GoRouter router = token == null
       ? GoRouter(
-          initialLocation: AppRouteName.splash,
+          initialLocation: AppRouteName.welcomePage,
           routes: <RouteBase>[
             GoRoute(
               path: AppRouteName.splash,
@@ -73,7 +73,10 @@ final class AppRouter {
                   routes: [
                     GoRoute(
                       path: AppRouteName.confirmationPage,
-                      builder: (context, state) => ConfirmationCodePage(),
+                      builder: (context, state) {
+                        String info = state.extra as String;
+                        return ConfirmationCodePage(token: info,);
+                      },
                     ),
                   ],
                 ),
