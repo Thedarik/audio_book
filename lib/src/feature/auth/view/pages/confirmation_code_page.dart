@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:audio_book/src/core/api/api.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
+import 'package:audio_book/src/feature/auth/model/login_receive_model.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/resend_code_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -102,7 +103,6 @@ class ConfirmationCodePage extends StatelessWidget {
                                   String? token = await AppStorage.load(key: StorageKey.token);
                                   log('TOKEN: $token');
                                   if(token != null){
-
                                   String? res = await Api.resendCode(Api.apiPostSignUpResend, token);
                                   if(res != null){
                                     await AppStorage.store(key: StorageKey.token, value: res);
@@ -143,6 +143,9 @@ class ConfirmationCodePage extends StatelessWidget {
                         );
                         log(result.toString());
                         if (result != null) {
+                          LoginReceiveModel tokens = loginReceiveModelFromJson(result);
+                          await AppStorage.store(key: StorageKey.token, value: tokens.accessToken!);
+                          await AppStorage.store(key: StorageKey.refreshToken, value: tokens.refreshToken!);
                           log("\n\n\n\n\nWORKED\n\n\n\n");
                           context.go(AppRouteName.welcomePage);
                         }else{

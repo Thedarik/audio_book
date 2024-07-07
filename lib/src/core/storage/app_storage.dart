@@ -2,6 +2,7 @@ import "package:shared_preferences/shared_preferences.dart";
 
 enum StorageKey {
   user,
+  refreshToken,
   token,
   theme,
 }

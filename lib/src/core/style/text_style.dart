@@ -277,7 +277,7 @@ final class AppTextStyle extends TextTheme {
   @override
   static TextStyle? get personalizationCategorySmall => TextStyle(
         fontWeight: FontWeight.w500,
-        fontSize: FontSize.size14,
+        fontSize: FontSize.size13,
         fontFamily: 'Poppins',
         color: AppColors.c4838D1,
       );

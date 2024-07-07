@@ -5,13 +5,14 @@ import '../../../../core/style/colors.dart';
 import '../../../../core/style/text_style.dart';
 import '../../controller/category_state_notifier_controller.dart';
 
-Widget categoryBuilder({required String category}) {
+Widget categoryBuilder({required String category,required Function() onPress}) {
   return Consumer<CategoryStateNotifier>(
     builder: (context, categoryStateNotifier, child) {
       final isPressed = categoryStateNotifier.isPressed(category);
       return MaterialButton(
         minWidth: double.minPositive,
         onPressed: () {
+          onPress();
           categoryStateNotifier.toggleCategory(category);
         },
         color: isPressed ? AppColors.c4838D1 : null,
