@@ -1,3 +1,4 @@
+import 'package:audio_book/src/core/localization/tr_language.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/useful_widgets_for_all_pages.dart';
@@ -24,7 +25,7 @@ class WelcomePage extends StatelessWidget {
             child: AppImages.circleImage,
           ),
           Align(
-            alignment: const Alignment(0,-0.1),
+            alignment: const Alignment(0, -0.1),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
               child: Column(
@@ -32,14 +33,23 @@ class WelcomePage extends StatelessWidget {
                   fixedSizedBox(height: 204),
                   Row(
                     children: [
-                      Text("Welcome !",style: AppTextStyle.welcomeTextMedium,),
+                      Text(
+                        "Welcome !".tr,
+                        style: AppTextStyle.welcomeTextMedium,
+                      ),
                       const Spacer(),
                     ],
                   ),
                   fixedSizedBox(height: 8),
-                  Text("Find what you are looking for",style: AppTextStyle.welcomeBigTextLarge,),
+                  Text(
+                    "Find what you are looking for".tr,
+                    style: AppTextStyle.welcomeBigTextLarge,
+                  ),
                   fixedSizedBox(height: 16),
-                  Text("By personalize your account, we can help you to find what you like.",style: AppTextStyle.welcomeSubtitleSmall,),
+                  Text(
+                    "By personalize your account, we can help you to find what you like.".tr,
+                    style: AppTextStyle.welcomeSubtitleSmall,
+                  ),
                   fixedSizedBox(height: 32),
                   MaterialButton(
                     minWidth: double.infinity,
@@ -53,7 +63,7 @@ class WelcomePage extends StatelessWidget {
                     ),
                     color: AppColors.c4838D1,
                     child: Text(
-                      "Personalize Your Account",
+                      "Personalize Your Account".tr,
                       style: AppTextStyle.loginLoginButtonMedium,
                     ),
                   ),
@@ -64,12 +74,10 @@ class WelcomePage extends StatelessWidget {
                     },
                     minWidth: double.infinity,
                     height: 56,
-                    shape: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(
-                            width: 1, color: AppColors.c4838D1)),
+                    shape:
+                        OutlineInputBorder(borderRadius: BorderRadius.circular(8), borderSide: const BorderSide(width: 1, color: AppColors.c4838D1)),
                     child: Text(
-                      "Skip",
+                      "Skip".tr,
                       style: AppTextStyle.registerCancelButtonMedium,
                     ),
                   ),

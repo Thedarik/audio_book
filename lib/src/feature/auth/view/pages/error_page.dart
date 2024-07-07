@@ -1,3 +1,4 @@
+import 'package:audio_book/src/core/localization/tr_language.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/images.dart';
@@ -22,13 +23,12 @@ class ErrorPage extends StatelessWidget {
                 const SizedBox(
                   width: 36,
                 ),
-                IconButton(
-                    onPressed: () {}, icon: const Icon(Icons.arrow_back_ios_new)),
+                IconButton(onPressed: () {}, icon: const Icon(Icons.arrow_back_ios_new)),
                 const SizedBox(
                   width: 86,
                 ),
                 Text(
-                  "Error",
+                  "Error".tr,
                   style: AppTextStyle.onBoardingTitleLarge,
                   textAlign: TextAlign.center,
                 )
@@ -47,11 +47,18 @@ class ErrorPage extends StatelessWidget {
             const SizedBox(
               height: 32,
             ),
-            Text("Ops! Something Went Wrong",style: AppTextStyle.onBoardingTitleLarge,),
+            Text(
+              "Ops! Something Went Wrong".tr,
+              style: AppTextStyle.onBoardingTitleLarge,
+            ),
             const SizedBox(
               height: 12,
             ),
-            Text("Please check your internet connection\nand try again",style: AppTextStyle.onBoardingSubtitleMedium,textAlign: TextAlign.center,),
+            Text(
+              "Please check your internet connection\nand try again".tr,
+              style: AppTextStyle.onBoardingSubtitleMedium,
+              textAlign: TextAlign.center,
+            ),
             const SizedBox(
               height: 24,
             ),
@@ -66,10 +73,13 @@ class ErrorPage extends StatelessWidget {
                   ),
                   minWidth: double.infinity,
                   height: 56,
-                  onPressed: (){
+                  onPressed: () {
                     context.go(AppRouteName.loginPage);
                   },
-                  child: Text("Retry",style: AppTextStyle.onBoardingButtonSkipMedium,),
+                  child: Text(
+                    "Retry".tr,
+                    style: AppTextStyle.onBoardingButtonSkipMedium,
+                  ),
                 ),
               ),
             ),
