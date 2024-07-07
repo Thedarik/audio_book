@@ -9,27 +9,43 @@ import 'package:path_provider/path_provider.dart';
 
 import '../../../core/routes/app_route_name.dart';
 import '../../../data/repository/app_repository.dart';
-import 'package:http/http.dart' as http;
+import '../model/single_book_model.dart';
 
 class HomeController extends ChangeNotifier {
   final AppRepository appRepository;
   HomeController(this.appRepository);
   bool _isLoading = false;
   bool get isLoading => _isLoading;
-  HomeBooksModel? homeBooksModel;
+  HomeBookModel? homeBooksModel;
+  SingleBookModel? singleBookModel;
   File? file;
 
-  Future<void> fetchPDF() async {
+  Future<void> getASingleBook(String id)async{
+    _isLoading = true;
+    notifyListeners();
+
+    singleBookModel = await appRepository.getABook(id);
+    log(singleBookModel!.book.author.toString());
+
+    _isLoading = false;
+    notifyListeners();
+  }
+
+  Future<void> fetchPDF(String id) async {
     log("Fetching PDF...");
     _isLoading = true;
     notifyListeners();
 
     try {
-      final response = await appRepository.fetchPDF();
+      final response = await appRepository.fetchPDF(id);
       final directory = await getApplicationDocumentsDirectory();
-      file = File("${directory.path}/downloaded_file.pdf");
+
+      final timestamp = DateTime.now().millisecondsSinceEpoch;
+      final path = "${directory.path}/downloaded_file_$timestamp.pdf";
+      file = File(path);
+
       await file!.writeAsBytes(response.bodyBytes);
-      log("PDF saved at: ${file!.path}");
+      log("PDF saved at: $path");
     } catch (e) {
       log("Error fetching PDF: $e");
     } finally {
@@ -47,20 +63,6 @@ class HomeController extends ChangeNotifier {
     _isLoading = false;
     notifyListeners();
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   int selectedIndex = 0;
   double rating = 0.0;

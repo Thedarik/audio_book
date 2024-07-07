@@ -6,8 +6,8 @@ import "package:http_parser/http_parser.dart";
 
 class Api {
   // baseurl
-  static const String baseurl = "16.171.23.147:8080";
-  // static const String baseurl = "localhost:8080";
+  // static const String baseurl = "16.171.23.147:8080";
+  static const String baseurl = "192.168.100.110:8080";
 
 
   // APIS
@@ -82,6 +82,7 @@ class Api {
     return null;
   }
 
+  // ignore: non_constant_identifier_names
   static Future<String?> POST2(String api, String body) async {
     final Uri url = Uri.http(baseurl, api);
     final Response response =

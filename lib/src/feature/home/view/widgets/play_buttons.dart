@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:http/http.dart' as http;
-import 'package:path_provider/path_provider.dart';
-import 'dart:io';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 
 import '../../../../core/routes/app_route_name.dart';
@@ -13,7 +10,8 @@ import '../../../../core/style/text_style.dart';
 
 class PlayButtons extends StatelessWidget {
   final String path;
-  const PlayButtons({super.key, required this.path});
+  final VoidCallback? onTap;
+  const PlayButtons({super.key, required this.path, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -46,13 +44,7 @@ class PlayButtons extends StatelessWidget {
           ),
           SizedBox(width: 15.w),
           MaterialButton(
-            onPressed: () {
-              context.go(
-                  "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}/${AppRouteName.bookPage}/${AppRouteName.pdfPage}",
-                extra: path
-              );
-
-            },
+            onPressed: onTap,
             height: 55.h,
             minWidth: 150.w,
             shape: RoundedRectangleBorder(
@@ -91,7 +83,7 @@ class PdfViewerPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('PDF Viewer'),
+        title: const Text('PDF Viewer'),
       ),
       body: PDFView(
         filePath: path,
