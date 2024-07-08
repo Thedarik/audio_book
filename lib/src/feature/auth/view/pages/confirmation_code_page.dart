@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:audio_book/src/core/api/api.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:audio_book/src/feature/auth/model/login_receive_model.dart';
+import 'package:audio_book/src/feature/auth/view/widgets/confirmation_code_widgets.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/resend_code_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,37 +38,7 @@ class ConfirmationCodePage extends StatelessWidget {
             fixedSizedBox(height: 60.h),
             AppImages.authLogo,
             fixedSizedBox(height: 24.h),
-            Row(
-              children: [
-                fixedSizedBox(height: 0, width: 48.w),
-                Text(
-                  "Confirmation Code",
-                  style: AppTextStyle.loginTitleMedium,
-                ),
-                const Spacer(),
-              ],
-            ),
-            fixedSizedBox(height: 16.h),
-            Row(
-              children: [
-                fixedSizedBox(height: 0, width: 48.w),
-                Text(
-                  "Enter the confirmation code we sent to",
-                  style: AppTextStyle.loginForgotPasswordOffSmall,
-                ),
-                const Spacer(),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                fixedSizedBox(height: 0, width: 48.w),
-                Text(
-                  "your@mail.com.",
-                  style: AppTextStyle.registerConfirmSubtitleSmall,
-                ),
-              ],
-            ),
+            ConfirmationCodeWidgets.confirmationTexts(),
             fixedSizedBox(height: 16.h),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -83,45 +54,7 @@ class ConfirmationCodePage extends StatelessWidget {
                     context: context,
                   ),
                   fixedSizedBox(height: 16.h),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      fixedSizedBox(height: 0, width: 10),
-                      Text(
-                        "Didn’t receive the code? ",
-                        style: AppTextStyle.registerReceiveSmall,
-                      ),
-                      Consumer<TimerProvider>(builder: (context, timer, _) {
-                        return timer.isActive
-                            ? Text(
-                                timerProvider.secondsLeft.toString(),
-                                style: AppTextStyle.registerTermsOrangeSmall,
-                              )
-                            : InkWell(
-                                borderRadius: BorderRadius.circular(8),
-                                onTap: () async{
-                                  String? token = await AppStorage.load(key: StorageKey.token);
-                                  log('TOKEN: $token');
-                                  if(token != null){
-                                  String? res = await Api.resendCode(Api.apiPostSignUpResend, token);
-                                  if(res != null){
-                                    await AppStorage.store(key: StorageKey.token, value: res);
-                                    log("KETTII");
-                                  }
-                                  timer.startTimer();
-                                  }else{
-                                    log("Empty token");
-                                  }
-                                },
-                                child: Text("Resend",
-                                    style:
-                                        AppTextStyle.registerTermsOrangeSmall),
-                              );
-                      })
-                      // Text("${timer.remainingSeconds}",
-                      //    style: AppTextStyle.registerTermsOrangeSmall),
-                    ],
-                  ),
+                  ConfirmationCodeWidgets.confirmationResendCode(timerProvider),
                   fixedSizedBox(height: 16.h),
                   MaterialButton(
                     minWidth: double.infinity,
@@ -143,16 +76,23 @@ class ConfirmationCodePage extends StatelessWidget {
                         );
                         log(result.toString());
                         if (result != null) {
-                          LoginReceiveModel tokens = loginReceiveModelFromJson(result);
-                          await AppStorage.store(key: StorageKey.token, value: tokens.accessToken!);
-                          await AppStorage.store(key: StorageKey.refreshToken, value: tokens.refreshToken!);
+                          LoginReceiveModel tokens =
+                              loginReceiveModelFromJson(result);
+                          await AppStorage.store(
+                              key: StorageKey.token,
+                              value: tokens.accessToken!);
+                          await AppStorage.store(
+                              key: StorageKey.refreshToken,
+                              value: tokens.refreshToken!);
                           log("\n\n\n\n\nWORKED\n\n\n\n");
                           context.go(AppRouteName.welcomePage);
-                        }else{
+                        } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                              content:
-                              Text('Password is not right',style: TextStyle(color: Colors.red),),
+                              content: Text(
+                                'Password is not right',
+                                style: TextStyle(color: Colors.red),
+                              ),
                             ),
                           );
                         }
@@ -175,22 +115,7 @@ class ConfirmationCodePage extends StatelessWidget {
                       style: AppTextStyle.loginLoginButtonMedium,
                     ),
                   ),
-                  fixedSizedBox(height: 16.h),
-                  MaterialButton(
-                    onPressed: () {
-
-                    },
-                    minWidth: double.infinity,
-                    height: 56,
-                    shape: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(
-                            width: 1, color: AppColors.c4838D1)),
-                    child: Text(
-                      "Cancel",
-                      style: AppTextStyle.registerCancelButtonMedium,
-                    ),
-                  ),
+                  ConfirmationCodeWidgets.confirmationCancelButton(context),
                 ],
               ),
             ),

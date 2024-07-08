@@ -1,5 +1,6 @@
 import 'package:audio_book/src/core/api/api.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
+import 'package:audio_book/src/feature/auth/view/widgets/forget_password_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -26,28 +27,7 @@ class ForgetPasswordPageOne extends StatelessWidget {
           children: [
             fixedSizedBox(height: 60),
             AppImages.authLogo,
-            fixedSizedBox(height: 24),
-            Row(
-              children: [
-                fixedSizedBox(height: 0, width: 48),
-                Text(
-                  "Forget Password",
-                  style: AppTextStyle.loginTitleMedium,
-                ),
-                const Spacer(),
-              ],
-            ),
-            fixedSizedBox(height: 16),
-            Row(
-              children: [
-                fixedSizedBox(height: 0, width: 48),
-                Text(
-                  "Please fill email or phone number and \nwe'll send you a link to get back into your\naccount.",
-                  style: AppTextStyle.loginForgotPasswordOffSmall,
-                ),
-              ],
-            ),
-            fixedSizedBox(height: 16),
+            ForgetPasswordWidgets.forgetPasswordTexts(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
               child: Column(
@@ -70,10 +50,10 @@ class ForgetPasswordPageOne extends StatelessWidget {
                         {"email": controller1.text},
                       );
 
-                      if(result != null){
+                      if (result != null) {
                         context.go(
-                        "${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}/${AppRouteName.forgetPasswordTwo}");
-                      }else{
+                            "${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}/${AppRouteName.forgetPasswordTwo}");
+                      } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text('Email not exist')),
                         );
@@ -90,21 +70,7 @@ class ForgetPasswordPageOne extends StatelessWidget {
                     ),
                   ),
                   fixedSizedBox(height: 16),
-                  MaterialButton(
-                    onPressed: () {
-                      context.pop();
-                    },
-                    minWidth: double.infinity,
-                    height: 56,
-                    shape: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(
-                            width: 1, color: AppColors.c4838D1)),
-                    child: Text(
-                      "Cancel",
-                      style: AppTextStyle.registerCancelButtonMedium,
-                    ),
-                  ),
+                  ForgetPasswordWidgets.forgetPasswordCancelButton(context),
                 ],
               ),
             ),
