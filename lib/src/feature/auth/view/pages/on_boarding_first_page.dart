@@ -1,6 +1,7 @@
 import 'package:audio_book/src/core/localization/tr_language.dart';
 import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
+import 'package:audio_book/src/feature/auth/view/widgets/useful_widgets_for_all_pages.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingFirstPage extends StatelessWidget {
@@ -13,22 +14,15 @@ class OnBoardingFirstPage extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              const SizedBox(
-                height: 223,
-              ),
-
+              fixedSizedBox(height: 223),
               /// photo
               AppImages.onBoardingFirstImage,
-              const SizedBox(
-                height: 21,
-              ),
+              fixedSizedBox(height: 21),
               Text(
                 "Tittle One",
                 style: AppTextStyle.onBoardingTitleLarge,
               ),
-              const SizedBox(
-                height: 12,
-              ),
+              fixedSizedBox(height: 12),
               Text(
                 "Lorem ipsum dolor sit amet la maryame\ndor sut colondeum.",
                 style: AppTextStyle.onBoardingSubtitleMedium,

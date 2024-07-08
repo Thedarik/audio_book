@@ -4,6 +4,7 @@ import 'package:audio_book/src/core/api/api.dart';
 import 'package:audio_book/src/core/routes/app_route_name.dart';
 import 'package:audio_book/src/core/storage/app_storage.dart';
 import 'package:audio_book/src/feature/auth/model/register_model.dart';
+import 'package:audio_book/src/feature/auth/view/widgets/register_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -126,54 +127,7 @@ class RegisterPage extends StatelessWidget {
                       ],
                     ),
                     fixedSizedBox(height: 16),
-                    Column(
-                      children: [
-                        Row(
-                          children: [
-                            Text(
-                              "By signing up, you agree to our ",
-                              style: AppTextStyle.registerTerms2Small,
-                            ),
-                            InkWell(
-                              splashColor: AppColors.cF5F5FA,
-                              borderRadius: BorderRadius.circular(8),
-                              onTap: () {},
-                              child: Text(
-                                "Terms  ",
-                                style: AppTextStyle.loginForgotPasswordSmall,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            InkWell(
-                              splashColor: AppColors.cF5F5FA,
-                              borderRadius: BorderRadius.circular(8),
-                              onTap: () {},
-                              child: Text(
-                                "Data Policy ",
-                                style: AppTextStyle.loginForgotPasswordSmall,
-                              ),
-                            ),
-                            Text(
-                              "and ",
-                              style: AppTextStyle.registerTerms2Small,
-                            ),
-                            InkWell(
-                              splashColor: AppColors.cF5F5FA,
-                              borderRadius: BorderRadius.circular(8),
-                              onTap: () {},
-                              child: Text(
-                                "Cookies Policy.",
-                                style: AppTextStyle.loginForgotPasswordSmall,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                    RegisterWidgets.registerPrivacyText(),
                     fixedSizedBox(height: 16),
                     MaterialButton(
                       minWidth: double.infinity,

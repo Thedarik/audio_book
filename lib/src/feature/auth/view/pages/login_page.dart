@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:audio_book/src/core/api/api.dart';
@@ -8,14 +7,11 @@ import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:audio_book/src/feature/auth/model/login_receive_model.dart';
-import 'package:audio_book/src/feature/auth/view/widgets/login_text_field_widget.dart';
+import 'package:audio_book/src/feature/auth/view/widgets/login_widgets.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/useful_widgets_for_all_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
-
-import '../../controller/check_box_controller.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
@@ -72,187 +68,58 @@ class LoginPage extends StatelessWidget {
               ],
             ),
             fixedSizedBox(height: 16.h),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40.0),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    textFieldLogin(
-                      validator: _validateEmail,
-                      controller: controller1,
-                      hintText: "Email",
-                      node: _firstFocusNode,
-                      isError: false,
-                      keyboardType: TextInputType.emailAddress,
-                      context: context,
-                      nextNode: _secondFocusNode,
-                    ),
-                    fixedSizedBox(height: 16.h),
-                    textFieldLogin(
-                      validator: _validatePassword,
-                      controller: controller2,
-                      hintText: "Password",
-                      node: _secondFocusNode,
-                      isError: false,
-                      keyboardType: TextInputType.visiblePassword,
-                      context: context,
-                    ),
-                    fixedSizedBox(height: 16.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Consumer<CheckboxStateNotifier>(
-                          builder: (context, checkboxStateNotifier, child) {
-                            return Checkbox(
-                              value: checkboxStateNotifier.isChecked,
-                              onChanged: (value) {
-                                checkboxStateNotifier.toggleCheckbox();
-                              },
-                              checkColor: AppColors.cBBB1FA,
-                              side: const BorderSide(
-                                  width: 1, color: AppColors.cBBB1FA),
-                            );
-                          },
+            LoginWidgets.loginBottomPart(
+              context: context,
+              formKey: _formKey,
+              validateEmail: _validateEmail,
+              validatePassword: _validatePassword,
+              controller1: controller1,
+              controller2: controller2,
+              firstFocusNode: _firstFocusNode,
+              secondFocusNode: _secondFocusNode,
+              button: MaterialButton(
+                minWidth: double.infinity,
+                height: 56.h,
+                onPressed: () async {
+                  if (_formKey.currentState?.validate() == true) {
+                    String? result = await Api.POST(Api.apiPostLogin, {
+                      "email": controller1.text,
+                      "password": controller2.text
+                    });
+                    if (result != null) {
+                      // log("\n\n RESULT OF LOGIN: $result\n\n");
+                      LoginReceiveModel model =
+                          loginReceiveModelFromJson(result);
+                      // log(model.refreshToken??'NO TOKEN');
+                      await AppStorage.store(
+                          key: StorageKey.token, value: model.accessToken!);
+                      await AppStorage.store(
+                          key: StorageKey.refreshToken,
+                          value: model.refreshToken!);
+                      log("access token: ${model.accessToken}");
+                      log("refresh token: ${model.refreshToken}");
+                      // var check = await AppStorage.load(key: StorageKey.refreshToken);
+                      // log("SHOWING TEST REFRESH TOKEN: ${check!}");
+                      context.go(AppRouteName.homePage);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Email or password is wrong!'),
                         ),
-                        fixedSizedBox(
-                          height: 0,
-                          width: 12.w,
-                        ),
-                        Text(
-                          "Remember me",
-                          style: AppTextStyle.loginRememberSmall,
-                        )
-                      ],
-                    ),
-                    fixedSizedBox(height: 16),
-                    MaterialButton(
-                      minWidth: double.infinity,
-                      height: 56.h,
-                      onPressed: () async {
-                        if (_formKey.currentState?.validate() == true) {
-                          String? result = await Api.POST(Api.apiPostLogin, {
-                            "email": controller1.text,
-                            "password": controller2.text
-                          });
-                          if (result != null) {
-                            // log("\n\n RESULT OF LOGIN: $result\n\n");
-                            LoginReceiveModel model =
-                                loginReceiveModelFromJson(result);
-                            // log(model.refreshToken??'NO TOKEN');
-                            await AppStorage.store(
-                                key: StorageKey.token,
-                                value: model.accessToken!);
-                            await AppStorage.store(
-                                key: StorageKey.refreshToken,
-                                value: model.refreshToken!);
-                            log("access token: ${model.accessToken}");
-                            log("refresh token: ${model.refreshToken}");
-                            // var check = await AppStorage.load(key: StorageKey.refreshToken);
-                            // log("SHOWING TEST REFRESH TOKEN: ${check!}");
-                            context.go(AppRouteName.homePage);
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(
-                                content: Text('Email or password is wrong!'),
-                              ),
-                            );
+                      );
 
-                            // log('SOMETHING WENT WRONG IN LOGIN ');
-                          }
-                        }
-                      },
-                      elevation: 0,
-                      shape: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide.none),
-                      color: AppColors.c4838D1,
-                      child: Text(
-                        "Login",
-                        style: AppTextStyle.loginLoginButtonMedium,
-                      ),
-                    ),
-                    fixedSizedBox(height: 32.h),
-                    Row(
-                      children: [
-                        const Spacer(),
-                        InkWell(
-                          splashColor: AppColors.cF5F5FA,
-                          borderRadius: BorderRadius.circular(8),
-                          onTap: () {
-                            context.go(
-                                "${AppRouteName.loginPage}/${AppRouteName.forgetPasswordOne}");
-                          },
-                          child: Text(
-                            "Forget Password ?",
-                            style: AppTextStyle.loginForgotPasswordSmall,
-                          ),
-                        ),
-                      ],
-                    ),
-                    fixedSizedBox(height: 32.h),
-                    Text(
-                      "Or login with",
-                      style: AppTextStyle.loginOrLoginWithSmall,
-                    ),
-                    fixedSizedBox(height: 20.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        MaterialButton(
-                          onPressed: () {},
-                          minWidth: 87.w,
-                          height: 56.h,
-                          shape: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: const BorderSide(
-                                  width: 1, color: AppColors.c4838D1)),
-                          child: AppImages.googleIcon,
-                        ),
-                        MaterialButton(
-                          onPressed: () {},
-                          minWidth: 87.w,
-                          height: 56.h,
-                          shape: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: const BorderSide(
-                                  width: 1, color: AppColors.c4838D1)),
-                          child: AppImages.facebookIcon,
-                        ),
-                        MaterialButton(
-                          onPressed: () {},
-                          minWidth: 87.w,
-                          height: 56.h,
-                          shape: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: const BorderSide(
-                                  width: 1, color: AppColors.c4838D1)),
-                          child: AppImages.twitterIcon,
-                        ),
-                      ],
-                    ),
-                    fixedSizedBox(height: 24.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Don’t have an accoun’t ? ",
-                          style: AppTextStyle.loginAccountSmall,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            context.go(
-                                "${AppRouteName.loginPage}/${AppRouteName.registerPage}");
-                          },
-                          borderRadius: BorderRadius.circular(8),
-                          child: Text(
-                            " Register",
-                            style: AppTextStyle.loginAccountSmall2,
-                          ),
-                        ),
-                      ],
-                    )
-                  ],
+                      // log('SOMETHING WENT WRONG IN LOGIN ');
+                    }
+                  }
+                },
+                elevation: 0,
+                shape: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    borderSide: BorderSide.none),
+                color: AppColors.c4838D1,
+                child: Text(
+                  "Login",
+                  style: AppTextStyle.loginLoginButtonMedium,
                 ),
               ),
             ),

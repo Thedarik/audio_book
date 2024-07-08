@@ -35,11 +35,6 @@ final class AppRouter {
               path: AppRouteName.splash,
               builder: (context, state) => const SplashPage(),
             ),
-            GoRoute(
-              path: AppRouteName.testPage,
-              builder: (context, state) => const TestPage(),
-            ),
-
             //OnBoardings
             GoRoute(
               path: AppRouteName.onBoardingMain,
@@ -75,7 +70,9 @@ final class AppRouter {
                       path: AppRouteName.confirmationPage,
                       builder: (context, state) {
                         String info = state.extra as String;
-                        return ConfirmationCodePage(token: info,);
+                        return ConfirmationCodePage(
+                          token: info,
+                        );
                       },
                     ),
                   ],
