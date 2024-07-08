@@ -60,4 +60,5 @@ const Map<String, String> ru = {
   "By personalize your account, we can help you to find what you like.":
       "Персонализируя вашу учетную запись, мы можем помочь вам найти то, что вам нравится.",
   "Personalize Your Account": "Персонализируйте свою учетную запись",
+  "Select a language": "Выберите язык"
 };

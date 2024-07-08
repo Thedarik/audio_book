@@ -61,4 +61,5 @@ const Map<String, String> uz = {
   "By personalize your account, we can help you to find what you like.":
       "Hisobingizni shaxsiylashtirish orqali biz sizga o'zingiz yoqtirgan narsani topishga yordam beramiz.",
   "Personalize Your Account": "Hisobingizni shaxsiylashtirish",
+  "Select a language": "Tilni tanlang",
 };
