@@ -1,17 +1,105 @@
 import 'dart:convert';
 
-List<dynamic> singleBookModelFromJson(String str) => List<dynamic>.from(json.decode(str).map((x) => x));
+SingleBookModel singleBookModelFromJson(String str) => SingleBookModel.fromJson(json.decode(str));
 
-String singleBookModelToJson(List<dynamic> data) => json.encode(List<dynamic>.from(data.map((x) => x)));
+String singleBookModelToJson(SingleBookModel data) => json.encode(data.toJson());
 
-class SingleBookModelElement {
-  dynamic body;
+class SingleBookModel {
+  Book book;
+  List<Comment> comments;
+
+  SingleBookModel({
+    required this.book,
+    required this.comments,
+  });
+
+  SingleBookModel copyWith({
+    Book? book,
+    List<Comment>? comments,
+  }) =>
+      SingleBookModel(
+        book: book ?? this.book,
+        comments: comments ?? this.comments,
+      );
+
+  factory SingleBookModel.fromJson(Map<String, dynamic> json) => SingleBookModel(
+    book: Book.fromJson(json["book"]),
+    comments: List<Comment>.from(json["comments"].map((x) => Comment.fromJson(x))),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "book": book.toJson(),
+    "comments": List<dynamic>.from(comments.map((x) => x.toJson())),
+  };
+}
+
+class Book {
+  String title;
   String id;
-  String displayName;
+  String description;
+  num? rating;
+  List<String> categoryNames;
+  dynamic comments;
+  String author;
+
+  Book({
+    required this.title,
+    required this.id,
+    required this.description,
+    required this.rating,
+    required this.categoryNames,
+    required this.comments,
+    required this.author,
+  });
+
+  Book copyWith({
+    String? title,
+    String? id,
+    String? description,
+    int? rating,
+    List<String>? categoryNames,
+    dynamic comments,
+    String? author,
+  }) =>
+      Book(
+        title: title ?? this.title,
+        id: id ?? this.id,
+        description: description ?? this.description,
+        rating: rating ?? this.rating,
+        categoryNames: categoryNames ?? this.categoryNames,
+        comments: comments ?? this.comments,
+        author: author ?? this.author,
+      );
+
+  factory Book.fromJson(Map<String, dynamic> json) => Book(
+    title: json["title"],
+    id: json["id"],
+    description: json["description"],
+    rating: json["rating"],
+    categoryNames: List<String>.from(json["categoryNames"].map((x) => x)),
+    comments: json["comments"],
+    author: json["author"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "title": title,
+    "id": id,
+    "description": description,
+    "rating": rating,
+    "categoryNames": List<dynamic>.from(categoryNames.map((x) => x)),
+    "comments": comments,
+    "author": author,
+  };
+}
+
+class Comment {
+  String body;
+  String id;
+  dynamic displayName;
   int rating;
   String userId;
 
-  SingleBookModelElement({
+  Comment({
     required this.body,
     required this.id,
     required this.displayName,
@@ -19,14 +107,14 @@ class SingleBookModelElement {
     required this.userId,
   });
 
-  SingleBookModelElement copyWith({
-    dynamic body,
+  Comment copyWith({
+    String? body,
     String? id,
-    String? displayName,
+    dynamic displayName,
     int? rating,
     String? userId,
   }) =>
-      SingleBookModelElement(
+      Comment(
         body: body ?? this.body,
         id: id ?? this.id,
         displayName: displayName ?? this.displayName,
@@ -34,7 +122,7 @@ class SingleBookModelElement {
         userId: userId ?? this.userId,
       );
 
-  factory SingleBookModelElement.fromJson(Map<String, dynamic> json) => SingleBookModelElement(
+  factory Comment.fromJson(Map<String, dynamic> json) => Comment(
     body: json["body"],
     id: json["id"],
     displayName: json["displayName"],
@@ -48,58 +136,5 @@ class SingleBookModelElement {
     "displayName": displayName,
     "rating": rating,
     "userId": userId,
-  };
-}
-
-class PurpleSingleBookModel {
-  String title;
-  String id;
-  String description;
-  double rating;
-  List<String> categoryNames;
-  String author;
-
-  PurpleSingleBookModel({
-    required this.title,
-    required this.id,
-    required this.description,
-    required this.rating,
-    required this.categoryNames,
-    required this.author,
-  });
-
-  PurpleSingleBookModel copyWith({
-    String? title,
-    String? id,
-    String? description,
-    double? rating,
-    List<String>? categoryNames,
-    String? author,
-  }) =>
-      PurpleSingleBookModel(
-        title: title ?? this.title,
-        id: id ?? this.id,
-        description: description ?? this.description,
-        rating: rating ?? this.rating,
-        categoryNames: categoryNames ?? this.categoryNames,
-        author: author ?? this.author,
-      );
-
-  factory PurpleSingleBookModel.fromJson(Map<String, dynamic> json) => PurpleSingleBookModel(
-    title: json["title"],
-    id: json["id"],
-    description: json["description"],
-    rating: json["rating"]?.toDouble(),
-    categoryNames: List<String>.from(json["categoryNames"].map((x) => x)),
-    author: json["author"],
-  );
-
-  Map<String, dynamic> toJson() => {
-    "title": title,
-    "id": id,
-    "description": description,
-    "rating": rating,
-    "categoryNames": List<dynamic>.from(categoryNames.map((x) => x)),
-    "author": author,
   };
 }

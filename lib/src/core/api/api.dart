@@ -6,7 +6,10 @@ import "package:http_parser/http_parser.dart";
 
 class Api {
   // baseurl
-  static const String baseurl = "10.10.1.83:8080";
+  // static const String baseurl = "16.171.23.147:8080";
+  static const String baseurl = "192.168.100.110:8080";
+
+  // static const String baseurl1 = "10.10.1.83:8080";
 
   // static const String baseurl2 = "http://10.10.1.170:8080";
   // static const String baseurl = "localhost:8080";
@@ -128,6 +131,13 @@ class Api {
     return null;
   }
 
+  static Future<Response> getPDF(String api,) async {
+    final Uri url = Uri.http(baseurl, api);
+    final Response response = await http.get(url, headers: headers);
+    return response;
+  }
+
+  // ignore: non_constant_identifier_names
   static Future<String?> postCategoryCustomize(
       String api, Map<String, dynamic> body, String accesToken) async {
     final headers = {

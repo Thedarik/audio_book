@@ -1,3 +1,4 @@
+import 'package:audio_book/setup.dart';
 import 'package:audio_book/src/feature/home/view/widgets/rating_star.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -83,12 +84,13 @@ class BestSellers extends StatelessWidget {
                               SizedBox(
                                 height: 120.h,
                                 width: 120.w,
-                                child: const DecoratedBox(
+                                child: DecoratedBox(
                                   decoration: BoxDecoration(
                                       image: DecorationImage(
-                                        image: AssetImage("assets/images/light_mage.png"),
+                                        image: NetworkImage("$address/api/file/image/${bookList[index].id}"),
+                                        fit: BoxFit.cover
                                       ),
-                                      borderRadius: BorderRadius.all(
+                                      borderRadius: const BorderRadius.all(
                                           Radius.circular(15)
                                       )
                                   ),
@@ -125,7 +127,7 @@ class BestSellers extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(height: 15.h),
-                                    RatingStar(size: 20, rating: bookList[index].rating!.toDouble()),
+                                    RatingStar(size: 20, rating: (bookList[index].rating ?? 0).toDouble()),
                                     SizedBox(height: 10.h),
                                     Text(
                                       "1000+ Listeners",

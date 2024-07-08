@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 late final StorageService service;
 late final SharedPreferences db;
+String address = "http://192.168.100.110:8080";
 
 Future<void> setup() async {
   WidgetsFlutterBinding.ensureInitialized();

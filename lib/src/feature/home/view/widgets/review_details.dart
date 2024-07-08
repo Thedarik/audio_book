@@ -1,3 +1,4 @@
+import 'package:audio_book/src/core/style/text_style.dart';
 import 'package:flutter/material.dart';
 
 
@@ -8,34 +9,50 @@ class ReviewDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // SizedBox(
-        //   height: 200,
-        //   child: PageView(
-        //     onPageChanged: (index) {
-        //       _currentIndexNotifier.value = index;
-        //     },
-        //     controller: _controller,
-        //     children: pages,
-        //   ),
-        // ),
-        //
-        // Padding(
-        //   padding: EdgeInsets.only(right: 235.w),
-        //   child: SmoothPageIndicator(
-        //     effect: const ExpandingDotsEffect(
-        //         activeDotColor: AppColors.c4838D1,
-        //         expansionFactor: 1.1,
-        //         dotWidth: 15,
-        //         dotHeight: 15,
-        //         spacing: 12,
-        //         dotColor: Color(0xFFD5D5E3),),
-        //         controller: _controller,
-        //         // count: pages.length,
-        //   ),
-        // ),
-      ],
+    return Center(
+      child: Text(
+        "There is not any comment yet",
+        style: AppTextStyle.homeCategoryTextMedium,
+      ),
     );
   }
+
+
+
+
+
+
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Column(
+  //     children: [
+  //       SizedBox(
+  //         height: 200,
+  //         child: PageView(
+  //           onPageChanged: (index) {
+  //             _currentIndexNotifier.value = index;
+  //           },
+  //           controller: _controller,
+  //           children: pages,
+  //         ),
+  //       ),
+  //
+  //       Padding(
+  //         padding: EdgeInsets.only(right: 235.w),
+  //         child: SmoothPageIndicator(
+  //           effect: const ExpandingDotsEffect(
+  //               activeDotColor: AppColors.c4838D1,
+  //               expansionFactor: 1.1,
+  //               dotWidth: 15,
+  //               dotHeight: 15,
+  //               spacing: 12,
+  //               dotColor: Color(0xFFD5D5E3),),
+  //               controller: _controller,
+  //               count: pages.length,
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
 }

@@ -5,7 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/style/text_style.dart';
 
 class Categories extends StatelessWidget {
-  const Categories({super.key});
+  final String category1;
+  final String category2;
+  const Categories({super.key, required this.category1, required this.category2});
 
   @override
   Widget build(BuildContext context) {
@@ -13,22 +15,22 @@ class Categories extends StatelessWidget {
       padding: EdgeInsets.only(left: 38.w),
       child: Row(
         children: [
-          SizedBox(
-            height: 32.h,
-            width: 74.w,
-            child: DecoratedBox(
+          IntrinsicWidth(
+            child: Container(
+              height: 32.h,
+              padding: EdgeInsets.symmetric(horizontal: 16.w), // Adding horizontal padding for better appearance
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
-                  border: Border.all(
-                      color: AppColors.c6A6A8B,
-                      width: 1
-                  )
+                borderRadius: BorderRadius.circular(24),
+                border: Border.all(
+                  color: AppColors.c6A6A8B,
+                  width: 1,
+                ),
               ),
               child: Center(
                 child: Text(
-                  "Fantasy",
+                  category1,
                   style: AppTextStyle.homeSubtitleSmall?.copyWith(
-                      fontWeight: FontWeight.w700
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -37,46 +39,22 @@ class Categories extends StatelessWidget {
 
           SizedBox(width: 10.w),
 
-          SizedBox(
-            height: 32.h,
-            width: 74.w,
-            child: DecoratedBox(
+          IntrinsicWidth(
+            child: Container(
+              height: 32.h,
+              padding: EdgeInsets.symmetric(horizontal: 16.w), // Adding horizontal padding for better appearance
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
-                  border: Border.all(
-                      color: AppColors.c6A6A8B,
-                      width: 1
-                  )
-              ),
-              child: Center(
-                child: Text(
-                  "Drama",
-                  style: AppTextStyle.homeSubtitleSmall?.copyWith(
-                      fontWeight: FontWeight.w700
-                  ),
+                borderRadius: BorderRadius.circular(24),
+                border: Border.all(
+                  color: AppColors.c6A6A8B,
+                  width: 1,
                 ),
               ),
-            ),
-          ),
-
-          SizedBox(width: 10.w),
-
-          SizedBox(
-            height: 32.h,
-            width: 74.w,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
-                  border: Border.all(
-                      color: AppColors.c6A6A8B,
-                      width: 1
-                  )
-              ),
               child: Center(
                 child: Text(
-                  "Fiction",
+                  category2,
                   style: AppTextStyle.homeSubtitleSmall?.copyWith(
-                      fontWeight: FontWeight.w700
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),

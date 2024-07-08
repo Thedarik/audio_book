@@ -1,3 +1,4 @@
+import 'package:audio_book/src/feature/home/model/home_book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -6,7 +7,7 @@ import '../../../../core/routes/app_route_name.dart';
 import '../../../../core/style/text_style.dart';
 
 class Recommendation extends StatelessWidget {
-  final String image;
+  final List<BestSeller> image;
   const Recommendation({super.key, required this.image});
 
   @override
@@ -44,26 +45,26 @@ class Recommendation extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 24.w),
           child: SizedBox(
             height: 310.h,
-            child: ListView.builder(
-              // separatorBuilder: (context, index)=> SizedBox(width: 1.w),
+            child: ListView.separated(
+              separatorBuilder: (context, index)=> SizedBox(width: 10.w),
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
+              itemCount: image.length,
               itemBuilder: (context, index){
                 return GestureDetector(
                   onTap: (){
                     context.go(
                         "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}",
-                        extra: []
+                        extra: image
                     );
                   },
                   child: SizedBox(
                     width: 200.w,
                     height: 300.h,
-                    child: const DecoratedBox(
+                    child: DecoratedBox(
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage("assets/images/the_silence.png"),
-                            // fit: BoxFit.fitWidth
+                              image: NetworkImage("http://192.168.100.110:8080/api/file/image/${image[index].id}"),
+                            fit: BoxFit.cover
                           )
                       ),
                     ),

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../setup.dart';
 import '../../../../core/routes/app_route_name.dart';
 import '../../model/home_book_model.dart';
 
@@ -32,7 +33,9 @@ class VerticalMovies1 extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}/${AppRouteName.bookPage}");
+            context.go(
+                "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}/${AppRouteName.bookPage}"
+            );
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -81,12 +84,6 @@ class VerticalMovies extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> assets = [
-      "assets/images/the_black_witch.png",
-      "assets/images/the_prisoners_key.png",
-      "assets/images/the_kidnappers.png",
-      "assets/images/the_fire_queen.png",
-    ];
 
     return GridView.builder(
       padding: const EdgeInsets.symmetric(horizontal: 14),
@@ -99,7 +96,10 @@ class VerticalMovies extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            context.go("${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}/${AppRouteName.bookPage}");
+            context.go(
+                "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}/${AppRouteName.bookPage}",
+              extra: listBook
+            );
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,7 +108,12 @@ class VerticalMovies extends StatelessWidget {
                 height: 160.h,
                 width: 160.w,
                 child: DecoratedBox(
-                  decoration: BoxDecoration(image: DecorationImage(image: AssetImage(assets[index]))),
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: NetworkImage("$address/api/file/image/${listBook[index].id}"),
+                        fit: BoxFit.cover
+                      )
+                  ),
                 ),
               ),
               SizedBox(height: 8.h),
@@ -125,7 +130,9 @@ class VerticalMovies extends StatelessWidget {
                               : "${listBook[index].title!}\n",
                           style: AppTextStyle.homeCategoriesMedium?.copyWith(fontWeight: FontWeight.w500),),
                       TextSpan(
-                        text: "${listBook[index].author}",
+                        text: listBook[index].author!.length >= 15
+                            ? "${listBook[index].author?.substring(0, 10)}..."
+                            : listBook[index].author!,
                         style: AppTextStyle.homeSubtitleSmall?.copyWith(color: AppColors.c4838D1),
                       ),
                     ],
