@@ -78,7 +78,7 @@ class BookDetailPage extends StatelessWidget {
           builder: (context, controller, child) {
             if (controller.isLoading) {
               return const Center(child: CircularProgressIndicator());
-            } else if (controller.singleBookModel == null || controller.singleBookModel!.book == null) {
+            } else if (controller.singleBookModel == null) {
               return const Center(child: Text('No book data available.'));
             } else {
               final book = controller.singleBookModel!.book;

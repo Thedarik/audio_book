@@ -15,7 +15,7 @@ class SettingPage extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         leading: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 36),
+          padding: EdgeInsets.only(left: 20.w),
           child: IconButton(
             onPressed: () {
               context.pop();

@@ -23,14 +23,14 @@ class OnBoardingFirstPage extends StatelessWidget {
                 height: 21,
               ),
               Text(
-                "Tittle One".tr,
+                "Tittle One",
                 style: AppTextStyle.onBoardingTitleLarge,
               ),
               const SizedBox(
                 height: 12,
               ),
               Text(
-                "Lorem ipsum dolor sit amet la maryame\ndor sut colondeum.".tr,
+                "Lorem ipsum dolor sit amet la maryame\ndor sut colondeum.",
                 style: AppTextStyle.onBoardingSubtitleMedium,
                 textAlign: TextAlign.center,
               ),

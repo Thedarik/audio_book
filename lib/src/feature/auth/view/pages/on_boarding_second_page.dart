@@ -23,7 +23,7 @@ class OnBoardingSecondPage extends StatelessWidget {
                 height: 21,
               ),
               Text(
-                "Tittle Two".tr,
+                "Tittle Two",
                 style: AppTextStyle.onBoardingTitleLarge,
               ),
               const SizedBox(

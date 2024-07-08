@@ -98,7 +98,7 @@ class VerticalMovies extends StatelessWidget {
           onTap: () {
             context.go(
                 "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}/${AppRouteName.bookPage}",
-              extra: listBook
+              extra: [listBook[index]]
             );
           },
           child: Column(
@@ -120,7 +120,6 @@ class VerticalMovies extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(right: 30),
                 child: RichText(
-                  overflow: TextOverflow.fade,
                   textAlign: TextAlign.start,
                   text: TextSpan(
                     children: [

@@ -10,7 +10,7 @@ class SettingViewProfileButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.go("${AppRouteName.settingPage}/${AppRouteName.profilePage}");
+        context.go("${AppRouteName.homePage}/${AppRouteName.settingPage}/${AppRouteName.profilePage}");
       },
       child: Text(
         "View profile",

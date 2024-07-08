@@ -30,18 +30,19 @@ class SearchPage extends StatelessWidget {
           child: Row(
             children: [
               SizedBox(
-                height: 40.h,
-                width: 40.w,
+                height: 40,
+                width: 40,
                 child: AppImages.mainLogoIcon,
               ),
-              SizedBox(
-                width: 5.w,
+              const SizedBox(
+                width: 5,
               ),
               const LogoText(),
               const Spacer(),
               GestureDetector(
                 onTap: () {
-                  context.go("${AppRouteName.mainPage}${AppRouteName.settingPage.substring(1)}");
+                  context.go(
+                      "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.settingPage}");
                 },
                 child: AppImages.settingIcon,
               ),

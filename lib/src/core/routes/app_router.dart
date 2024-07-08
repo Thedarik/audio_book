@@ -29,7 +29,7 @@ import "app_route_name.dart";
 final class AppRouter {
   static GoRouter router = token == null
       ? GoRouter(
-          initialLocation: AppRouteName.welcomePage,
+          initialLocation: AppRouteName.splash,
           routes: <RouteBase>[
             GoRoute(
               path: AppRouteName.splash,
@@ -142,12 +142,16 @@ final class AppRouter {
                         ),
                       ],
                     ),
-                    GoRoute(path: AppRouteName.settingPage, builder: (context, state) => const SettingPage(), routes: [
-                      GoRoute(
-                        path: AppRouteName.profilePage,
-                        builder: (context, state) => const ProfilePage(),
-                      ),
-                    ]),
+                    GoRoute(
+                        path: AppRouteName.settingPage,
+                        builder: (context, state) => const SettingPage(),
+                        routes: [
+                            GoRoute(
+                              path: AppRouteName.profilePage,
+                              builder: (context, state) => const ProfilePage(),
+                            ),
+                        ],
+                    ),
                   ],
                 ),
 

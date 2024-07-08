@@ -10,7 +10,6 @@ String address = "http://192.168.100.110:8080";
 Future<void> setup() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Shared Preferences
-
   db = await StorageService.init;
   service = StorageService(db: db);
   await getStorageValues();
