@@ -38,14 +38,7 @@ class OnBoardingMainPage extends StatelessWidget {
             controller: _controller,
             children: pages,
           ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: AppImages.blueStrokeImage,
-          ),
-          Align(
-            alignment: const Alignment(1, -0.7),
-            child: AppImages.circleImage,
-          ),
+
           Column(
             children: [
               fixedSizedBox(height: 624.h),

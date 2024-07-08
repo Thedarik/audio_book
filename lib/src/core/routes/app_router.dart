@@ -28,7 +28,7 @@ import "app_route_name.dart";
 final class AppRouter {
   static GoRouter router = token == null
       ? GoRouter(
-          initialLocation: AppRouteName.welcomePage,
+          initialLocation: AppRouteName.splash,
           routes: <RouteBase>[
             GoRoute(
               path: AppRouteName.splash,
