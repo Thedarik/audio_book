@@ -7,7 +7,7 @@ String searchModelToJson(List<SearchModel> data) => json.encode(List<dynamic>.fr
 class SearchModel {
   String title;
   String id;
-  int rating;
+  num? rating;
   String author;
   List<String> categoryIds;
 

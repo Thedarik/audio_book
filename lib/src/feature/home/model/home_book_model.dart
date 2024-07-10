@@ -45,6 +45,11 @@ class HomeBookModel {
   };
 }
 
+List<BestSeller> bestSellerFromJson(String str) => List<BestSeller>.from(json.decode(str).map((x) => BestSeller.fromJson(x)));
+
+String searchModelToJson(List<BestSeller> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
+
 class BestSeller {
   String? title;
   String? id;

@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/storage/app_storage.dart';
+import '../../../data/repository/app_repository.dart';
+import '../../search/model/storage_model.dart';
+
 class LibraryController extends ChangeNotifier {
-  LibraryController._internal();
-  static final LibraryController _instance = LibraryController._internal();
-  factory LibraryController() {
-    return _instance;
+  final AppRepository appRepository;
+  LibraryController(this.appRepository);
+  List<StorageModel?> storageModel = [];
+
+  Future<void> getABook(String id)async{
+    storageModel = (await AppStorage.loadBook(key: id));
+    notifyListeners();
   }
 }

@@ -24,6 +24,7 @@ import "../../feature/auth/view/pages/confirmation_code_page.dart";
 import "../../feature/auth/view/pages/login_page.dart";
 import "../../feature/auth/view/pages/on_boarding_main_page.dart";
 import "../../feature/auth/view/pages/register_page.dart";
+import "../../feature/home/view/pages/book_search_page.dart";
 import "app_route_name.dart";
 
 final class AppRouter {
@@ -117,22 +118,27 @@ final class AppRouter {
                 //Home
                 GoRoute(
                   path: AppRouteName.homePage,
+                  name: 'homePage',
                   builder: (context, state) => HomePage(),
                   routes: [
                     GoRoute(
                       path: AppRouteName.homeDetailPage,
+                      name: 'homeDetailPage',
                       builder: (context, state) => const HomeDetailPage(),
                       routes: [
                         GoRoute(
                           path: AppRouteName.bookPage,
+                          name: 'bookPage',
                           builder: (context, state) => BookDetailPage(),
                           routes: [
                             GoRoute(
                               path: AppRouteName.audioPage,
+                              name: 'audioPage',
                               builder: (context, state) => const AudioPage(),
                             ),
                             GoRoute(
                               path: AppRouteName.pdfPage,
+                              name: 'pdfPage',
                               builder: (context, state) => const PdfViewerPage(),
                             ),
                           ],
@@ -140,23 +146,46 @@ final class AppRouter {
                       ],
                     ),
                     GoRoute(
-                        path: AppRouteName.settingPage,
-                        builder: (context, state) => const SettingPage(),
-                        routes: [
-                            GoRoute(
-                              path: AppRouteName.profilePage,
-                              builder: (context, state) => const ProfilePage(),
-                            ),
-                        ],
+                      path: AppRouteName.settingPage,
+                      name: 'settingPage',
+                      builder: (context, state) => const SettingPage(),
+                      routes: [
+                        GoRoute(
+                          path: AppRouteName.profilePage,
+                          name: 'profilePage',
+                          builder: (context, state) => const ProfilePage(),
+                        ),
+                      ],
                     ),
                   ],
                 ),
 
-                //Search
+                // Search
                 GoRoute(
                   path: AppRouteName.searchPage,
+                  name: 'searchPage',
                   builder: (context, state) => SearchPage(),
+                  routes: [
+                    GoRoute(
+                      path: AppRouteName.bookSearchPage,
+                      name: 'bookSearchPage',
+                      builder: (context, state) => BookDetailPageSearch(),
+                      routes: [
+                        GoRoute(
+                          path: AppRouteName.audioPage,
+                          name: 'audioSearchPage',
+                          builder: (context, state) => const AudioPage(),
+                        ),
+                        GoRoute(
+                          path: AppRouteName.pdfPage,
+                          name: 'pdfSearchPage',
+                          builder: (context, state) => const PdfViewerPage(),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
+
 
                 //Library
                 GoRoute(

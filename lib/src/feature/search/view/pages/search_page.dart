@@ -13,12 +13,25 @@ import 'package:provider/provider.dart';
 
 import '../../../../core/routes/app_route_name.dart';
 import '../../../home/view/widgets/logo_text.dart';
+import '../../model/storage_model.dart';
 
-class SearchPage extends StatelessWidget {
+class SearchPage extends StatefulWidget {
   final SearchBookController searchController;
   SearchPage({super.key}) : searchController = SearchBookController(AppRepositoryImpl());
 
-  TextEditingController controller = TextEditingController();
+  @override
+  State<SearchPage> createState() => _SearchPageState();
+}
+
+class _SearchPageState extends State<SearchPage> {
+  final TextEditingController controller = TextEditingController();
+
+  @override
+  void dispose() {
+    controller.dispose();
+    controller.clear();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +90,9 @@ class SearchPage extends StatelessWidget {
               else if (searchController.searchModel.isNotEmpty)
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.6,
-                  child: VerticalMovies1(listBook: searchController.searchModel),
+                  child: VerticalMovies1(
+                    listBook: searchController.searchModel,
+                  ),
                 )
               else
                 Column(
@@ -100,7 +115,7 @@ class SearchPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 15.h),
-                    const MovieListSearch()
+                    MovieListSearch()
                   ],
                 ),
             ],
@@ -110,3 +125,5 @@ class SearchPage extends StatelessWidget {
     );
   }
 }
+
+

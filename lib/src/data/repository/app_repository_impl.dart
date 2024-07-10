@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:audio_book/src/feature/home/model/home_book_model.dart';
 import 'package:audio_book/src/feature/home/model/refresh_model.dart';
+import 'package:audio_book/src/feature/home/model/search_models.dart';
 import 'package:audio_book/src/feature/home/model/single_book_model.dart';
 import 'package:audio_book/src/feature/search/model/search_model.dart';
 import 'package:http/src/response.dart';
@@ -34,10 +35,10 @@ class AppRepositoryImpl implements AppRepository{
   }
 
   @override
-  Future<List<SearchModel?>> searchBooks(String text)async{
+  Future<List<SearchModels?>> searchBooks(String text)async{
     String? str = await Api.GET("${Api.apiBookSearch}$text");
     if(str != null){
-      return searchModelFromJson(str);
+      return searchFromJson(str);
     }else{
       return [];
     }

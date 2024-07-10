@@ -8,7 +8,9 @@ import 'package:go_router/go_router.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../../../core/routes/app_route_name.dart';
+import '../../../core/storage/app_storage.dart';
 import '../../../data/repository/app_repository.dart';
+import '../../search/model/storage_model.dart';
 import '../model/single_book_model.dart';
 
 class HomeController extends ChangeNotifier {
@@ -18,7 +20,17 @@ class HomeController extends ChangeNotifier {
   bool get isLoading => _isLoading;
   HomeBookModel? homeBooksModel;
   SingleBookModel? singleBookModel;
+  List<StorageModel?> storageModel = [];
   File? file;
+
+  Future<void> saveABook(String id, StorageModel storageModel)async{
+    await AppStorage.storeBook(key: id, storageModel: storageModel);
+  }
+
+  Future<void> getABook(String id)async{
+    storageModel = (await AppStorage.loadBook(key: id));
+    notifyListeners();
+  }
 
   Future<void> getASingleBook(String id)async{
     _isLoading = true;

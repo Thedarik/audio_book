@@ -57,7 +57,7 @@ class LibraryPage extends StatelessWidget {
           SizedBox(height: 12.h),
           const LibrarySearchWidget(),
           SizedBox(height: 16.h),
-          const LibraryListviewBuilder(),
+          LibraryListviewBuilder(),
         ],
       ),
     );
