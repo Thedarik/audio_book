@@ -9,7 +9,7 @@ class LanguageService {
           ? Language.en
           : service.read("til") == "3"
               ? Language.ru
-              : Language.ru;
+              : Language.en;
 
   static Language get getLanguage => _language;
 

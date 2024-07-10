@@ -7,7 +7,7 @@ import "package:http_parser/http_parser.dart";
 class Api {
   // baseurl
   // static const String baseurl = "16.171.23.147:8080";
-  static const String baseurl = "192.168.100.110:8080";
+  static const String baseurl = "192.168.0.100:8080";
 
   // static const String baseurl1 = "10.10.1.83:8080";
 
@@ -52,11 +52,9 @@ class Api {
   // static final http = InterceptedHttp.build(interceptors: [AppInterceptor()]);
 
   /// Auth small posts
-  static Future<String?> forgetPassword(
-      String api, Map<String, dynamic> body) async {
+  static Future<String?> forgetPassword(String api, Map<String, dynamic> body) async {
     final Uri url = Uri.http(baseurl, api);
-    final Response response =
-        await http.post(url, headers: headers, body: jsonEncode(body));
+    final Response response = await http.post(url, headers: headers, body: jsonEncode(body));
     if (response.statusCode == 200 || response.statusCode == 201) {
       log("\n\nPost of Login${response.body}\n\n");
       return response.body;
@@ -64,8 +62,7 @@ class Api {
     return null;
   }
 
-  static Future<String?> resendCode(
-      String api, String tempAuthorizationToken) async {
+  static Future<String?> resendCode(String api, String tempAuthorizationToken) async {
     Map<String, String> headers3 = <String, String>{
       "Content-Type": "application/json",
       // "Accept": "*/*",
@@ -79,10 +76,7 @@ class Api {
     return null;
   }
 
-  static Future<String?> verifyCode(
-      {required String verificationCode,
-      required String api,
-      required String tempAuthorizationToken}) async {
+  static Future<String?> verifyCode({required String verificationCode, required String api, required String tempAuthorizationToken}) async {
     final Uri url = Uri.http(baseurl, api);
     final headers1 = {
       "Content-Type": "application/json",
@@ -131,22 +125,22 @@ class Api {
     return null;
   }
 
-  static Future<Response> getPDF(String api,) async {
+  static Future<Response> getPDF(
+    String api,
+  ) async {
     final Uri url = Uri.http(baseurl, api);
     final Response response = await http.get(url, headers: headers);
     return response;
   }
 
   // ignore: non_constant_identifier_names
-  static Future<String?> postCategoryCustomize(
-      String api, Map<String, dynamic> body, String accesToken) async {
+  static Future<String?> postCategoryCustomize(String api, Map<String, dynamic> body, String accesToken) async {
     final headers = {
       "Content-Type": "application/json",
       'Authorization': accesToken,
     };
     final Uri url = Uri.http(baseurl, api);
-    final Response response =
-        await http.post(url, headers: headers, body: jsonEncode(body));
+    final Response response = await http.post(url, headers: headers, body: jsonEncode(body));
     if (response.statusCode == 200 || response.statusCode == 201) {
       return jsonEncode(response.body);
     } else {
@@ -159,8 +153,7 @@ class Api {
   // ignore: non_constant_identifier_names
   static Future<String?> POST(String api, Map<String, dynamic> body) async {
     final Uri url = Uri.http(baseurl, api);
-    final Response response =
-        await http.post(url, headers: headers, body: jsonEncode(body));
+    final Response response = await http.post(url, headers: headers, body: jsonEncode(body));
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.body;
     } else {
@@ -169,11 +162,9 @@ class Api {
   }
 
   // ignore: non_constant_identifier_names
-  static Future<String?> PUT(
-      String api, Map<String, dynamic> body, Map<String, dynamic> param) async {
+  static Future<String?> PUT(String api, Map<String, dynamic> body, Map<String, dynamic> param) async {
     final Uri url = Uri.https(baseurl, api, param);
-    final Response response =
-        await http.put(url, body: jsonEncode(body), headers: headers);
+    final Response response = await http.put(url, body: jsonEncode(body), headers: headers);
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.body;
     } else {
@@ -181,13 +172,11 @@ class Api {
     }
   }
 
-  static Future<String?> multiPart(
-      String api, String filePath, Map<String, String> body) async {
+  static Future<String?> multiPart(String api, String filePath, Map<String, String> body) async {
     final Uri uri = Uri.http(baseurl, api);
     final MultipartRequest request = MultipartRequest("POST", uri);
     request.headers.addAll(headers);
-    request.files.add(await MultipartFile.fromPath("file", filePath,
-        contentType: MediaType("file", "png")));
+    request.files.add(await MultipartFile.fromPath("file", filePath, contentType: MediaType("file", "png")));
     request.fields.addAll(body);
     final StreamedResponse response = await request.send();
     if (response.statusCode == 200 || response.statusCode == 201) {
@@ -198,11 +187,9 @@ class Api {
   }
 
   // ignore: non_constant_identifier_names
-  static Future<String?> PATCH(
-      String api, Map<String, String> params, Map<String, dynamic> body) async {
+  static Future<String?> PATCH(String api, Map<String, String> params, Map<String, dynamic> body) async {
     final Uri url = Uri.http(baseurl, api);
-    final Response response =
-        await http.patch(url, headers: headers, body: jsonEncode(body));
+    final Response response = await http.patch(url, headers: headers, body: jsonEncode(body));
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.body;
     }
