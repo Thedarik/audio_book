@@ -168,3 +168,31 @@ class PdfViewerPage extends StatelessWidget {
     );
   }
 }
+class LibraryPdfViewerPage extends StatelessWidget {
+  const LibraryPdfViewerPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final path = GoRouterState.of(context).extra as String;
+
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: Padding(
+          padding: EdgeInsets.only(left: 20.w),
+          child: IconButton(
+            onPressed: () {
+              context.pop();
+            },
+            icon: const Icon(Icons.arrow_back_ios),
+          ),
+        ),
+        title: const Text('PDF Viewer'),
+        centerTitle: true,
+      ),
+      body: PDFView(
+        filePath: path,
+      ),
+    );
+  }
+}

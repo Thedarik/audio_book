@@ -13,6 +13,7 @@ import "package:audio_book/src/feature/home/view/pages/home_page.dart";
 import "package:audio_book/src/feature/home/view/pages/main_page.dart";
 import "package:audio_book/src/feature/home/view/widgets/play_buttons.dart";
 import "package:audio_book/src/feature/libraryPage/view/pages/audio_page.dart";
+import "package:audio_book/src/feature/libraryPage/view/pages/library_book_page.dart";
 import "package:audio_book/src/feature/libraryPage/view/pages/library_page.dart";
 import "package:audio_book/src/feature/libraryPage/view/pages/profile_page.dart";
 import "package:audio_book/src/feature/libraryPage/view/pages/setting_page.dart";
@@ -30,7 +31,7 @@ import "app_route_name.dart";
 final class AppRouter {
   static GoRouter router = token == null
       ? GoRouter(
-          initialLocation: AppRouteName.testPage,
+          initialLocation: AppRouteName.splash,
           routes: <RouteBase>[
             GoRoute(
               path: AppRouteName.splash,
@@ -195,8 +196,23 @@ final class AppRouter {
                 //Library
                 GoRoute(
                   path: AppRouteName.libraryPage,
-                  builder: (context, state) => const LibraryPage(),
+                  builder: (context, state) => LibraryPage(),
                   routes: [
+                    GoRoute(
+                      path: AppRouteName.libraryBookPage,
+                      builder: (context, state) => LibraryBookPage(),
+                      routes: [
+                        GoRoute(
+                          path: AppRouteName.audioPage,
+                          builder: (context, state) => const AudioPage(),
+                        ),
+                        GoRoute(
+                          path: AppRouteName.libraryPdfPage,
+                          builder: (context, state) => const LibraryPdfViewerPage(),
+                        ),
+                      ],
+                    ),
+
                     GoRoute(
                       path: AppRouteName.profilePage,
                       builder: (context, state) => const ProfilePage(),
@@ -259,7 +275,7 @@ final class AppRouter {
                 //Library
                 GoRoute(
                   path: AppRouteName.libraryPage,
-                  builder: (context, state) => const LibraryPage(),
+                  builder: (context, state) => LibraryPage(),
                   routes: [
                     GoRoute(path: AppRouteName.profilePage, builder: (context, state) => const ProfilePage()),
                   ],
