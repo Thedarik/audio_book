@@ -25,8 +25,8 @@ class AppInterceptor implements InterceptorContract{
   }
 
   @override
-  Future<ResponseData> interceptResponse({required ResponseData data})async{
-    if(kDebugMode){
+  Future<ResponseData> interceptResponse({required ResponseData data}) async {
+    if (kDebugMode) {
       log(
         "---------[Interceptor]---------ON_RESPONSE(${data.statusCode})------------------\n\n"
             "HEADERS: ${data.headers}\n"
@@ -35,31 +35,32 @@ class AppInterceptor implements InterceptorContract{
       );
     }
 
-    if(data.statusCode==403){
-      String? access = await AppStorage.load(key: StorageKey.theme);
-      String? refresh = await AppStorage.load(key: StorageKey.theme);
+    if (data.statusCode == 403) {
+      String? access = await AppStorage.load(key: StorageKey.token);
+      String? refresh = await AppStorage.load(key: StorageKey.refreshToken);
 
-      AppRepositoryImpl().refreshToken(access ?? "");
-      await AppStorage.store(key: StorageKey.theme, value: access ?? "");
-      await AppStorage.store(key: StorageKey.theme, value: refresh ?? "");
+      final refreshedAccessToken = await AppRepositoryImpl().refreshToken();
+      if (refreshedAccessToken == null) {
+        return data;
+      }
+
+      access = refreshedAccessToken.accessToken;
+      await AppStorage.store(key: StorageKey.token, value: access);
+      await AppStorage.store(key: StorageKey.refreshToken, value: refresh ?? "");
 
       final Map<String, String> updatedHeaders = {
         "Authorization": "Bearer $access",
       };
-
-      data.request?.headers.forEach((key, value){
+      data.request?.headers.forEach((key, value) {
         updatedHeaders[key] = value;
       });
-
       data.request?.headers.addAll(updatedHeaders);
 
       final newRequest = http.Request(data.request!.method.name, data.request!.url.toUri());
-
       final catchResponse = await http.Client().send(newRequest);
-
       await http.Response.fromStream(catchResponse);
     }
-
     return data;
   }
+
 }

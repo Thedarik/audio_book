@@ -1,3 +1,7 @@
+// To parse this JSON data, do
+//
+//     final homeBookModel = homeBookModelFromJson(jsonString);
+
 import 'dart:convert';
 
 HomeBookModel homeBookModelFromJson(String str) => HomeBookModel.fromJson(json.decode(str));
@@ -5,16 +9,16 @@ HomeBookModel homeBookModelFromJson(String str) => HomeBookModel.fromJson(json.d
 String homeBookModelToJson(HomeBookModel data) => json.encode(data.toJson());
 
 class HomeBookModel {
-  List<BestSeller> recommended;
-  List<BestSeller> bestSeller;
-  List<BestSeller> newRelease;
-  List<BestSeller> trendingNow;
+  List<BestSeller>? recommended;
+  List<BestSeller>? bestSeller;
+  List<BestSeller>? newRelease;
+  List<BestSeller>? trendingNow;
 
   HomeBookModel({
-    required this.recommended,
-    required this.bestSeller,
-    required this.newRelease,
-    required this.trendingNow,
+    this.recommended,
+    this.bestSeller,
+    this.newRelease,
+    this.trendingNow,
   });
 
   HomeBookModel copyWith({
@@ -31,29 +35,24 @@ class HomeBookModel {
       );
 
   factory HomeBookModel.fromJson(Map<String, dynamic> json) => HomeBookModel(
-    recommended: List<BestSeller>.from(json["recommended"].map((x) => BestSeller.fromJson(x))),
-    bestSeller: List<BestSeller>.from(json["best-seller"].map((x) => BestSeller.fromJson(x))),
-    newRelease: List<BestSeller>.from(json["new-release"].map((x) => BestSeller.fromJson(x))),
-    trendingNow: List<BestSeller>.from(json["trending-now"].map((x) => BestSeller.fromJson(x))),
+    recommended: json["recommended"] == null ? [] : List<BestSeller>.from(json["recommended"]!.map((x) => BestSeller.fromJson(x))),
+    bestSeller: json["best-seller"] == null ? [] : List<BestSeller>.from(json["best-seller"]!.map((x) => BestSeller.fromJson(x))),
+    newRelease: json["new-release"] == null ? [] : List<BestSeller>.from(json["new-release"]!.map((x) => BestSeller.fromJson(x))),
+    trendingNow: json["trending-now"] == null ? [] : List<BestSeller>.from(json["trending-now"]!.map((x) => BestSeller.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
-    "recommended": List<dynamic>.from(recommended.map((x) => x.toJson())),
-    "best-seller": List<dynamic>.from(bestSeller.map((x) => x.toJson())),
-    "new-release": List<dynamic>.from(newRelease.map((x) => x.toJson())),
-    "trending-now": List<dynamic>.from(trendingNow.map((x) => x.toJson())),
+    "recommended": recommended == null ? [] : List<dynamic>.from(recommended!.map((x) => x.toJson())),
+    "best-seller": bestSeller == null ? [] : List<dynamic>.from(bestSeller!.map((x) => x.toJson())),
+    "new-release": newRelease == null ? [] : List<dynamic>.from(newRelease!.map((x) => x.toJson())),
+    "trending-now": trendingNow == null ? [] : List<dynamic>.from(trendingNow!.map((x) => x.toJson())),
   };
 }
-
-List<BestSeller> bestSellerFromJson(String str) => List<BestSeller>.from(json.decode(str).map((x) => BestSeller.fromJson(x)));
-
-String searchModelToJson(List<BestSeller> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
-
 
 class BestSeller {
   String? title;
   String? id;
-  num? rating;
+  dynamic rating;
   String? author;
   List<String>? categoryIds;
 
@@ -85,7 +84,7 @@ class BestSeller {
     id: json["id"],
     rating: json["rating"],
     author: json["author"],
-    categoryIds: List<String>.from(json["categoryIds"].map((x) => x)),
+    categoryIds: json["categoryIds"] == null ? [] : List<String>.from(json["categoryIds"]!.map((x) => x)),
   );
 
   Map<String, dynamic> toJson() => {
@@ -93,6 +92,6 @@ class BestSeller {
     "id": id,
     "rating": rating,
     "author": author,
-    "categoryIds": List<dynamic>.from(categoryIds!.map((x) => x)),
+    "categoryIds": categoryIds == null ? [] : List<dynamic>.from(categoryIds!.map((x) => x)),
   };
 }

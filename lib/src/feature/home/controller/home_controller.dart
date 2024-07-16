@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:audio_book/src/core/localization/app_language.dart';
 import 'package:audio_book/src/feature/home/model/home_book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -70,6 +71,7 @@ class HomeController extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
+    String access = await AppStorage.load(key: StorageKey.token) as String;
     homeBooksModel = (await appRepository.getHomeBooks())!;
 
     _isLoading = false;

@@ -59,7 +59,8 @@ class SearchBookController extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
-    searchModel = await appRepository.searchBooks(text);
+    String access = await AppStorage.load(key: StorageKey.token) as String;
+    searchModel = await appRepository.searchBooks(text,);
 
     _isLoading = false;
     notifyListeners();

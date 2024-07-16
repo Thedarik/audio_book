@@ -9,9 +9,9 @@ abstract class AppRepository{
 
   Future<SingleBookModel?> getABook(String id);
 
-  Future<List<SearchModels?>> searchBooks(String text);
+  Future<List<SearchModels?>> searchBooks(String text,);
 
   Future<Response> fetchPDF(String id);
 
-  Future<RefreshModel?> refreshToken(String access);
+  Future<RefreshModel?> refreshToken();
 }
