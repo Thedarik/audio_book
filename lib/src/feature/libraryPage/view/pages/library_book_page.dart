@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:audio_book/src/feature/search/model/storage_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -11,32 +10,38 @@ import '../../../../core/routes/app_route_name.dart';
 import '../../../../core/style/colors.dart';
 import '../../../../core/style/text_style.dart';
 import '../../../../data/repository/app_repository_impl.dart';
-import '../../controller/home_controller.dart';
-import '../../model/home_book_model.dart';
-import '../widgets/author_texts.dart';
-import '../widgets/categories.dart';
-import '../widgets/play_buttons.dart';
-import '../widgets/rating_star.dart';
-import '../widgets/review_details.dart';
-import '../widgets/summary_text.dart';
+import '../../../home/controller/home_controller.dart';
+import '../../../home/model/search_models.dart';
+import '../../../home/view/widgets/author_texts.dart';
+import '../../../home/view/widgets/categories.dart';
+import '../../../home/view/widgets/play_buttons.dart';
+import '../../../home/view/widgets/rating_star.dart';
+import '../../../home/view/widgets/review_details.dart';
+import '../../../home/view/widgets/summary_text.dart';
+import '../../../search/model/storage_model.dart';
 
-class BookDetailPage extends StatelessWidget {
+class LibraryBookPage extends StatelessWidget {
   final HomeController controller;
-  List<BestSeller> listBook = [];
+  List<StorageModel?> listBook = [];
+  List<SearchModels?> listBook1 = [];
 
-  BookDetailPage({super.key}) : controller = HomeController(AppRepositoryImpl());
+  LibraryBookPage({super.key}) : controller = HomeController(AppRepositoryImpl());
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<HomeController>(
       create: (_) {
         final extra = GoRouterState.of(context).extra;
-        if (extra is List<BestSeller>) {
+        if (extra is List<StorageModel?>) {
           listBook = extra;
-        }
-
-        if (listBook.isNotEmpty) {
-          controller.getASingleBook(listBook[0].id!);
+          if (listBook.isNotEmpty) {
+            controller.getASingleBook(listBook[0]!.id);
+          }
+        } else if (extra is List<SearchModels?>) {
+          listBook1 = extra;
+          if (listBook1.isNotEmpty) {
+            controller.getASingleBook(listBook1[0]!.id);
+          }
         }
 
         return controller;
@@ -49,8 +54,8 @@ class BookDetailPage extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  log("Length: ${listBook.length}");
-                  context.pop(listBook);
+                  log("Length: ${listBook.isNotEmpty ? listBook.length : listBook1.length}");
+                  context.pop(listBook.isNotEmpty ? listBook : listBook1);
                 },
                 icon: Icon(
                   Icons.arrow_back_ios,
@@ -121,24 +126,8 @@ class BookDetailPage extends StatelessWidget {
                             path: controller.file?.path ?? "",
                             onTap: () async {
                               await controller.fetchPDF(controller.singleBookModel!.book.id);
-
-                              StorageModel storageModel = StorageModel(
-                                title: book.title,
-                                author: book.author,
-                                summary: book.description,
-                                filePath: controller.file!.path,
-                                audioPath: "",
-                                imagePath: "$address/api/file/image/${book.id}",
-                                rating: book.rating ?? 0,
-                                category1: book.categoryNames[0],
-                                category2: book.categoryNames[1],
-                                id: book.id,
-                              );
-
-                              await controller.saveABook("savedBooks", storageModel);
-
                               context.go(
-                                "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}/${AppRouteName.homeDetailPage}/${AppRouteName.bookPage}/${AppRouteName.pdfPage}",
+                                "${AppRouteName.mainPage}${AppRouteName.libraryPage.substring(1)}/${AppRouteName.libraryBookPage}/${AppRouteName.libraryPdfPage}",
                                 extra: controller.file?.path,
                               );
                             },
@@ -177,4 +166,3 @@ class BookDetailPage extends StatelessWidget {
     );
   }
 }
-

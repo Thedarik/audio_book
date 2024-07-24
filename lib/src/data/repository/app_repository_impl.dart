@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'dart:developer';
 
+import 'package:audio_book/src/core/storage/app_storage.dart';
 import 'package:audio_book/src/feature/home/model/home_book_model.dart';
 import 'package:audio_book/src/feature/home/model/refresh_model.dart';
+import 'package:audio_book/src/feature/home/model/search_models.dart';
 import 'package:audio_book/src/feature/home/model/single_book_model.dart';
 import 'package:audio_book/src/feature/search/model/search_model.dart';
 import 'package:http/src/response.dart';
@@ -13,7 +15,7 @@ import 'app_repository.dart';
 class AppRepositoryImpl implements AppRepository{
   @override
   Future<HomeBookModel?> getHomeBooks()async{
-    String? str = await Api.GET(Api.apiBookHome);
+    String? str = await Api.GET(Api.apiBookHome,);
     if(str!=null){
       HomeBookModel homeBooksModel = homeBookModelFromJson(str);
       return homeBooksModel;
@@ -23,8 +25,8 @@ class AppRepositoryImpl implements AppRepository{
   }
 
   @override
-  Future<RefreshModel?> refreshToken(String access)async {
-    String? str = await Api.GET(Api.apiGetRefresh);
+  Future<RefreshModel?> refreshToken()async {
+    String? str = await Api.GET1(Api.apiGetRefresh);
     if (str != null) {
       RefreshModel refreshModel = refreshModelFromJson(str);
       return refreshModel;
@@ -34,10 +36,10 @@ class AppRepositoryImpl implements AppRepository{
   }
 
   @override
-  Future<List<SearchModel?>> searchBooks(String text)async{
+  Future<List<SearchModels?>> searchBooks(String text)async{
     String? str = await Api.GET("${Api.apiBookSearch}$text");
     if(str != null){
-      return searchModelFromJson(str);
+      return searchFromJson(str);
     }else{
       return [];
     }
@@ -51,8 +53,10 @@ class AppRepositoryImpl implements AppRepository{
 
   @override
   Future<SingleBookModel?> getABook(String id) async {
+    String access = await AppStorage.load(key: StorageKey.token) as String;
+
     try {
-      String? str = await Api.GET("${Api.apiBook}/$id");
+      String? str = await Api.GET("${Api.apiBook}/$id",);
       if (str != null) {
         log("API Response: $str");
         final jsonResponse = jsonDecode(str);

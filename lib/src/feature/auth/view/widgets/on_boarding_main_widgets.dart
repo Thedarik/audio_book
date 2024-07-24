@@ -74,7 +74,7 @@ class OnBoardingMainWidgets {
                           "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}");
                     },
                     child: Text(
-                      "Skip".tr,
+                      "Skip",
                       style: AppTextStyle.onBoardingButtonSkipMedium,
                     ),
                   ),
@@ -93,7 +93,7 @@ class OnBoardingMainWidgets {
                         }
                       },
                       child: Text(
-                        "Next".tr,
+                        "Next",
                         style: AppTextStyle.onBoardingButtonNextMedium,
                       ),
                     ),
@@ -116,7 +116,7 @@ class OnBoardingMainWidgets {
                     context.go(AppRouteName.errorPage);
                   },
                   child: Text(
-                    "Lets Get Started".tr,
+                    "Lets Get Started",
                     style: AppTextStyle.onBoardingButtonNextMedium,
                   ),
                 ),

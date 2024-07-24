@@ -2,13 +2,16 @@ import 'dart:async';
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:audio_book/src/core/localization/app_language.dart';
 import 'package:audio_book/src/feature/home/model/home_book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../../../core/routes/app_route_name.dart';
+import '../../../core/storage/app_storage.dart';
 import '../../../data/repository/app_repository.dart';
+import '../../search/model/storage_model.dart';
 import '../model/single_book_model.dart';
 
 class HomeController extends ChangeNotifier {
@@ -18,7 +21,17 @@ class HomeController extends ChangeNotifier {
   bool get isLoading => _isLoading;
   HomeBookModel? homeBooksModel;
   SingleBookModel? singleBookModel;
+  List<StorageModel?> storageModel = [];
   File? file;
+
+  Future<void> saveABook(String id, StorageModel storageModel)async{
+    await AppStorage.storeBook(key: id, storageModel: storageModel);
+  }
+
+  Future<void> getABook(String id)async{
+    storageModel = (await AppStorage.loadBook(key: id));
+    notifyListeners();
+  }
 
   Future<void> getASingleBook(String id)async{
     _isLoading = true;
@@ -58,6 +71,7 @@ class HomeController extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
+    String access = await AppStorage.load(key: StorageKey.token) as String;
     homeBooksModel = (await appRepository.getHomeBooks())!;
 
     _isLoading = false;

@@ -7,6 +7,7 @@ class StorageModel{
   late String category2;
   late String filePath;
   late String audioPath;
+  late String id;
   late num rating;
 
   StorageModel({
@@ -18,7 +19,8 @@ class StorageModel{
     required this.imagePath,
     required this.rating,
     required this.category1,
-    required this.category2
+    required this.category2,
+    required this.id
   });
 
   StorageModel.fromJson(Map<String, Object?> json){
@@ -31,6 +33,7 @@ class StorageModel{
     rating = json["rating"] as num;
     category1 = json["category1"] as String;
     category2 = json["category2"] as String;
+    id = json["id"] as String;
   }
 
   Map<String, Object?> toJson(){
@@ -43,7 +46,8 @@ class StorageModel{
       "imagePath": imagePath,
       "rating": rating,
       "category1": category1,
-      "category2": category2
+      "category2": category2,
+      "id": id
     };
   }
 }
