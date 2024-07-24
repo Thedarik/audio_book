@@ -19,23 +19,23 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
 
-  Future<void> fetchUserInfo()async{
-    String? token = await AppStorage.load(key: StorageKey.token);
-    String? info = await Api.getUserInfo(api: Api.apiUserMe, token: token!);
-    try{
-      if(info != null){
-        log("\n\nUSER INFO: $info");
-      }else{
-        log("\n\nNO USER DATE");
-      }
-    }catch(e){
-      log("\n\nERROR ON PROFILE: $e");
-    }
-
-  }
+  // Future<void> fetchUserInfo()async{
+  //   String? token = await AppStorage.load(key: StorageKey.token);
+  //    String? info = await Api.getUserInfo(api: Api.apiUserMe, token: token!);
+  //   try{
+  //     if(info != null){
+  //       log("\n\nUSER INFO: $info");
+  //     }else{
+  //       log("\n\nNO USER DATE");
+  //     }
+  //   }catch(e){
+  //     log("\n\nERROR ON PROFILE: $e");
+  //   }
+  //
+  // }
   @override
   void initState() {
-    fetchUserInfo();
+    // fetchUserInfo();
     super.initState();
   }
   
