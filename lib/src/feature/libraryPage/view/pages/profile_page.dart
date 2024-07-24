@@ -1,3 +1,7 @@
+import 'dart:developer';
+
+import 'package:audio_book/src/core/api/api.dart';
+import 'package:audio_book/src/core/storage/app_storage.dart';
 import 'package:audio_book/src/core/style/colors.dart';
 import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/core/style/text_style.dart';
@@ -6,9 +10,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+
+  Future<void> fetchUserInfo()async{
+    String? token = await AppStorage.load(key: StorageKey.token);
+    String? info = await Api.getUserInfo(api: Api.apiUserMe, token: token!);
+    try{
+      if(info != null){
+        log("\n\nUSER INFO: $info");
+      }else{
+        log("\n\nNO USER DATE");
+      }
+    }catch(e){
+      log("\n\nERROR ON PROFILE: $e");
+    }
+
+  }
+  @override
+  void initState() {
+    fetchUserInfo();
+    super.initState();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,10 +80,14 @@ class ProfilePage extends StatelessWidget {
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        image: const DecorationImage(image: AssetImage("assets/images/photo_2023-07-05_07-52-14.jpg"))),
+                        image: const DecorationImage(image: AssetImage(
+                            "assets/images/photo_2023-07-05_07-52-14.jpg"))),
                   ),
                 ),
-                SizedBox(height: 20.h, width: 20.w, child: MaterialButton(onPressed: () {}, child: AppImages.uploadIcon)),
+                SizedBox(height: 20.h,
+                    width: 20.w,
+                    child: MaterialButton(
+                        onPressed: () {}, child: AppImages.uploadIcon)),
               ],
             ),
           ),

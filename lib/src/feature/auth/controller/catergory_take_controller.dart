@@ -22,7 +22,9 @@ class TakeCategoryProvider extends ChangeNotifier {
     try {
       // Simulate a network call
       String? token = await AppStorage.load(key: StorageKey.token,);
+      log('\n\nUSER ACC TOKEN: $token');
       String? categories = await Api.getCategories(Api.apiCategory, token!);
+      log('\n\nUSER CATEGORIES: $categories');
       if(categories != null){
         List<CategoryModel> model = categoryModelFromJson(categories);
         _data = model;
