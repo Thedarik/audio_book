@@ -12,6 +12,8 @@ class Api {
   // static const String baseurl = "16.171.23.147:8080";
   // static const String baseurl = "192.168.0.100:8080";
   static const String baseurl = "192.168.100.110:8080";
+  // static const String baseurl = "192.168.100.110:8080";
+  // static const String baseurl = "10.10.1.162:8080";
 
   // static const String baseurl1 = "10.10.1.83:8080";
 
@@ -46,6 +48,19 @@ class Api {
   static String apiFileAudio = "api/file/audio";
 
   static final http = InterceptedHttp.build(interceptors: [AppInterceptor()]);
+  //Profile APi
+  static String apiUserEdit = "api/user/edit";
+  static String apiUserMe = "api/user/me";
+
+  // headers
+  static Map<String, String> headers = <String, String>{
+    "Content-Type": "application/json",
+    // "Accept": "*/*",
+    "Authorization":
+        "Bearer eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlc2htYXQiLCJhdXRob3JpdGllcyI6IlJPTEVfVVNFUiIsImlhdCI6MTcxOTgxODUxMCwiaXNzIjoiaG9tZXdvcmsuaW8iLCJleHAiOjE3MjEwMjgxMTB9.Szr3jQ-eFLTcPH5YYNlZlMzwgMPoySc6cxZkEv9TLIp239_RoEliVNlI0g-4pAbi",
+  };
+
+  // static final http = InterceptedHttp.build(interceptors: [AppInterceptor()]);
 
   /// Auth small posts
   static Future<String?> forgetPassword(String api, Map<String, dynamic> body) async {
