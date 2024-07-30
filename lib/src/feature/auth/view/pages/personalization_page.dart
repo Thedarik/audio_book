@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:nativewrappers/_internal/vm/lib/core_patch.dart';
 
 import 'package:audio_book/setup.dart';
 import 'package:audio_book/src/core/api/api.dart';
