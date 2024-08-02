@@ -83,7 +83,7 @@ final class AppRouter {
                     GoRoute(
                       path: AppRouteName.confirmationPage,
                       builder: (context, state) {
-                        String info = state.extra ;
+                        var info = state.extra ;
                         return ConfirmationCodePage(
                           token: info,
                         );

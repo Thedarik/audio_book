@@ -5,11 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 late final StorageService service;
 late final SharedPreferences db;
-<<<<<<< HEAD
 String address = "http://10.10.3.162:8080";
-=======
-String address = "http://10.10.1.162:8080";
->>>>>>> b2b3781 (commit by asadbek)
+// String address = "http://10.10.1.162:8080";
 
 Future<void> setup() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:audio_book/setup.dart';
 
 enum Language { en, uz, ru }
@@ -17,7 +19,7 @@ class LanguageService {
     _language = language;
   }
 
-  static void switchLanguage(String language) {
+  static void switchLanguage(var language) {
     switch (language) {
       case "1":
         {
