@@ -11,7 +11,7 @@ class Api {
   // baseurl
   // static const String baseurl = "16.171.23.147:8080";
   // static const String baseurl = "192.168.0.100:8080";
-  static const String baseurl = "192.168.100.110:8080";
+  static const String baseurl = "10.10.2.136:8080";
 
   // static const String baseurl1 = "10.10.1.83:8080";
 

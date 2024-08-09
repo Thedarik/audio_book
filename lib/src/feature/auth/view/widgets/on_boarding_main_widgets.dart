@@ -71,7 +71,7 @@ class OnBoardingMainWidgets {
                     height: 56,
                     onPressed: () {
                       context.go(
-                          "${AppRouteName.mainPage}${AppRouteName.homePage.substring(1)}");
+                          AppRouteName.loginPage);
                     },
                     child: Text(
                       "Skip",
@@ -113,7 +113,7 @@ class OnBoardingMainWidgets {
                     borderSide: BorderSide.none,
                   ),
                   onPressed: () {
-                    context.go(AppRouteName.errorPage);
+                    context.go(AppRouteName.loginPage);
                   },
                   child: Text(
                     "Lets Get Started",
