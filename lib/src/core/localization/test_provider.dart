@@ -1,3 +1,5 @@
+
+
 import 'package:audio_book/setup.dart';
 import 'package:audio_book/src/core/localization/language.dart';
 import 'package:flutter/material.dart';
@@ -7,8 +9,8 @@ class TestProvider with ChangeNotifier {
 
   TestProvider(this.til);
 
-  Future<void> dropCall(String? selectValue) async {
-    if (selectValue is String) {
+  Future<void> dropCall(Object? selectValue) async {
+    if (selectValue is  String ) {
       til = selectValue;
       service.store("til", selectValue);
       notifyListeners();

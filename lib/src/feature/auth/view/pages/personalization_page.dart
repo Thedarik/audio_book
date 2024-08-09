@@ -1,28 +1,19 @@
-import 'dart:developer';
 
-import 'package:audio_book/setup.dart';
-import 'package:audio_book/src/core/api/api.dart';
-import 'package:audio_book/src/core/routes/app_route_name.dart';
-import 'package:audio_book/src/core/storage/app_storage.dart';
-import 'package:audio_book/src/feature/auth/controller/category_state_notifier_controller.dart';
+
+
+import 'package:audio_book/src/core/style/images.dart';
 import 'package:audio_book/src/feature/auth/controller/catergory_take_controller.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/login_text_field_widget.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/personalization_buttons_widgets.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/personalization_categories_widgets.dart';
-import 'package:audio_book/src/feature/auth/view/widgets/personalization_page_category_builder_widget.dart';
 import 'package:audio_book/src/feature/auth/view/widgets/personatization_text_widgets.dart';
+import 'package:audio_book/src/feature/auth/view/widgets/useful_widgets_for_all_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../core/style/colors.dart';
-import '../../../../core/style/images.dart';
-import '../../../../core/style/text_style.dart';
-import '../widgets/useful_widgets_for_all_pages.dart';
-
 class PersonalizationPage extends StatefulWidget {
-  PersonalizationPage({super.key});
+  const PersonalizationPage({super.key});
 
   @override
   State<PersonalizationPage> createState() => _PersonalizationPageState();

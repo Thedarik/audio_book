@@ -1,3 +1,10 @@
+
+
+import "dart:core";
+import "dart:core";
+import "dart:core";
+import "dart:nativewrappers/_internal/vm/lib/core_patch.dart";
+
 import "package:audio_book/src/core/localization/test_page.dart";
 import "package:audio_book/src/feature/auth/view/pages/error_page.dart";
 import "package:audio_book/src/feature/auth/view/pages/forget_password_page_one.dart";
@@ -76,7 +83,7 @@ final class AppRouter {
                     GoRoute(
                       path: AppRouteName.confirmationPage,
                       builder: (context, state) {
-                        String info = state.extra as String;
+                        var info = state.extra ;
                         return ConfirmationCodePage(
                           token: info,
                         );
