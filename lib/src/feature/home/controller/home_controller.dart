@@ -71,7 +71,7 @@ class HomeController extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
 
-    String access = await AppStorage.load(key: StorageKey.token) as String;
+    String? access = await AppStorage.load(key: StorageKey.token);
     homeBooksModel = (await appRepository.getHomeBooks())!;
 
     _isLoading = false;

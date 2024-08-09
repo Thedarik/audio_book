@@ -116,10 +116,10 @@ class Api {
       String api,
       ) async {
     final Uri url = Uri.http(baseurl, api);
-    String access = await AppStorage.load(key: StorageKey.token) as String;
+    String? access = await AppStorage.load(key: StorageKey.token);
     final Response response = await http.get(url, headers: {
       "Content-Type": "application/json",
-      "Authorization": access,
+      "Authorization": access??"",
     });
     if (response.statusCode == 200 || response.statusCode == 201) {
       return response.body;
